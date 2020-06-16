@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour
+public class Delegates : MonoBehaviour
 {
-    public static BattleManager Instance;
+    // Start is called before the first frame update
     void Start()
     {
         
