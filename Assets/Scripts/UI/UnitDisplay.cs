@@ -10,6 +10,7 @@ public class UnitDisplay : MonoBehaviour
     public SpriteRenderer unitAvatar;
     public SpriteRenderer unitBanner;
     private AnimationSystem anim;
+    bool pauseAnimation;
     public void SetUp(UnitEntity unit, TeamSide teamSide)
     {
         this.unitData = unit.data;
@@ -42,7 +43,7 @@ public class UnitDisplay : MonoBehaviour
 
     public void UpdateAnimation(float dt)
     {
-        if (anim != null)
+        if (anim != null && !pauseAnimation)
         {
             anim.Update(dt);
             SetSprite(anim.Frame());
@@ -82,5 +83,15 @@ public class UnitDisplay : MonoBehaviour
             return true;
         }
         return anim.IsFinished();
+    }
+
+    public void PauseAnimation()
+    {
+        pauseAnimation = true;
+    }
+
+    public void ResumeAnimation()
+    {
+        pauseAnimation = false;
     }
 }

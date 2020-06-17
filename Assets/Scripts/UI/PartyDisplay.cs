@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PartyDisplay : MonoBehaviour
 {
-    Party party;
+    public Party party { private set; get; }
     public PartyFormation[] unitsFormation;
     public UnitDisplay bannerUnitDisplay;
 

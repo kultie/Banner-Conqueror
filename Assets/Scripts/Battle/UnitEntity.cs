@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitEntity : Entity
 {
-    public UnitDisplay display { private set; get; }
-    public Stats stats { private set; get; }
-    public UnitData data { private set; get; }
+    public UnitDisplay display { protected set; get; }
+    public Stats stats { protected set; get; }
+    public UnitData data { protected set; get; }
     public UnitEntity(UnitData data)
     {
         this.data = data;
@@ -27,5 +28,24 @@ public class UnitEntity : Entity
     protected override void OnForceDestroy()
     {
 
+    }
+
+    public bool IsDead()
+    {
+        return stats.GetStats(UnitStat.HP) <= 0;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        display.RequestAnimation("hit");
+        BattleController.Instance.timer.After(.2f, () =>
+        {
+            display.RequestAnimation("idle");
+        });
+    }
+
+    public void ResetAnimation()
+    {
+        display.RequestAnimation("idle");
     }
 }

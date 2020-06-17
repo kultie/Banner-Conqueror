@@ -12,11 +12,66 @@
                     ],
                     "spf": 0.12,
                     "loop": true
+                },
+                "idle_banner": {
+                    "frames": [
+                        3,
+                        4,
+                        5
+                    ],
+                    "spf": 0.12,
+                    "loop": true
+                },
+                "attack_1": {
+                    "frames": [
+                        6,
+                        7,
+                        8,8,
+                        9,
+                        10,
+                        11
+                    ],
+                    "spf": 0.12,
+                    "loop": false
+                },
+                "attack_2": {
+                    "frames": [
+                        12,
+                        13,
+                        14,14,
+                        15,
+                        16
+                    ],
+                    "spf": 0.12,
+                    "loop": false
+                },
+                "attack_3": {
+                    "frames": [
+                        17,
+                        18,
+                        19
+                    ],
+                    "spf": 0.12,
+                    "loop": false
+                },
+                "hit": {
+                    "frames": [
+                        21
+                    ],
+                    "spf": 0.12,
+                    "loop": false
+                },
+                "dead": {
+                    "frames": [
+                        21
+                    ],
+                    "spf": 0.12,
+                    "loop": false
                 }
             },
             "banner_offset": [
-                0,
-                0
+                -0.37,
+                0.1
             ],
             "avatar_offset": [
                 0,

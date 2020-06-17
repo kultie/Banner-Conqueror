@@ -49,4 +49,8 @@ public class UnitData
     {
         return animations[id];
     }
+
+    public Sprite GetSprite(int index) {
+        return sprites[index];
+    }
 }

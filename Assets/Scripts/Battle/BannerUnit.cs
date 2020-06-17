@@ -9,6 +9,13 @@ public class BannerUnit : UnitEntity
 
     }
 
+    public override void SetDisplay(UnitDisplay display)
+    {
+        this.display = display;
+        display.RequestAnimation("idle_banner");
+        display.unitBanner.transform.localPosition = data.bannerOffset;
+    }
+
     protected override void OnForceDestroy()
     {
 

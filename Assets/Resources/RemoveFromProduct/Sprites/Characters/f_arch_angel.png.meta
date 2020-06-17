@@ -11,6 +11,72 @@ TextureImporter:
   - first:
       213: -5338569125443103757
     second: f_arch_angel_2
+  - first:
+      213: -5273562511196180027
+    second: f_arch_angel_0
+  - first:
+      213: 2601859714047377940
+    second: f_arch_angel_1
+  - first:
+      213: -575587163958424319
+    second: f_arch_angel_2
+  - first:
+      213: 2432831750749456802
+    second: f_arch_angel_3
+  - first:
+      213: -2604714607309602021
+    second: f_arch_angel_4
+  - first:
+      213: -5724264350166543965
+    second: f_arch_angel_5
+  - first:
+      213: -60480835581560878
+    second: f_arch_angel_6
+  - first:
+      213: -4355454265639735622
+    second: f_arch_angel_7
+  - first:
+      213: -6660765980928482698
+    second: f_arch_angel_8
+  - first:
+      213: -1677185251888997580
+    second: f_arch_angel_9
+  - first:
+      213: 1467486744109624110
+    second: f_arch_angel_10
+  - first:
+      213: -7824974225193235121
+    second: f_arch_angel_11
+  - first:
+      213: 4072689100403443249
+    second: f_arch_angel_12
+  - first:
+      213: 2464683590232512234
+    second: f_arch_angel_13
+  - first:
+      213: -7135835179089248267
+    second: f_arch_angel_14
+  - first:
+      213: 7951122761620753678
+    second: f_arch_angel_15
+  - first:
+      213: 114355183055645705
+    second: f_arch_angel_16
+  - first:
+      213: 368887413480436930
+    second: f_arch_angel_17
+  - first:
+      213: 8836260750216747671
+    second: f_arch_angel_18
+  - first:
+      213: -8381317399905647333
+    second: f_arch_angel_19
+  - first:
+      213: -3761117741850514018
+    second: f_arch_angel_20
+  - first:
+      213: 6248986516550018919
+    second: f_arch_angel_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -56,7 +122,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -100,6 +166,258 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 390
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1b55b26da80d6b0800000000000000
+      internalID: -5273562511196180027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 390
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412813bef99ab1420800000000000000
+      internalID: 2601859714047377940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_2
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 390
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10dcbf2268a1308f0800000000000000
+      internalID: -575587163958424319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_3
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 390
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a986bd669723c120800000000000000
+      internalID: 2432831750749456802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b134a027dd13adbd0800000000000000
+      internalID: -2604714607309602021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_5
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 312
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a114e7e6e35f80b0800000000000000
+      internalID: -5724264350166543965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_6
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 312
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d7317f1001292ff0800000000000000
+      internalID: -60480835581560878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_7
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 312
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe651deb615e83c0800000000000000
+      internalID: -4355454265639735622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 234
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67260ce61a43093a0800000000000000
+      internalID: -6660765980928482698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_9
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 234
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43bd1a646e079b8e0800000000000000
+      internalID: -1677185251888997580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_10
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 234
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2baf3f2b6f8d5410800000000000000
+      internalID: 1467486744109624110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_11
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 234
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d05c2966b186390800000000000000
+      internalID: -7824974225193235121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_12
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 156
         width: 122
         height: 78
@@ -110,14 +428,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1ac56c3219cd4650800000000000000
-      internalID: 6218847740628421148
+      spriteID: 1360726a829158830800000000000000
+      internalID: 4072689100403443249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: f_arch_angel_1
+      name: f_arch_angel_13
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 156
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae61b87baa0543220800000000000000
+      internalID: 2464683590232512234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_14
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 156
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff36ae36bb68fc90800000000000000
+      internalID: -7135835179089248267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_15
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 156
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d8deb5600185e60800000000000000
+      internalID: 7951122761620753678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_16
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +512,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3213a70b5a50f76a0800000000000000
-      internalID: -6449429932182720221
+      spriteID: 90ca140ee65469100800000000000000
+      internalID: 114355183055645705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: f_arch_angel_2
+      name: f_arch_angel_17
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 78
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c43d9ae52d8e1500800000000000000
+      internalID: 368887413480436930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_18
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 78
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a5567f554b0aa70800000000000000
+      internalID: 8836260750216747671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_19
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 78
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15c2dc1b349fab80800000000000000
+      internalID: -8381317399905647333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_20
       rect:
         serializedVersion: 2
         x: 0
@@ -152,8 +596,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f398155aa799e5b0800000000000000
-      internalID: -5338569125443103757
+      spriteID: e9da49e4753ddcbc0800000000000000
+      internalID: -3761117741850514018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f_arch_angel_21
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 0
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7676b25d02cd8b650800000000000000
+      internalID: 6248986516550018919
       vertices: []
       indices: 
       edges: []
