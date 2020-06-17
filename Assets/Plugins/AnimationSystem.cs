@@ -7,6 +7,7 @@ public class AnimationSystem
     float spf;
     float time;
     int index;
+
     public AnimationSystem(Sprite[] frames, bool loop, float spf = 0.015f)
     {
         this.loop = loop;
@@ -37,9 +38,13 @@ public class AnimationSystem
         }
     }
 
-    public void SetFrames(Sprite[] frames)
+    public void SetFrames(Sprite[] frames, bool loop, float spf = 0.015f)
     {
+        this.loop = loop;
         this.frames = frames;
+        this.spf = spf;
+        time = 0;
+        index = 0;
     }
 
     public Sprite Frame()
@@ -62,7 +67,8 @@ public class AnimationSystem
         spf = spf / value;
     }
 
-    public void ResetIndex() {
+    public void ResetIndex()
+    {
         index = 0;
     }
 }

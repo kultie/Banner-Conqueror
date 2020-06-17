@@ -1,0 +1,37 @@
+{
+    "units": {
+        "f_arch_angle": {
+            "id": "f_aa",
+            "sprite_source": "characters/f_arch_angel",
+            "animation": {
+                "idle": {
+                    "frames": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "spf": 0.12,
+                    "loop": true
+                }
+            },
+            "banner_offset": [
+                0,
+                0
+            ],
+            "avatar_offset": [
+                0,
+                0
+            ],
+            "stats": {
+                "MaxHP": 100,
+                "MaxMP": 100,
+                "HP": 100,
+                "MP": 100,
+                "Strength": 1,
+                "Wisdom": 1,
+                "Defend": 1,
+                "MagicDefend": 1
+            }
+        }
+    }
+}

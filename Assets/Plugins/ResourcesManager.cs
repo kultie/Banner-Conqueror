@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class ResourcesManager
 {
-    static JSONNode bulletsData;
+    static JSONNode unitData;
     static JSONNode enemyData;
     static JSONNode shipData;
     static JSONNode formulaData;
@@ -14,7 +14,7 @@ public static class ResourcesManager
 
     static Dictionary<string, JSONNode> cachedFormulasData = new Dictionary<string, JSONNode>();
 
-    static Dictionary<string, JSONNode> cachedBulletsData = new Dictionary<string, JSONNode>();
+    static Dictionary<string, JSONNode> cachedUnitData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedEnemyData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedShipData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedItemData = new Dictionary<string, JSONNode>();
@@ -23,15 +23,15 @@ public static class ResourcesManager
     static Dictionary<string, Sprite> cachedSprite = new Dictionary<string, Sprite>();
     static Dictionary<string, Sprite[]> cachedSpriteSheet = new Dictionary<string, Sprite[]>();
 
-    public static JSONNode GetBulletData(string id)
+    public static JSONNode GetUnitData(string id)
     {
         JSONNode data = null;
-        if (!cachedBulletsData.TryGetValue(id, out data))
+        if (!cachedUnitData.TryGetValue(id, out data))
         {
-            TextAsset a = Resources.Load("GameData/BulletsData") as TextAsset;
-            bulletsData = JSON.Parse(a.text);
-            data = bulletsData["bullets"][id];
-            cachedBulletsData[id] = data;
+            TextAsset a = Resources.Load("RemoveFromProduct/GameData/UnitData") as TextAsset;
+            unitData = JSON.Parse(a.text);
+            data = unitData["units"][id];
+            cachedUnitData[id] = data;
         }
         return data;
     }
@@ -105,7 +105,7 @@ public static class ResourcesManager
         Sprite result;
         if (!cachedSprite.TryGetValue(source, out result))
         {
-            Sprite a = Resources.Load<Sprite>(source);
+            Sprite a = Resources.Load<Sprite>("RemoveFromProduct/Sprites/" + source);
             result = a;
             cachedSprite[source] = a;
         }
@@ -117,11 +117,23 @@ public static class ResourcesManager
         Sprite[] sheet;
         if (!cachedSpriteSheet.TryGetValue(source, out sheet))
         {
-            Sprite[] a = Resources.LoadAll<Sprite>(source);
+            Sprite[] a = Resources.LoadAll<Sprite>("RemoveFromProduct/Sprites/" + source);
             sheet = a;
             cachedSpriteSheet[source] = sheet;
         }
         return sheet[index];
+    }
+
+    public static Sprite[] GetSpritesSheet(string source)
+    {
+        Sprite[] sheet;
+        if (!cachedSpriteSheet.TryGetValue(source, out sheet))
+        {
+            Sprite[] a = Resources.LoadAll<Sprite>("RemoveFromProduct/Sprites/" + source);
+            sheet = a;
+            cachedSpriteSheet[source] = sheet;
+        }
+        return sheet;
     }
 
     public static JSONNode GetFormula(string formulaType)
