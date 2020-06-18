@@ -13,7 +13,7 @@ public class CommandAction
     public CommandAction(JSONNode data)
     {
         hasStarted = false;
-        this.data = data;
+        this.data = CommandInterpreter.ConvertCommand(data);
     }
 
     public void Update(float dt, UnitEntity owner, UnitEntity[] targets)

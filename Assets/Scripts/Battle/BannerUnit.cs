@@ -25,4 +25,9 @@ public class BannerUnit : UnitEntity
     {
 
     }
+
+    public override void ResetAnimation()
+    {
+        display.RequestAnimation("idle_banner");
+    }
 }

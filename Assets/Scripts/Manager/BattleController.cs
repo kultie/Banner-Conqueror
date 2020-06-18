@@ -40,13 +40,13 @@ public class BattleController : ManagerBase<BattleController>
         UnitEntity[] playerUnits = new UnitEntity[] {
             //new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
             //new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
-            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")))}
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin")))}
             ;
         UnitEntity playerBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
         UnitEntity[] enemyUnits = new UnitEntity[] {
             //new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
-            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
-            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")))}
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin"))),
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("m_assasin")))}
     ;
         UnitEntity enemyBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
         battleContext = new BattleContext(new Party(playerUnits, playerBannerUnit, TeamSide.Player), new Party(enemyUnits, enemyBannerUnit, TeamSide.Enemy));
@@ -135,9 +135,12 @@ public class BattleController : ManagerBase<BattleController>
         updateEntity?.Invoke(dt);
         currentTurn.Update(dt);
         timer.Update(dt);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (currenTeamThatTakeTurn == TeamSide.Enemy)
         {
-            ExecuteTurn();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ExecuteTurn();
+            }
         }
     }
 }

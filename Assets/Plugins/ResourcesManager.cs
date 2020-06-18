@@ -7,7 +7,7 @@ public static class ResourcesManager
 {
     static JSONNode unitData;
     static JSONNode enemyData;
-    static JSONNode shipData;
+    static JSONNode commandData;
     static JSONNode formulaData;
     static JSONNode itemData;
     static JSONNode passiveData;
@@ -16,7 +16,7 @@ public static class ResourcesManager
 
     static Dictionary<string, JSONNode> cachedUnitData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedEnemyData = new Dictionary<string, JSONNode>();
-    static Dictionary<string, JSONNode> cachedShipData = new Dictionary<string, JSONNode>();
+    static Dictionary<string, JSONNode> cachedCommandData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedItemData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedPassiveData = new Dictionary<string, JSONNode>();
     static Dictionary<string, AudioClip> cachedAudioClip = new Dictionary<string, AudioClip>();
@@ -30,7 +30,7 @@ public static class ResourcesManager
         {
             TextAsset a = Resources.Load("RemoveFromProduct/GameData/UnitData") as TextAsset;
             unitData = JSON.Parse(a.text);
-            data = unitData["units"][id];
+            data = unitData[id];
             cachedUnitData[id] = data;
         }
         return data;
@@ -49,15 +49,15 @@ public static class ResourcesManager
         return data;
     }
 
-    public static JSONNode GetShipData(string id)
+    public static JSONNode GetCommandData(string id)
     {
         JSONNode data = null;
-        if (!cachedShipData.TryGetValue(id, out data))
+        if (!cachedCommandData.TryGetValue(id, out data))
         {
-            TextAsset a = Resources.Load("GameData/ShipData") as TextAsset;
-            shipData = JSON.Parse(a.text);
-            data = shipData["ships"][id];
-            cachedShipData[id] = data;
+            TextAsset a = Resources.Load("RemoveFromProduct/GameData/CommandData") as TextAsset;
+            commandData = JSON.Parse(a.text);
+            data = commandData[id];
+            cachedCommandData[id] = data;
         }
         return data;
     }

@@ -44,7 +44,7 @@ public class UnitData
         bannerOffset = new Vector2(banner_offset[0].AsFloat, banner_offset[1].AsFloat);
         avatarOffset = new Vector2(avatar_offset[0].AsFloat, avatar_offset[1].AsFloat);
         statsData = data["stats"];
-        commands = GenerateUnitCommands(data["commands"]);
+        commands = GenerateUnitCommands(ResourcesManager.GetCommandData(data["commands"]));
     }
 
     public AnimationData GetAnimation(string id)

@@ -44,7 +44,7 @@ public class UnitEntity : Entity
         });
     }
 
-    public void ResetAnimation()
+    public virtual void ResetAnimation()
     {
         display.RequestAnimation("idle");
     }
