@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SimpleJSON;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,23 +8,24 @@ public class CommandQueue
     public UnitEntity owner;
     public UnitEntity[] targets;
     List<CommandAction> actions;
-    public CommandQueue(UnitEntity owner, UnitEntity[] targets, List<CommandAction> actions)
+    public CommandQueue(UnitEntity owner, UnitEntity[] targets, JSONArray actions)
     {
         this.owner = owner;
-        this.actions = actions;
         this.targets = targets;
+        this.actions = new List<CommandAction>();
+        for (int i = 0; i < actions.Count; i++)
+        {
+            CommandAction _act = new CommandAction(actions[i]);
+            this.actions.Add(_act);
+        }
     }
-    public void Execute()
-    {
 
-    }
     public void Update(float dt)
     {
         int deleteIndex = -1;
         for (int i = 0; i < actions.Count; i++)
         {
-            actions[i].Setup(owner, targets);
-            actions[i].Update(dt);
+            actions[i].Update(dt, owner, targets);
             if (actions[i].IsFinished())
             {
                 deleteIndex = i;

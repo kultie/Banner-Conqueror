@@ -16,6 +16,7 @@ public class UnitData
     public Vector2 bannerOffset;
     public Vector2 avatarOffset;
     public JSONNode statsData;
+    public Dictionary<string, JSONArray> commands;
 
     public UnitData(JSONNode data)
     {
@@ -43,6 +44,7 @@ public class UnitData
         bannerOffset = new Vector2(banner_offset[0].AsFloat, banner_offset[1].AsFloat);
         avatarOffset = new Vector2(avatar_offset[0].AsFloat, avatar_offset[1].AsFloat);
         statsData = data["stats"];
+        commands = GenerateUnitCommands(data["commands"]);
     }
 
     public AnimationData GetAnimation(string id)
@@ -50,7 +52,19 @@ public class UnitData
         return animations[id];
     }
 
-    public Sprite GetSprite(int index) {
+    public Sprite GetSprite(int index)
+    {
         return sprites[index];
+    }
+
+    private Dictionary<string, JSONArray> GenerateUnitCommands(JSONNode input)
+    {
+        Dictionary<string, JSONArray> result = new Dictionary<string, JSONArray>();
+        foreach (KeyValuePair<string, JSONNode> kv in input.AsObject)
+        {
+            string key = kv.Key;
+            result[key] = kv.Value.AsArray;
+        }
+        return result;
     }
 }

@@ -76,6 +76,11 @@ public class UnitDisplay : MonoBehaviour
         unitAvatar.sprite = sprite;
     }
 
+    public void SetSprite(int spriteIndex)
+    {
+        unitAvatar.sprite = unitModel.data.GetSprite(spriteIndex);
+    }
+
     public bool AnimFinished()
     {
         if (anim == null)

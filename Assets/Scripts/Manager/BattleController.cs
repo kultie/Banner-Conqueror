@@ -108,68 +108,7 @@ public class BattleController : ManagerBase<BattleController>
             new UnitEntity[] {
                 battleContext.enemyParty.mainUnit[0]
             },
-            new List<CommandAction>()
-            {
-                new CommandPlayAnimation(new Dictionary<string, object>(){
-                    {"block", true },
-                    {"anim_id", "attack_1" },
-                }),
-                new CommandWait(new Dictionary<string, object>(){
-                    {"time", 0.24f },
-                }),
-                new CommandAttack(new Dictionary<string, object>()),
-                new CommandWait(new Dictionary<string, object>(){
-                    {"time", 1f }
-                }),
-                new CommandPlayAnimation(new Dictionary<string, object>(){
-                    {"block", false },
-                    {"anim_id", "idle" }
-                }),
-            }));
-        q.Enqueue(new CommandQueue(battleContext.playerParty.mainUnit[0],
-    new UnitEntity[] {
-                battleContext.enemyParty.mainUnit[0]
-    },
-    new List<CommandAction>()
-    {
-                new CommandPlayAnimation(new Dictionary<string, object>(){
-                    {"block", true },
-                    {"anim_id", "attack_2" },
-                }),
-                new CommandWait(new Dictionary<string, object>(){
-                    {"time", 0.24f },
-                }),
-                new CommandAttack(new Dictionary<string, object>()),
-                new CommandWait(new Dictionary<string, object>(){
-                    {"time", 1f }
-                }),
-                new CommandPlayAnimation(new Dictionary<string, object>(){
-                    {"block", false },
-                    {"anim_id", "idle" }
-                }),
-    }));
-        q.Enqueue(new CommandQueue(battleContext.playerParty.mainUnit[0],
-    new UnitEntity[] {
-                battleContext.enemyParty.mainUnit[0]
-    },
-    new List<CommandAction>()
-    {
-                new CommandPlayAnimation(new Dictionary<string, object>(){
-                    {"block", true },
-                    {"anim_id", "attack_3" },
-                }),
-                new CommandWait(new Dictionary<string, object>(){
-                    {"time", 0.24f },
-                }),
-                new CommandAttack(new Dictionary<string, object>()),
-                new CommandWait(new Dictionary<string, object>(){
-                    {"time", 1f }
-                }),
-                new CommandPlayAnimation(new Dictionary<string, object>(){
-                    {"block", false },
-                    {"anim_id", "idle" }
-                }),
-    }));
+            battleContext.playerParty.mainUnit[0].data.commands["attack"]));
         currentTurn.ExecuteTurn(q);
     }
 

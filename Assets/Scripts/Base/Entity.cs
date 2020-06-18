@@ -10,13 +10,14 @@ public abstract class Entity
 
     protected void Remove()
     {
-
+        GameManager.Instance.allEntities.Remove(id);
     }
 
     protected void Create(string prefix)
     {
         id = prefix + System.Guid.NewGuid().ToString();
         variables["current_time"] = 0f;
+        GameManager.Instance.allEntities[id] = this;
     }
 
     public void Update(float dt)

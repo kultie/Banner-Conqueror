@@ -26,7 +26,8 @@
                     "frames": [
                         6,
                         7,
-                        8,8,
+                        8,
+                        8,
                         9,
                         10,
                         11
@@ -38,7 +39,8 @@
                     "frames": [
                         12,
                         13,
-                        14,14,
+                        14,
+                        14,
                         15,
                         16
                     ],
@@ -86,6 +88,40 @@
                 "Wisdom": 1,
                 "Defend": 1,
                 "MagicDefend": 1
+            },
+            "commands": {
+                "attack": [
+                    {
+                        "on_execute": [
+                            {
+                                "type": "function",
+                                "namespace": "unit",
+                                "command": "play_animation",
+                                "args": {
+                                    "anim_id": {
+                                        "type": "value",
+                                        "value_type": "string",
+                                        "value": "attack_1"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "is_finish": {
+                            "type": "function",
+                            "namespace": "unit",
+                            "command": "is_animation_done",
+                            "args": {
+                                "anim_id": {
+                                    "type": "value",
+                                    "value_type": "string",
+                                    "value": "attack_1"
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         }
     }
