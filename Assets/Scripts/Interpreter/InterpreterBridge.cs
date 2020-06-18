@@ -91,8 +91,8 @@ public static class InterpreterBridge
                 return EntityInterpreter.functionMap[cmd];
             case "unit":
                 return UnitInterpreter.functionMap[cmd];
-            //case "command":
-            //    return CommandInterpreter.functionMap[cmd];
+            case "general":
+                return GeneralIntepreter.functionMap[cmd];
             //case "ship":
             //    return ShipInterpreter.functionMap[cmd];
             //case "bullet":

@@ -29,43 +29,43 @@
                         8,
                         8,
                         9,
-                        10,
-                        11
+                        6,
+                        1
                     ],
                     "spf": 0.12,
                     "loop": false
                 },
                 "attack_2": {
                     "frames": [
+                        10,
+                        11,
                         12,
                         13,
                         14,
-                        14,
-                        15,
-                        16
+                        1,
                     ],
                     "spf": 0.12,
                     "loop": false
                 },
                 "attack_3": {
                     "frames": [
-                        17,
-                        18,
-                        19
+                        15,
+                        16,
+                        17
                     ],
                     "spf": 0.12,
                     "loop": false
                 },
                 "hit": {
                     "frames": [
-                        21
+                        18
                     ],
                     "spf": 0.12,
                     "loop": false
                 },
                 "dead": {
                     "frames": [
-                        21
+                        18
                     ],
                     "spf": 0.12,
                     "loop": false
@@ -101,7 +101,138 @@
                                     "anim_id": {
                                         "type": "value",
                                         "value_type": "string",
-                                        "value": "attack_1"
+                                        "value": "attack_2"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "on_execute": [
+                            {
+                                "type": "function",
+                                "namespace": "entity",
+                                "command": "save_variable",
+                                "args": {
+                                    "variable_id": {
+                                        "type": "value",
+                                        "value_type": "string",
+                                        "value": "time"
+                                    },
+                                    "variable_value": {
+                                        "type": "value",
+                                        "value_type": "float",
+                                        "value": 0.24
+                                    }
+                                }
+                            }
+                        ],
+                        "on_update": [
+                            {
+                                "type": "function",
+                                "namespace": "entity",
+                                "command": "save_variable",
+                                "args": {
+                                    "variable_id": {
+                                        "type": "value",
+                                        "value_type": "string",
+                                        "value": "time"
+                                    },
+                                    "variable_value": {
+                                        "type": "function",
+                                        "namespace": "general",
+                                        "command": "minus_float",
+                                        "args": {
+                                            "x": {
+                                                "type": "function",
+                                                "namespace": "entity",
+                                                "command": "get_variable",
+                                                "args": {
+                                                    "variable_id": {
+                                                        "type": "value",
+                                                        "value_type": "string",
+                                                        "value": "time"
+                                                    }
+                                                }
+                                            },
+                                            "y": {
+                                                "type": "function",
+                                                "namespace": "entity",
+                                                "command": "get_variable",
+                                                "args": {
+                                                    "variable_id": {
+                                                        "type": "value",
+                                                        "value_type": "string",
+                                                        "value": "delta_time"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "is_finish": {
+                            "type": "function",
+                            "namespace": "general",
+                            "command": "lesser",
+                            "args": {
+                                "check_equal": {
+                                    "type": "value",
+                                    "value_type": "bool",
+                                    "value": true
+                                },
+                                "x": {
+                                    "type": "function",
+                                    "namespace": "entity",
+                                    "command": "get_variable",
+                                    "args": {
+                                        "variable_id": {
+                                            "type": "value",
+                                            "value_type": "string",
+                                            "value": "time"
+                                        }
+                                    }
+                                },
+                                "y": {
+                                    "type": "value",
+                                    "value_type": "float",
+                                    "value": 0
+                                }
+                            }
+                        },
+                        "is_block": {
+                            "type": "value",
+                            "value_type": "bool",
+                            "value": true
+                        }
+                    },
+                    {
+                        "on_execute": [
+                            {
+                                "type": "function",
+                                "namespace": "general",
+                                "command": "shake_camera",
+                                "args": {
+                                    "duration": {
+                                        "type": "value",
+                                        "value_type": "float",
+                                        "value": 0.1
+                                    },
+                                    "strength": {
+                                        "type": "value",
+                                        "value_type": "float",
+                                        "value": 0.1
+                                    },
+                                    "vibrator": {
+                                        "type": "value",
+                                        "value_type": "int",
+                                        "value": 10
+                                    },
+                                    "randomess": {
+                                        "type": "value",
+                                        "value_type": "int",
+                                        "value": 50
                                     }
                                 }
                             }
@@ -112,13 +243,7 @@
                             "type": "function",
                             "namespace": "unit",
                             "command": "is_animation_done",
-                            "args": {
-                                "anim_id": {
-                                    "type": "value",
-                                    "value_type": "string",
-                                    "value": "attack_1"
-                                }
-                            }
+                            "args": {}
                         }
                     }
                 ]
