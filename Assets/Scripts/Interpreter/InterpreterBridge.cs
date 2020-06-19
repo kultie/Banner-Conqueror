@@ -59,6 +59,8 @@ public static class InterpreterBridge
                         return command[valueType].AsInt;
                     case "bool":
                         return command[valueType].AsBool;
+                    case "array":
+                        return command[valueType].AsArray;
                 }
                 break;
 
@@ -132,6 +134,9 @@ public static class InterpreterBridge
                             break;
                         case "bool":
                             results[key] = arg[valueType].AsBool;
+                            break;
+                        case "array":
+                            results[key] = arg[valueType].AsArray;
                             break;
                     }
                     break;

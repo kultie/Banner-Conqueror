@@ -71,6 +71,18 @@ public class UnitDisplay : MonoBehaviour
         }
     }
 
+    public void RequestAnimation(AnimationData animData)
+    {
+        if (anim == null)
+        {
+            anim = new AnimationSystem(animData.frames, animData.loop, animData.spf);
+        }
+        else
+        {
+            anim.SetFrames(animData.frames, animData.loop, animData.spf);
+        }
+    }
+
     public void SetSprite(Sprite sprite)
     {
         unitAvatar.sprite = sprite;

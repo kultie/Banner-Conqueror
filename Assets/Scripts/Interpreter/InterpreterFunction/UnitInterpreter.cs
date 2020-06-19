@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleJSON;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public static class UnitInterpreter
     {
         {"pause_animation", PauseAnimation },
         {"resume_animation", ResumeAnimation },
+        {"play_defined_animation", PlayDefinedAnimation },
         {"play_animation", PlayAnimation },
         {"set_sprite", SetSprite },
         {"is_animation_done", IsAnimationDone }
@@ -28,11 +30,29 @@ public static class UnitInterpreter
         return null;
     }
 
-    private static object PlayAnimation(Dictionary<string, object> args)
+    private static object PlayDefinedAnimation(Dictionary<string, object> args)
     {
         UnitEntity entity = (UnitEntity)args["entity"];
         string anim_id = (string)args["anim_id"];
         entity.display.RequestAnimation(anim_id);
+        return null;
+    }
+
+    private static object PlayAnimation(Dictionary<string, object> args)
+    {
+        UnitEntity entity = (UnitEntity)args["entity"];
+        JSONArray animFrames = (JSONArray)args["frames"];
+        float spf = (float)args["spf"];
+        AnimationData animData = new AnimationData();
+        Sprite[] frames = new Sprite[animFrames.Count];
+        for (int i = 0; i < frames.Length; i++)
+        {
+            frames[i] = entity.data.GetSprite(animFrames[i].AsInt);
+        }
+        animData.frames = frames;
+        animData.spf = spf;
+        animData.loop = false;
+        entity.display.RequestAnimation(animData);
         return null;
     }
 
