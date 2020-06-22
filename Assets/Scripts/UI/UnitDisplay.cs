@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class UnitDisplay : MonoBehaviour
+public class UnitDisplay : MonoBehaviour, IPointerClickHandler
 {
     public UnitEntity unitModel;
     private UnitData unitData;
@@ -102,5 +103,10 @@ public class UnitDisplay : MonoBehaviour
     public void ResumeAnimation()
     {
         pauseAnimation = false;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        BattleController.Instance.SetPlayerCurrentTarget(unitModel);
     }
 }

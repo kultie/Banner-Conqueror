@@ -9,6 +9,8 @@ public class BattleUI : ManagerBase<BattleUI>
     public Button executeButton;
     public CharacterDisplay[] characterDisplays;
     public CharacterDisplay banner;
+    public Transform commandStack;
+    public Image commandDisplay;
     protected override BattleUI GetInstance()
     {
         return this;
@@ -36,5 +38,11 @@ public class BattleUI : ManagerBase<BattleUI>
     private void PlayerTurnResolve()
     {
         executeButton.gameObject.SetActive(true);
+    }
+
+    public void AddCommandToStack(Sprite commandIcon)
+    {
+        Image a = Instantiate(commandDisplay, commandStack);
+        a.gameObject.SetActive(true);
     }
 }

@@ -21,6 +21,8 @@ public class BattleController : ManagerBase<BattleController>
     public bool battleHasEnded;
     public Action onPlayerTurn;
     public Action onPlayerTurnExecute;
+    Queue<CommandQueue> commandQueue;
+    public UnitEntity playerCurrentTarget { get; set; }
     protected override BattleController GetInstance()
     {
         return this;
@@ -61,6 +63,7 @@ public class BattleController : ManagerBase<BattleController>
 
     public void CreatTurn(Party team)
     {
+        commandQueue = new Queue<CommandQueue>();
         if (team.team == TeamSide.Player)
         {
             onPlayerTurn?.Invoke();
@@ -107,13 +110,7 @@ public class BattleController : ManagerBase<BattleController>
         {
             onPlayerTurnExecute?.Invoke();
         }
-        Queue<CommandQueue> q = new Queue<CommandQueue>();
-        q.Enqueue(new CommandQueue(battleContext.playerParty.mainUnit[0],
-            new UnitEntity[] {
-                battleContext.enemyParty.mainUnit[0]
-            },
-            battleContext.playerParty.mainUnit[0].data.commands["attack"]));
-        currentTurn.ExecuteTurn(q);
+        currentTurn.ExecuteTurn(commandQueue);
     }
 
     public void BattleEnd(BattleResult result)
@@ -148,8 +145,15 @@ public class BattleController : ManagerBase<BattleController>
         }
     }
 
-    private void OnDestroy()
+    public void SetPlayerCurrentTarget(UnitEntity entity)
     {
-        Instance = null;
+        Debug.Log(entity);
+        playerCurrentTarget = entity;
+    }
+
+    public void AddCommandQueue(CommandQueue command)
+    {
+        commandQueue.Enqueue(command);
+        BattleUI.Instance.AddCommandToStack(null);
     }
 }
