@@ -37,21 +37,25 @@ public class BattleController : ManagerBase<BattleController>
     public void StartBattle()
     {
         battleHasEnded = false;
-        UnitEntity[] playerUnits = new UnitEntity[] {
-            //new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
-            //new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
-            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin")))}
-            ;
-        UnitEntity playerBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
-        UnitEntity[] enemyUnits = new UnitEntity[] {
+        battleContext = GameManager.Instance.battleContext;
+        if (battleContext == null)
+        {
+            UnitEntity[] playerUnits = new UnitEntity[] {
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin")))};
+            BannerUnit playerBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
+            UnitEntity[] enemyUnits = new UnitEntity[] {
             //new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
             new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin"))),
-            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("m_assasin")))}
-    ;
-        UnitEntity enemyBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
-        battleContext = new BattleContext(new Party(playerUnits, playerBannerUnit, TeamSide.Player), new Party(enemyUnits, enemyBannerUnit, TeamSide.Enemy));
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("m_assasin")))};
+            BannerUnit enemyBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
+            battleContext = new BattleContext(new Party(playerUnits, playerBannerUnit, TeamSide.Player), new Party(enemyUnits, enemyBannerUnit, TeamSide.Enemy));
+        }
         playerParty.Setup(battleContext.playerParty);
         enemyParty.Setup(battleContext.enemyParty);
+        BattleUI.Instance.InitCharacters(battleContext.playerParty.mainUnit, battleContext.playerParty.bannerUnit);
+        battleContext.playerParty.InitUnits();
         CreatTurn(battleContext.playerParty);
     }
 
@@ -142,5 +146,10 @@ public class BattleController : ManagerBase<BattleController>
                 ExecuteTurn();
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instance = null;
     }
 }

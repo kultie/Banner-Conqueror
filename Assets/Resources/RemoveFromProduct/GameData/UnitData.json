@@ -79,9 +79,9 @@
             0
         ],
         "stats": {
-            "MaxHP": 100,
-            "MaxMP": 100,
-            "HP": 100,
+            "MaxHP": 200,
+            "MaxMP": 200,
+            "HP": 200,
             "MP": 100,
             "Strength": 1,
             "Wisdom": 1,

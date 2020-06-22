@@ -33,14 +33,6 @@ public class UnitDisplay : MonoBehaviour
         BattleController.Instance.updateEntity += UpdateUnit;
     }
 
-    private void OnDisable()
-    {
-        BattleController.Instance.updateEntityAnimation -= UpdateAnimation;
-        BattleController.Instance.updateEntity -= UpdateUnit;
-    }
-
-
-
     public void UpdateAnimation(float dt)
     {
         if (anim != null && !pauseAnimation)

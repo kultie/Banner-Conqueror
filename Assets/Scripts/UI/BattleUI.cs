@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class BattleUI : ManagerBase<BattleUI>
 {
     public Button executeButton;
+    public CharacterDisplay[] characterDisplays;
+    public CharacterDisplay banner;
     protected override BattleUI GetInstance()
     {
         return this;
@@ -15,6 +17,15 @@ public class BattleUI : ManagerBase<BattleUI>
     {
         BattleController.Instance.onPlayerTurn += PlayerTurnResolve;
         BattleController.Instance.onPlayerTurnExecute += PlayerTurnExecute;
+    }
+
+    public void InitCharacters(UnitEntity[] units, BannerUnit bannerUnit)
+    {
+        for (int i = 0; i < units.Length; i++)
+        {
+            characterDisplays[i].Init(units[i]);
+        }
+        banner.Init(bannerUnit);
     }
 
     private void PlayerTurnExecute()

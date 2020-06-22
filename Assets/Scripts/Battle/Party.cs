@@ -7,8 +7,8 @@ public class Party
 {
     public TeamSide team;
     public UnitEntity[] mainUnit;
-    public UnitEntity bannerUnit;
-    public Party(UnitEntity[] mainUnit, UnitEntity bannerUnit, TeamSide team)
+    public BannerUnit bannerUnit;
+    public Party(UnitEntity[] mainUnit, BannerUnit bannerUnit, TeamSide team)
     {
         this.mainUnit = mainUnit;
         this.bannerUnit = bannerUnit;
@@ -27,11 +27,22 @@ public class Party
         }
     }
 
-    public void ResetAnimation() {
-        for (int i = 0; i < mainUnit.Length; i++) {
+    public void ResetAnimation()
+    {
+        for (int i = 0; i < mainUnit.Length; i++)
+        {
             mainUnit[i].ResetAnimation();
         }
         bannerUnit.ResetAnimation();
+    }
+
+    public void InitUnits()
+    {
+        for (int i = 0; i < mainUnit.Length; i++)
+        {
+            mainUnit[i].Init();
+        }
+        bannerUnit.Init();
     }
 
 }
