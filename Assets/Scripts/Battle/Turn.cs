@@ -74,6 +74,7 @@ public class Turn
             currentCommand.Update(dt);
             if (currentCommand.IsFinished())
             {
+                currentCommand.owner.ResetAnimation();
                 currentCommand = null;
             }
         }
