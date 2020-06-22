@@ -21,7 +21,7 @@ public class BattleController : ManagerBase<BattleController>
     public bool battleHasEnded;
     public Action onPlayerTurn;
     public Action onPlayerTurnExecute;
-    Queue<CommandQueue> commandQueue;
+    List<CommandQueue> commandQueue;
     public UnitEntity playerCurrentTarget { get; set; }
     protected override BattleController GetInstance()
     {
@@ -63,7 +63,7 @@ public class BattleController : ManagerBase<BattleController>
 
     public void CreatTurn(Party team)
     {
-        commandQueue = new Queue<CommandQueue>();
+        commandQueue = new List<CommandQueue>();
         if (team.team == TeamSide.Player)
         {
             onPlayerTurn?.Invoke();
@@ -153,7 +153,12 @@ public class BattleController : ManagerBase<BattleController>
 
     public void AddCommandQueue(CommandQueue command)
     {
-        commandQueue.Enqueue(command);
-        BattleUI.Instance.AddCommandToStack(null);
+        commandQueue.Add(command);
+        BattleUI.Instance.AddCommandToStack(null, command);
+    }
+
+    public void RemoveCommand(CommandQueue command)
+    {
+        commandQueue.Remove(command);
     }
 }

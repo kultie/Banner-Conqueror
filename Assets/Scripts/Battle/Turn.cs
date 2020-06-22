@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Turn
 {
-    public Queue<CommandQueue> commands;
+    public List<CommandQueue> commands;
     private CommandQueue currentCommand;
     Party party;
     bool turnStarted;
@@ -30,11 +30,11 @@ public class Turn
         Debug.Log("current turn is ending");
     }
 
-    public void ExecuteTurn(Queue<CommandQueue> commands)
+    public void ExecuteTurn(List<CommandQueue> commands)
     {
         turnStarted = true;
         Debug.Log("Prepare all command here");
-        this.commands = commands;
+        this.commands = new List<CommandQueue>(commands);
         Debug.Log("Running all command and action here");
 
     }
@@ -67,18 +67,17 @@ public class Turn
 
         if (currentCommand == null && commands.Count > 0)
         {
-            currentCommand = commands.Dequeue();
+            currentCommand = commands[0];
+            commands.RemoveAt(0);
         }
         if (currentCommand != null)
         {
             currentCommand.Update(dt);
             if (currentCommand.IsFinished())
             {
-                currentCommand.owner.ResetAnimation();
+                currentCommand.OnFinished();
                 currentCommand = null;
             }
         }
-
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SimpleJSON;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class CommandQueue
     public UnitEntity owner;
     public UnitEntity[] targets;
     List<CommandAction> actions;
+    public OnCommandFinished finishedCallback;
     public CommandQueue(UnitEntity owner, UnitEntity[] targets, JSONArray actions)
     {
         this.owner = owner;
@@ -45,5 +47,11 @@ public class CommandQueue
     public bool IsFinished()
     {
         return actions.Count == 0;
+    }
+
+    public void OnFinished()
+    {
+        finishedCallback?.Invoke(owner, targets);
+        owner.ResetAnimation();
     }
 }

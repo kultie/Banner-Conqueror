@@ -10,7 +10,7 @@ public class BattleUI : ManagerBase<BattleUI>
     public CharacterDisplay[] characterDisplays;
     public CharacterDisplay banner;
     public Transform commandStack;
-    public Image commandDisplay;
+    public CommandDisplay commandDisplay;
     protected override BattleUI GetInstance()
     {
         return this;
@@ -40,9 +40,10 @@ public class BattleUI : ManagerBase<BattleUI>
         executeButton.gameObject.SetActive(true);
     }
 
-    public void AddCommandToStack(Sprite commandIcon)
+    public void AddCommandToStack(Sprite commandIcon, CommandQueue command)
     {
-        Image a = Instantiate(commandDisplay, commandStack);
+        CommandDisplay a = Instantiate(commandDisplay, commandStack);
         a.gameObject.SetActive(true);
+        a.RegisterToCommand(command);
     }
 }

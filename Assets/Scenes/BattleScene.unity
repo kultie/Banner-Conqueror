@@ -5563,8 +5563,9 @@ GameObject:
   - component: {fileID: 1526167298}
   - component: {fileID: 1526167300}
   - component: {fileID: 1526167299}
+  - component: {fileID: 1526167301}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CommandDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5626,6 +5627,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526167297}
   m_CullTransparentMesh: 0
+--- !u!114 &1526167301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526167297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456f55aad1669f342942cb02e3cfc325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557466078
 GameObject:
   m_ObjectHideFlags: 0
@@ -7445,7 +7458,7 @@ MonoBehaviour:
   - {fileID: 649216288}
   banner: {fileID: 2093438603}
   commandStack: {fileID: 383492528}
-  commandDisplay: {fileID: 1526167299}
+  commandDisplay: {fileID: 1526167301}
 --- !u!1 &2093438601
 GameObject:
   m_ObjectHideFlags: 0
