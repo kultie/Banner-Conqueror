@@ -86,11 +86,11 @@ public class BattleController : ManagerBase<BattleController>
         battleContext.SetPlayerCurrentTarget(entity);
     }
 
-    public void AddCommandQueue(UnitEntity caster, string actionID)
+    public CommandQueue AddCommandQueue(UnitEntity caster, string actionID)
     {
         CommandQueue command = new CommandQueue(caster, new UnitEntity[] { battleContext.playerCurrentTarget }, actionID);
         battleContext.AddCommand(command);
-        BattleUI.Instance.AddCommandToStack(null, command);
+        return command;
     }
 
     public void RemoveCommand(CommandQueue command)

@@ -37,6 +37,6 @@ public class CharacterDisplay : MonoBehaviour, IPointerClickHandler
         {
             return;
         }
-        BattleController.Instance.AddCommandQueue(unit, "attack");
+        BattleUI.Instance.AddCommandToStack(null, BattleController.Instance.AddCommandQueue(unit, "attack"));
     }
 }
