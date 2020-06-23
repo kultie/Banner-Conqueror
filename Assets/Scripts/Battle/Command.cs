@@ -4,13 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommandQueue
+public class Command
 {
     public UnitEntity owner;
     public UnitEntity[] targets;
     List<CommandAction> actions;
     public OnCommandFinished finishedCallback;
-    public CommandQueue(UnitEntity owner, UnitEntity[] targets, string actionsID)
+    public Command(UnitEntity owner, UnitEntity[] targets, string actionsID)
     {
         this.owner = owner;
         this.targets = targets;

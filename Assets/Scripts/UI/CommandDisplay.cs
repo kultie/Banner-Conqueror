@@ -5,14 +5,14 @@ using UnityEngine.EventSystems;
 
 public class CommandDisplay : MonoBehaviour, IPointerClickHandler
 {
-    CommandQueue command;
+    Command command;
     public void OnPointerClick(PointerEventData eventData)
     {
         BattleController.Instance.RemoveCommand(command);
         Destroy(gameObject);
     }
 
-    public void RegisterToCommand(CommandQueue command)
+    public void RegisterToCommand(Command command)
     {
         this.command = command;
         command.finishedCallback += DestroyCommanDisplay;

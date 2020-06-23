@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Turn
 {
-    private List<CommandQueue> commands;
-    private CommandQueue currentCommand;
+    private List<Command> commands;
+    private Command currentCommand;
     private Party party;
     private bool isFinished;
     public Turn()
@@ -13,9 +13,9 @@ public class Turn
         isFinished = false;
     }
 
-    public void Execute(List<CommandQueue> commands)
+    public void Execute(List<Command> commands)
     {
-        this.commands = new List<CommandQueue>(commands);
+        this.commands = new List<Command>(commands);
 
     }
 

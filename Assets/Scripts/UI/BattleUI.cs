@@ -35,7 +35,7 @@ public class BattleUI : ManagerBase<BattleUI>
         executeButton.gameObject.SetActive(isShow);
     }
 
-    public void AddCommandToStack(Sprite commandIcon, CommandQueue command)
+    public void AddCommandToStack(Sprite commandIcon, Command command)
     {
         CommandDisplay a = Instantiate(commandDisplay, commandStack);
         a.gameObject.SetActive(true);

@@ -13,7 +13,7 @@ public class BattleContext : StateContextBase
     public Turn currentTurn { private set; get; }
     public TeamSide currentTeam { private set; get; }
     public BattleResult battleResult { private set; get; }
-    public List<CommandQueue> commandQueue { private set; get; }
+    public List<Command> commandQueue { private set; get; }
     public UnitEntity playerCurrentTarget { private set; get; }
     public BattleContext(BattleController controller, Party playerParty, Party enemyParty)
     {
@@ -56,15 +56,15 @@ public class BattleContext : StateContextBase
     {
         currentTeam = party.team;
         currentTurn = new Turn();
-        commandQueue = new List<CommandQueue>();
+        commandQueue = new List<Command>();
     }
 
-    public void AddCommand(CommandQueue command)
+    public void AddCommand(Command command)
     {
         commandQueue.Add(command);
     }
 
-    public void RemoveCommand(CommandQueue command)
+    public void RemoveCommand(Command command)
     {
         commandQueue.Remove(command);
     }
