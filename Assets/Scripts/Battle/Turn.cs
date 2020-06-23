@@ -4,64 +4,33 @@ using UnityEngine;
 
 public class Turn
 {
-    public List<CommandQueue> commands;
+    private List<CommandQueue> commands;
     private CommandQueue currentCommand;
-    Party party;
-    bool turnStarted;
-    public Turn(Party party)
+    private Party party;
+    private bool isFinished;
+    public Turn()
     {
-        this.party = party;
-        OnTurnEnter();
-        turnStarted = false;
+        isFinished = false;
     }
 
-    private void OnTurnEnter()
+    public void Execute(List<CommandQueue> commands)
     {
-        Debug.Log("Entering turn for: " + party.team.ToString());
-        Debug.Log("Running all action that resolve when turn enter here such as poison damage, burn damage, calculating debuff turn etc...");
-        if (party.Lost())
-        {
-            EndTurn();
-        }
-    }
-
-    private void OnTurnExit()
-    {
-        Debug.Log("current turn is ending");
-    }
-
-    public void ExecuteTurn(List<CommandQueue> commands)
-    {
-        turnStarted = true;
-        Debug.Log("Prepare all command here");
         this.commands = new List<CommandQueue>(commands);
-        Debug.Log("Running all command and action here");
 
     }
 
-    void EndTurn()
+    public bool Finished()
     {
-        OnTurnExit();
-        BattleController.Instance.OnTurnEnd();
+        return isFinished;
     }
 
     public void Update(float dt)
     {
-        if (BattleController.Instance.battleHasEnded)
+
+        if (currentCommand == null && commands.Count == 0)
         {
-            return;
-        }
-        if (turnStarted)
-        {
-            if (currentCommand == null && commands.Count == 0)
-            {
-                Debug.Log("All command has executed");
-                EndTurn();
-                return;
-            }
-        }
-        else
-        {
+            Debug.Log("All command has executed");
+            isFinished = true;
             return;
         }
 

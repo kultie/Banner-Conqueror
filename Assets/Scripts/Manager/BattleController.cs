@@ -1,4 +1,5 @@
-﻿using Kultie.TimerSystem;
+﻿using Kultie.StateMachine;
+using Kultie.TimerSystem;
 using SimpleJSON;
 using System;
 using System.Collections;
@@ -15,14 +16,9 @@ public class BattleController : ManagerBase<BattleController>
     public UpdateEntity updateEntity;
     public Timer timer;
 
-    TeamSide currenTeamThatTakeTurn;
-    public Turn currentTurn;
+    public StateMachine<BattleState, BattleContext> stateMachine { private set; get; }
     BattleContext battleContext;
-    public bool battleHasEnded;
-    public Action onPlayerTurn;
-    public Action onPlayerTurnExecute;
-    List<CommandQueue> commandQueue;
-    public UnitEntity playerCurrentTarget { get; set; }
+
     protected override BattleController GetInstance()
     {
         return this;
@@ -38,8 +34,9 @@ public class BattleController : ManagerBase<BattleController>
 
     public void StartBattle()
     {
-        battleHasEnded = false;
         battleContext = GameManager.Instance.battleContext;
+        stateMachine = new StateMachine<BattleState, BattleContext>(CreateBattleStates());
+
         if (battleContext == null)
         {
             UnitEntity[] playerUnits = new UnitEntity[] {
@@ -52,80 +49,26 @@ public class BattleController : ManagerBase<BattleController>
             new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin"))),
             new UnitEntity(new UnitData(ResourcesManager.GetUnitData("m_assasin")))};
             BannerUnit enemyBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
-            battleContext = new BattleContext(new Party(playerUnits, playerBannerUnit, TeamSide.Player), new Party(enemyUnits, enemyBannerUnit, TeamSide.Enemy));
+            battleContext = new BattleContext(this, new Party(playerUnits, playerBannerUnit, TeamSide.Player), new Party(enemyUnits, enemyBannerUnit, TeamSide.Enemy));
         }
+
+
         playerParty.Setup(battleContext.playerParty);
         enemyParty.Setup(battleContext.enemyParty);
         BattleUI.Instance.InitCharacters(battleContext.playerParty.mainUnit, battleContext.playerParty.bannerUnit);
-        battleContext.playerParty.InitUnits();
-        CreatTurn(battleContext.playerParty);
+
+        stateMachine.Change(BattleState.Start, battleContext);
     }
 
-    public void CreatTurn(Party team)
+    Dictionary<BattleState, IState<BattleContext>> CreateBattleStates()
     {
-        commandQueue = new List<CommandQueue>();
-        if (team.team == TeamSide.Player)
-        {
-            onPlayerTurn?.Invoke();
-        }
-        currenTeamThatTakeTurn = team.team;
-        currentTurn = new Turn(team);
-    }
-    public void ChangeTurn()
-    {
-        Party nextTeam = battleContext.playerParty;
-        if (currenTeamThatTakeTurn == TeamSide.Player)
-        {
-            nextTeam = battleContext.enemyParty;
-        }
-        CreatTurn(nextTeam);
-    }
-
-    public void OnTurnEnd()
-    {
-        ResetAnimationForAllEntity();
-        if (battleContext.playerParty.Lost())
-        {
-            BattleEnd(BattleResult.Lose);
-        }
-        else if (battleContext.enemyParty.Lost())
-        {
-            BattleEnd(BattleResult.Win);
-        }
-        else
-        {
-            ChangeTurn();
-        }
-    }
-
-    private void ResetAnimationForAllEntity()
-    {
-        battleContext.playerParty.ResetAnimation();
-        battleContext.enemyParty.ResetAnimation();
-    }
-
-    public void ExecuteTurn()
-    {
-        if (currenTeamThatTakeTurn == TeamSide.Player)
-        {
-            onPlayerTurnExecute?.Invoke();
-        }
-        currentTurn.ExecuteTurn(commandQueue);
-    }
-
-    public void BattleEnd(BattleResult result)
-    {
-        battleHasEnded = true;
-        switch (result)
-        {
-            case BattleResult.Win:
-                Debug.Log("Win");
-                break;
-            case BattleResult.Lose:
-                Debug.Log("Lose");
-                break;
-        }
-
+        Dictionary<BattleState, IState<BattleContext>> states = new Dictionary<BattleState, IState<BattleContext>>();
+        states[BattleState.Start] = new BattleStartState();
+        states[BattleState.Input] = new BattleInputState();
+        states[BattleState.EnemyTurn] = new BattleEnemyTurnState();
+        states[BattleState.Result] = new BattleResultState();
+        states[BattleState.TurnProcess] = new BattleTurnProcessState();
+        return states;
     }
 
     // Update is called once per frame
@@ -134,31 +77,24 @@ public class BattleController : ManagerBase<BattleController>
         float dt = Time.deltaTime;
         updateEntityAnimation?.Invoke(dt);
         updateEntity?.Invoke(dt);
-        currentTurn.Update(dt);
+        stateMachine.Update(dt);
         timer.Update(dt);
-        if (currenTeamThatTakeTurn == TeamSide.Enemy)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ExecuteTurn();
-            }
-        }
     }
 
     public void SetPlayerCurrentTarget(UnitEntity entity)
     {
-        Debug.Log(entity);
-        playerCurrentTarget = entity;
+        battleContext.SetPlayerCurrentTarget(entity);
     }
 
-    public void AddCommandQueue(CommandQueue command)
+    public void AddCommandQueue(UnitEntity caster, string actionID)
     {
-        commandQueue.Add(command);
+        CommandQueue command = new CommandQueue(caster, new UnitEntity[] { battleContext.playerCurrentTarget }, actionID);
+        battleContext.AddCommand(command);
         BattleUI.Instance.AddCommandToStack(null, command);
     }
 
     public void RemoveCommand(CommandQueue command)
     {
-        commandQueue.Remove(command);
+        battleContext.RemoveCommand(command);
     }
 }

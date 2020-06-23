@@ -37,6 +37,6 @@ public class CharacterDisplay : MonoBehaviour, IPointerClickHandler
         {
             return;
         }
-        BattleController.Instance.AddCommandQueue(new CommandQueue(unit, new UnitEntity[] { BattleController.Instance.playerCurrentTarget }, unit.data.commands["attack"]));
+        BattleController.Instance.AddCommandQueue(unit, "attack");
     }
 }

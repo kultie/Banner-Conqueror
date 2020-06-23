@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class BattleUI : ManagerBase<BattleUI>
 {
-    public Button executeButton;
+    [SerializeField]
+    private Button executeButton;
     public CharacterDisplay[] characterDisplays;
     public CharacterDisplay banner;
     public Transform commandStack;
@@ -17,8 +18,7 @@ public class BattleUI : ManagerBase<BattleUI>
     }
     void Start()
     {
-        BattleController.Instance.onPlayerTurn += PlayerTurnResolve;
-        BattleController.Instance.onPlayerTurnExecute += PlayerTurnExecute;
+
     }
 
     public void InitCharacters(UnitEntity[] units, BannerUnit bannerUnit)
@@ -30,14 +30,9 @@ public class BattleUI : ManagerBase<BattleUI>
         banner.Init(bannerUnit);
     }
 
-    private void PlayerTurnExecute()
+    public void ShowExecuteButton(bool isShow)
     {
-        executeButton.gameObject.SetActive(false);
-    }
-
-    private void PlayerTurnResolve()
-    {
-        executeButton.gameObject.SetActive(true);
+        executeButton.gameObject.SetActive(isShow);
     }
 
     public void AddCommandToStack(Sprite commandIcon, CommandQueue command)
@@ -45,5 +40,14 @@ public class BattleUI : ManagerBase<BattleUI>
         CommandDisplay a = Instantiate(commandDisplay, commandStack);
         a.gameObject.SetActive(true);
         a.RegisterToCommand(command);
+    }
+
+    public void SetButtonFunction(Action function)
+    {
+        executeButton.onClick.RemoveAllListeners();
+        executeButton.onClick.AddListener(() =>
+        {
+            function?.Invoke();
+        });
     }
 }

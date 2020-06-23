@@ -10,10 +10,11 @@ public class CommandQueue
     public UnitEntity[] targets;
     List<CommandAction> actions;
     public OnCommandFinished finishedCallback;
-    public CommandQueue(UnitEntity owner, UnitEntity[] targets, JSONArray actions)
+    public CommandQueue(UnitEntity owner, UnitEntity[] targets, string actionsID)
     {
         this.owner = owner;
         this.targets = targets;
+        JSONArray actions = owner.data.commands[actionsID];
         this.actions = new List<CommandAction>();
         for (int i = 0; i < actions.Count; i++)
         {
