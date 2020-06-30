@@ -69,6 +69,11 @@ public class UnitEntity : Entity
             {"current", stats.GetCurrentStats(UnitStat.HP) },
             {"max", stats.GetStats(UnitStat.MaxHP) }
         });
+        EventDispatcher.CallEvent("update_mp_" + partyID, new Dictionary<string, object>()
+        {
+            {"current", stats.GetCurrentStats(UnitStat.MP) },
+            {"max", stats.GetStats(UnitStat.MaxMP) }
+        });
     }
 
     public void UpdateHP(float value)

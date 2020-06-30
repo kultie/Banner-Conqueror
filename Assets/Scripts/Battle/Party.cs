@@ -11,7 +11,12 @@ public class Party
     public Party(UnitEntity[] mainUnit, BannerUnit bannerUnit, TeamSide team)
     {
         this.mainUnit = mainUnit;
+        for (int i = 0; i < mainUnit.Length; i++)
+        {
+            mainUnit[i].SetPartyId(team + i.ToString());
+        }
         this.bannerUnit = bannerUnit;
+        bannerUnit.SetPartyId(team + "banner");
         this.team = team;
     }
 

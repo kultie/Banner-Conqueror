@@ -18,14 +18,18 @@ public static class EventDispatcher
 
     public static void CallEvent(string key, Dictionary<string, object> arg)
     {
-        listeners[key]?.Invoke(arg);
+        if (listeners.TryGetValue(key, out Action<Dictionary<string, object>> func))
+        {
+            func?.Invoke(arg);
+        }
+
     }
 
     public static void UnRegisterEvent(string key, Action<Dictionary<string, object>> function)
     {
         if (listeners.TryGetValue(key, out Action<Dictionary<string, object>> tmp))
         {
-            listeners[key] -= function;
+            tmp -= function;
         }
     }
 
