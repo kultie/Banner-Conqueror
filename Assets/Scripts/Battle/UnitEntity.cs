@@ -51,7 +51,7 @@ public class UnitEntity : Entity
         float currentHP = stats.GetCurrentStats(UnitStat.HP);
         currentHP -= damage;
         UpdateHP(currentHP);
-        BattleController.Instance.timer.After(.2f, () =>
+        BattleController.Instance.timer.After(GameConfig.STAGGER_TIME, () =>
         {
             display.RequestAnimation("idle");
         });

@@ -18,7 +18,16 @@ public class Command
         this.actions = new List<CommandAction>();
         for (int i = 0; i < actions.Count; i++)
         {
-            CommandAction _act = new CommandAction(actions[i]);
+            CommandAction _act = null;
+            if (actions[i]["type"].Value == "predefined")
+            {
+                _act = ActionDictionary.Get(actions[i]["name"].Value, actions[i]["args"]);
+            }
+            else
+            {
+                _act = new CommandAction(actions[i]);
+            }
+
             this.actions.Add(_act);
         }
     }

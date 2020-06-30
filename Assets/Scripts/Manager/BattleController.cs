@@ -14,6 +14,10 @@ public class BattleController : ManagerBase<BattleController>
 
     public UpdateEntity updateEntityAnimation;
     public UpdateEntity updateEntity;
+
+    public ParticleFXDisplay particleFXPrefab;
+    public Transform particleContainer;
+
     public Timer timer;
 
     public StateMachine<BattleState, BattleContext> stateMachine { private set; get; }
@@ -27,6 +31,7 @@ public class BattleController : ManagerBase<BattleController>
     void Start()
     {
         timer = new Timer();
+        particleFXPrefab.CreatePool();
         StartBattle();
     }
 
@@ -88,7 +93,8 @@ public class BattleController : ManagerBase<BattleController>
 
     public Command AddCommandQueue(UnitEntity caster, string actionID)
     {
-        if (battleContext.playerCurrentTarget == null) {
+        if (battleContext.playerCurrentTarget == null)
+        {
             battleContext.SetPlayerCurrentTarget(battleContext.enemyParty.mainUnit[0]);
         }
         Command command = new Command(caster, new UnitEntity[] { battleContext.playerCurrentTarget }, actionID);
@@ -106,5 +112,14 @@ public class BattleController : ManagerBase<BattleController>
     public void RemoveCommand(Command command)
     {
         battleContext.RemoveCommand(command);
+    }
+
+    public void CreateParticleFx(JSONNode data)
+    {
+        ParticleFXEntity entity = new ParticleFXEntity(data);
+        var particle = particleFXPrefab.Spawn(particleContainer);
+        particle.SetEntity(entity);
+        particle.transform.localScale = Vector3.one;
+        particle.gameObject.SetActive(true);
     }
 }

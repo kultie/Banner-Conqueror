@@ -106,10 +106,7 @@
             },
             {
                 "type": "predefined",
-                "name": "wait",
-                "args": {
-                    "time": 0.25
-                }
+                "name": "wait_stagger"
             },
             {
                 "is_finish": {

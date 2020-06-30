@@ -9,11 +9,11 @@ public class CommandAction
     public UnitEntity[] targets;
     protected bool hasStarted;
     private Dictionary<string, object> context;
-    JSONNode data;
+    protected JSONNode data;
     public CommandAction(JSONNode data)
     {
         hasStarted = false;
-        this.data = CommandInterpreter.ConvertCommand(data);
+        this.data = data;
     }
 
     public void Update(float dt, UnitEntity owner, UnitEntity[] targets)
