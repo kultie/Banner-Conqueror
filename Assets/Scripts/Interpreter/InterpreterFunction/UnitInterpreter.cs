@@ -13,7 +13,8 @@ public static class UnitInterpreter
         {"play_defined_animation", PlayDefinedAnimation },
         {"play_animation", PlayAnimation },
         {"set_sprite", SetSprite },
-        {"is_animation_done", IsAnimationDone }
+        {"is_animation_done", IsAnimationDone },
+        {"deal_damage", DealDamage }
     };
 
     private static object IsAnimationDone(Dictionary<string, object> args)
@@ -67,6 +68,13 @@ public static class UnitInterpreter
     {
         UnitEntity entity = (UnitEntity)args["entity"];
         entity.display.PauseAnimation();
+        return null;
+    }
+
+    private static object DealDamage(Dictionary<string, object> args)
+    {
+        UnitEntity entity = (UnitEntity)args["entity"];
+        entity.TakeDamage((float)args["damage"]);
         return null;
     }
 }

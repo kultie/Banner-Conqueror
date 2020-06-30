@@ -16,19 +16,19 @@ public class CharacterDisplay : MonoBehaviour, IPointerClickHandler
     {
         this.unit = unit;
         nameText.text = unit.data.id;
-        unit.onHealthChanged += OnHealthChange;
-        unit.onChargeBarChanged += OnChargeBarChange;
+        EventDispatcher.RegisterEvent("update_hp_" + unit.partyID, OnHealthChange);
+        EventDispatcher.RegisterEvent("update_mp_" + unit.partyID, OnChargeBarChange);
         gameObject.SetActive(true);
     }
 
-    void OnHealthChange(float currentValue, float maxValue)
+    void OnHealthChange(Dictionary<string, object> arg)
     {
-        healthBar.SetCurrentValue(currentValue, maxValue);
+        healthBar.SetCurrentValue((float)arg["current"], (float)arg["max"]);
     }
 
-    void OnChargeBarChange(float currentValue, float maxValue)
+    void OnChargeBarChange(Dictionary<string, object> arg)
     {
-        chargeBar.SetCurrentValue(currentValue, maxValue);
+        chargeBar.SetCurrentValue((float)arg["current"], (float)arg["max"]);
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -12,7 +12,11 @@
                                 "type": "value",
                                 "value_type": "array",
                                 "value": [
-                                    6,6,6,6,6,
+                                    6,
+                                    6,
+                                    6,
+                                    6,
+                                    6,
                                     7,
                                     8
                                 ]
@@ -61,8 +65,51 @@
                                 "value": 50
                             }
                         }
+                    },
+                    {
+                        "type": "function",
+                        "namespace": "unit",
+                        "command": "deal_damage",
+                        "args": {
+                            "damage": {
+                                "type": "value",
+                                "value_type": "float",
+                                "value": 30
+                            },
+                            "entity": {
+                                "type": "function",
+                                "namespace": "general",
+                                "command": "index_from_array",
+                                "args": {
+                                    "index": {
+                                        "type": "value",
+                                        "value_type": "int",
+                                        "value": 0
+                                    },
+                                    "array": {
+                                        "type": "function",
+                                        "namespace": "entity",
+                                        "command": "get_variable",
+                                        "args": {
+                                            "variable_id": {
+                                                "type": "value",
+                                                "value_type": "string",
+                                                "value": "targets"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 ]
+            },
+            {
+                "type": "predefined",
+                "name": "wait",
+                "args": {
+                    "time": 0.25
+                }
             },
             {
                 "is_finish": {

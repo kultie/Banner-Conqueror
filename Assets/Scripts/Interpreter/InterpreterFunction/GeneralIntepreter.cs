@@ -17,6 +17,7 @@ public static class GeneralIntepreter
         {"greater", Greater },
         {"equal", Equal},
         {"lesser", Lesser},
+        {"index_from_array", GetObjectByIndexFromArray }
     };
 
     private static object ShakeCamera(Dictionary<string, object> args)
@@ -98,5 +99,12 @@ public static class GeneralIntepreter
     private static object RandomValue(Dictionary<string, object> args)
     {
         return Random.Range((float)args["min"], (float)args["max"]);
+    }
+
+    private static object GetObjectByIndexFromArray(Dictionary<string, object> args)
+    {
+        int index = (int)args["index"];
+        object[] arr = (object[])args["array"];
+        return arr[index];
     }
 }

@@ -8,6 +8,7 @@ public class UnitEntity : Entity
     public UnitDisplay display { protected set; get; }
     public Stats stats { protected set; get; }
     public UnitData data { protected set; get; }
+    public string partyID { protected set; get; }
 
     public OnResourceValueChanged onHealthChanged;
     public OnResourceValueChanged onChargeBarChanged;
@@ -15,6 +16,12 @@ public class UnitEntity : Entity
     {
         this.data = data;
         stats = new Stats(data.statsData);
+        stats.InitCurrentStats();
+    }
+
+    public void SetPartyId(string value)
+    {
+        partyID = value;
     }
 
     public virtual void SetDisplay(UnitDisplay display)
@@ -41,6 +48,9 @@ public class UnitEntity : Entity
     public void TakeDamage(float damage)
     {
         display.RequestAnimation("hit");
+        float currentHP = stats.GetCurrentStats(UnitStat.HP);
+        currentHP -= damage;
+        UpdateHP(currentHP);
         BattleController.Instance.timer.After(.2f, () =>
         {
             display.RequestAnimation("idle");
@@ -54,7 +64,28 @@ public class UnitEntity : Entity
 
     public void Init()
     {
-        onHealthChanged?.Invoke(stats.GetStats(UnitStat.HP), stats.GetStats(UnitStat.MaxHP));
-        onChargeBarChanged?.Invoke(stats.GetStats(UnitStat.MP), stats.GetStats(UnitStat.MaxMP));
+        EventDispatcher.CallEvent("update_hp_" + partyID, new Dictionary<string, object>()
+        {
+            {"current", stats.GetCurrentStats(UnitStat.HP) },
+            {"max", stats.GetStats(UnitStat.MaxHP) }
+        });
+    }
+
+    public void UpdateHP(float value)
+    {
+        EventDispatcher.CallEvent("update_hp_" + partyID, new Dictionary<string, object>()
+        {
+            {"current",  stats.SetHP(value)},
+            {"max", stats.GetStats(UnitStat.MaxHP) }
+        });
+    }
+
+    public void UpdateMP(float value)
+    {
+        EventDispatcher.CallEvent("update_hp_" + partyID, new Dictionary<string, object>()
+        {
+            {"current",  stats.SetMP(value)},
+            {"max", stats.GetStats(UnitStat.MaxMP) }
+        });
     }
 }

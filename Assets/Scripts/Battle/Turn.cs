@@ -8,15 +8,15 @@ public class Turn
     private Command currentCommand;
     private Party party;
     private bool isFinished;
-    public Turn()
+    public Turn(Party party)
     {
         isFinished = false;
+        this.party = party;
     }
 
     public void Execute(List<Command> commands)
     {
         this.commands = new List<Command>(commands);
-
     }
 
     public bool Finished()

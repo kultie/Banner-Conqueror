@@ -55,7 +55,7 @@ public class BattleContext : StateContextBase
     public void SetTeam(Party party)
     {
         currentTeam = party.team;
-        currentTurn = new Turn();
+        currentTurn = new Turn(party);
         commandQueue = new List<Command>();
     }
 

@@ -31,7 +31,7 @@ public class CommandAction
         JSONArray onExecute = data["on_execute"]?.AsArray;
         context = new Dictionary<string, object>();
         context["entity"] = owner;
-        context["targets"] = targets;
+        owner.variables["targets"] = targets;
         if (onExecute != null)
         {
             InterpreterBridge.RunCommands(onExecute, context);

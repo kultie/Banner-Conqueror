@@ -88,7 +88,17 @@ public class BattleController : ManagerBase<BattleController>
 
     public Command AddCommandQueue(UnitEntity caster, string actionID)
     {
+        if (battleContext.playerCurrentTarget == null) {
+            battleContext.SetPlayerCurrentTarget(battleContext.enemyParty.mainUnit[0]);
+        }
         Command command = new Command(caster, new UnitEntity[] { battleContext.playerCurrentTarget }, actionID);
+        battleContext.AddCommand(command);
+        return command;
+    }
+
+    public Command AddCommandQueueAuto(UnitEntity caster, string actionID)
+    {
+        Command command = new Command(caster, (UnitEntity[])caster.variables["targets"], actionID);
         battleContext.AddCommand(command);
         return command;
     }

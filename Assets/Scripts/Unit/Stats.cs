@@ -9,7 +9,7 @@ public class Stats
 {
     private Dictionary<UnitStat, float> stats = new Dictionary<UnitStat, float>();
     private Dictionary<string, JSONNode> statsModifiers = new Dictionary<string, JSONNode>();
-
+    private Dictionary<UnitStat, float> currentStats = new Dictionary<UnitStat, float>();
     public Stats(JSONNode def)
     {
         foreach (KeyValuePair<string, JSONNode> s in def.AsObject)
@@ -39,6 +39,12 @@ public class Stats
         statsModifiers.Clear();
     }
 
+    public void InitCurrentStats()
+    {
+        currentStats[UnitStat.HP] = GetStats(UnitStat.MaxHP);
+        currentStats[UnitStat.MP] = GetStats(UnitStat.MaxMP);
+    }
+
     public float GetStats(UnitStat key)
     {
         float baseValue = stats[key];
@@ -51,5 +57,24 @@ public class Stats
             multValue += data["mult"][key.ToString()].AsFloat;
         }
         return (baseValue + flatValue) * (1 + multValue);
+    }
+
+    public float SetHP(float value)
+    {
+        float maxHPValue = GetStats(UnitStat.MaxHP);
+        currentStats[UnitStat.HP] = Mathf.Clamp(value, 0, maxHPValue);
+        return currentStats[UnitStat.HP];
+    }
+
+    public float SetMP(float value)
+    {
+        float maxHPValue = GetStats(UnitStat.MaxMP);
+        currentStats[UnitStat.MP] = Mathf.Clamp(value, 0, maxHPValue);
+        return currentStats[UnitStat.MP];
+    }
+
+    public float GetCurrentStats(UnitStat key)
+    {
+        return currentStats[key];
     }
 }
