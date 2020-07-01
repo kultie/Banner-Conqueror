@@ -14,9 +14,17 @@ public class Turn
         this.party = party;
     }
 
-    public void Execute(List<Command> commands)
+    public void Execute(List<Command> commands, BattleContext battleContext)
     {
+        if (party.team == TeamSide.Player)
+        {
+            battleContext.IncreaseTurn();
+        }
         this.commands = new List<Command>(commands);
+        if (party.bannerUnit != null)
+        {
+            party.bannerUnit.TriggerBannerEffect(battleContext);
+        }
     }
 
     public bool Finished()

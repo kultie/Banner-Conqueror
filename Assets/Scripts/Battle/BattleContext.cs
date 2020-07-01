@@ -43,7 +43,7 @@ public class BattleContext : StateContextBase
 
     public void ExecuteTurn()
     {
-        currentTurn.Execute(commandQueue);
+        currentTurn.Execute(commandQueue, this);
         battleController.stateMachine.Change(BattleState.TurnProcess, this);
     }
 

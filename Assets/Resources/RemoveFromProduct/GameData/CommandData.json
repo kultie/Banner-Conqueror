@@ -238,6 +238,13 @@
                     "value_type": "bool",
                     "value": true
                 }
+            },
+            {
+                "type": "predefined",
+                "name": "wait",
+                "args": {
+                    "time": 1
+                }
             }
         ]
     }

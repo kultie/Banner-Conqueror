@@ -30,4 +30,10 @@ public class BannerUnit : UnitEntity
     {
         display.RequestAnimation("idle_banner");
     }
+
+    public void TriggerBannerEffect(BattleContext battleContext)
+    {
+        Debug.Log(battleContext.turnCount);
+        Debug.Log("Banner effect lmao");
+    }
 }

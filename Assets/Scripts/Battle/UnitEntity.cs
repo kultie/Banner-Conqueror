@@ -6,7 +6,7 @@ using UnityEngine;
 public class UnitEntity : Entity
 {
     public UnitDisplay display { protected set; get; }
-    public Stats stats { protected set; get; }
+    public UnitStats stats { protected set; get; }
     public UnitData data { protected set; get; }
     public string partyID { protected set; get; }
 
@@ -15,7 +15,7 @@ public class UnitEntity : Entity
     public UnitEntity(UnitData data)
     {
         this.data = data;
-        stats = new Stats(data.statsData);
+        stats = new UnitStats(data.statsData);
         stats.InitCurrentStats();
     }
 
