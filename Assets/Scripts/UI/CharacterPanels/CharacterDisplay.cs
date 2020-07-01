@@ -4,13 +4,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharacterDisplay : MonoBehaviour, IPointerClickHandler
+public class CharacterDisplay : MonoBehaviour
 {
     public Text nameText;
     public Image portraitImage;
     public ResourceBar healthBar;
     public ResourceBar chargeBar;
     UnitEntity unit;
+    Vector2 startDragPos;
+    CharacterInput input;
+    private void Awake()
+    {
+        input = GetComponent<CharacterInput>();
+    }
 
     public void Init(UnitEntity unit)
     {
@@ -31,12 +37,23 @@ public class CharacterDisplay : MonoBehaviour, IPointerClickHandler
         chargeBar.SetCurrentValue((float)arg["current"], (float)arg["max"]);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void Update()
     {
-        if (unit is BannerUnit)
-        {
+        if (unit is BannerUnit) {
             return;
         }
-        BattleUI.Instance.AddCommandToStack(null, BattleController.Instance.AddCommandQueue(unit, "attack"));
+        if (input.Tap)
+        {
+            BattleController.Instance.AddCommandQueue(unit, "attack");
+        }
+        else if (input.SwipeUp)
+        {
+            Debug.Log("Offensive");
+            BattleController.Instance.AddCommandQueue(unit, "offensive");
+        }
+        else if (input.SwipeDown) {
+            Debug.Log("Defensive");
+            BattleController.Instance.AddCommandQueue(unit, "defensive");
+        }
     }
 }

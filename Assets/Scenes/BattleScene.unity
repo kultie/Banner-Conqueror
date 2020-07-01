@@ -828,6 +828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 319666471}
   - component: {fileID: 319666472}
+  - component: {fileID: 319666473}
   m_Layer: 5
   m_Name: Character_1
   m_TagString: Untagged
@@ -873,6 +874,18 @@ MonoBehaviour:
   portraitImage: {fileID: 474759450}
   healthBar: {fileID: 1151171068}
   chargeBar: {fileID: 1987996493}
+--- !u!114 &319666473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319666470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1434efac4d67f0041afdd7af51ad0106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &329151783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,6 +2473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 649216287}
   - component: {fileID: 649216288}
+  - component: {fileID: 649216289}
   m_Layer: 5
   m_Name: Character_3
   m_TagString: Untagged
@@ -2505,6 +2519,18 @@ MonoBehaviour:
   portraitImage: {fileID: 747366454}
   healthBar: {fileID: 1197803766}
   chargeBar: {fileID: 1300774598}
+--- !u!114 &649216289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649216286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1434efac4d67f0041afdd7af51ad0106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &690039613
 GameObject:
   m_ObjectHideFlags: 0
@@ -3643,6 +3669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018052760}
   - component: {fileID: 1018052761}
+  - component: {fileID: 1018052762}
   m_Layer: 5
   m_Name: Character_2
   m_TagString: Untagged
@@ -3688,6 +3715,18 @@ MonoBehaviour:
   portraitImage: {fileID: 1691076245}
   healthBar: {fileID: 1928946876}
   chargeBar: {fileID: 1308851701}
+--- !u!114 &1018052762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018052759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1434efac4d67f0041afdd7af51ad0106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1083359353
 GameObject:
   m_ObjectHideFlags: 0
@@ -7487,6 +7526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2093438602}
   - component: {fileID: 2093438603}
+  - component: {fileID: 2093438604}
   m_Layer: 5
   m_Name: Banner
   m_TagString: Untagged
@@ -7532,6 +7572,18 @@ MonoBehaviour:
   portraitImage: {fileID: 1102696454}
   healthBar: {fileID: 734779136}
   chargeBar: {fileID: 741876601}
+--- !u!114 &2093438604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093438601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1434efac4d67f0041afdd7af51ad0106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2115838731
 GameObject:
   m_ObjectHideFlags: 0

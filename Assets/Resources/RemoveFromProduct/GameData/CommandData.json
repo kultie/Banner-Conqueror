@@ -121,6 +121,124 @@
                     "value": true
                 }
             }
+        ],
+        "offensive": [
+            {
+                "on_execute": [
+                    {
+                        "type": "function",
+                        "namespace": "unit",
+                        "command": "play_animation",
+                        "args": {
+                            "frames": {
+                                "type": "value",
+                                "value_type": "array",
+                                "value": [
+                                    10,
+                                    11,
+                                    12,
+                                    13,
+                                    14
+                                ]
+                            },
+                            "spf": {
+                                "type": "value",
+                                "value_type": "float",
+                                "value": 0.12
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "predefined",
+                "name": "wait",
+                "args": {
+                    "time": 0.24
+                }
+            },
+            {
+                "on_execute": [
+                    {
+                        "type": "function",
+                        "namespace": "general",
+                        "command": "shake_camera",
+                        "args": {
+                            "duration": {
+                                "type": "value",
+                                "value_type": "float",
+                                "value": 0.1
+                            },
+                            "strength": {
+                                "type": "value",
+                                "value_type": "float",
+                                "value": 0.1
+                            },
+                            "vibrator": {
+                                "type": "value",
+                                "value_type": "int",
+                                "value": 10
+                            },
+                            "randomess": {
+                                "type": "value",
+                                "value_type": "int",
+                                "value": 50
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "is_finish": {
+                    "type": "function",
+                    "namespace": "unit",
+                    "command": "is_animation_done",
+                    "args": {}
+                },
+                "is_block": {
+                    "type": "value",
+                    "value_type": "bool",
+                    "value": true
+                }
+            }
+        ],
+        "defensive": [
+            {
+                "on_execute": [
+                    {
+                        "type": "function",
+                        "namespace": "unit",
+                        "command": "play_animation",
+                        "args": {
+                            "frames": {
+                                "type": "value",
+                                "value_type": "array",
+                                "value": [
+                                    15,
+                                    16,
+                                    17,
+                                ]
+                            },
+                            "spf": {
+                                "type": "value",
+                                "value_type": "float",
+                                "value": 0.12
+                            }
+                        }
+                    }
+                ],
+                "is_finish": {
+                    "type": "function",
+                    "namespace": "unit",
+                    "command": "is_animation_done",
+                    "args": {}
+                },
+                "is_block": {
+                    "type": "value",
+                    "value_type": "bool",
+                    "value": true
+                }
+            }
         ]
     }
 }

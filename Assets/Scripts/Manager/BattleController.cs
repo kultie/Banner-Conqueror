@@ -99,6 +99,7 @@ public class BattleController : ManagerBase<BattleController>
         }
         Command command = new Command(caster, new UnitEntity[] { battleContext.playerCurrentTarget }, actionID);
         battleContext.AddCommand(command);
+        BattleUI.Instance.AddCommandToStack(null, command);
         return command;
     }
 
