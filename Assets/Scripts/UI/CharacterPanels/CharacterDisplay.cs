@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,8 +12,8 @@ public class CharacterDisplay : MonoBehaviour
     public ResourceBar healthBar;
     public ResourceBar chargeBar;
     UnitEntity unit;
-    Vector2 startDragPos;
     CharacterInput input;
+    bool allowInput;
     private void Awake()
     {
         input = GetComponent<CharacterInput>();
@@ -24,7 +25,19 @@ public class CharacterDisplay : MonoBehaviour
         nameText.text = unit.data.id;
         EventDispatcher.RegisterEvent("update_hp_" + unit.partyID, OnHealthChange);
         EventDispatcher.RegisterEvent("update_mp_" + unit.partyID, OnChargeBarChange);
+        EventDispatcher.RegisterEvent("on_player_turn", OnPlayerTurn);
+        EventDispatcher.RegisterEvent("on_player_turn_execute", OnPlayerTurnExecute);
         gameObject.SetActive(true);
+    }
+
+    private void OnPlayerTurnExecute(Dictionary<string, object> obj)
+    {
+        allowInput = false;
+    }
+
+    private void OnPlayerTurn(Dictionary<string, object> obj)
+    {
+        allowInput = true;
     }
 
     void OnHealthChange(Dictionary<string, object> arg)
@@ -39,7 +52,12 @@ public class CharacterDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (unit is BannerUnit) {
+        if (!allowInput)
+        {
+            return;
+        }
+        if (unit is BannerUnit)
+        {
             return;
         }
         if (input.Tap)
@@ -51,7 +69,8 @@ public class CharacterDisplay : MonoBehaviour
             Debug.Log("Offensive");
             BattleController.Instance.AddCommandQueue(unit, "offensive");
         }
-        else if (input.SwipeDown) {
+        else if (input.SwipeDown)
+        {
             Debug.Log("Defensive");
             BattleController.Instance.AddCommandQueue(unit, "defensive");
         }

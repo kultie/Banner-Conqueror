@@ -168,7 +168,7 @@
             "Defend": 1,
             "MagicDefend": 1
         },
-        "commands": "f_arch_angel"
+        "commands": "f_assassin"
     },
     "m_assasin": {
         "id": "m_ass",
@@ -248,6 +248,6 @@
             "Defend": 1,
             "MagicDefend": 1
         },
-        "commands": "f_arch_angel"
+        "commands": "f_assassin"
     }
 }

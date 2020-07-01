@@ -7,6 +7,7 @@ public class BattleInputState : BattleStateBase
 {
     protected override void OnEnter()
     {
+        EventDispatcher.CallEvent("on_player_turn", null);
         context.SetTeam(context.playerParty);
         BattleUI.Instance.ShowExecuteButton(true);
         BattleUI.Instance.SetButtonFunction(Execute);
@@ -25,6 +26,7 @@ public class BattleInputState : BattleStateBase
     void Execute()
     {
         context.ExecuteTurn();
+        EventDispatcher.CallEvent("on_player_turn_execute", null);
         BattleUI.Instance.ShowExecuteButton(false);
     }
 }

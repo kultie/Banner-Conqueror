@@ -32,7 +32,7 @@ public class AnimationSystem
                 }
                 else
                 {
-                    index = frames.Length - 1;
+                    index = frames.Length;
                 }
             }
         }
@@ -49,7 +49,12 @@ public class AnimationSystem
 
     public Sprite Frame()
     {
-        return frames[index];
+        var i = index;
+        if (i == frames.Length)
+        {
+            i = frames.Length - 1;
+        }
+        return frames[i];
     }
 
     public Sprite[] Frames()
@@ -59,7 +64,7 @@ public class AnimationSystem
 
     public bool IsFinished()
     {
-        return !loop && index == frames.Length - 1;
+        return !loop && index == frames.Length;
     }
 
     public void ChangeSpeed(float value)
