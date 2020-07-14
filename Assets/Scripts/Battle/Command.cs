@@ -8,13 +8,18 @@ public class Command
 {
     public UnitEntity owner;
     public UnitEntity[] targets;
+    public JSONNode costData;
     List<CommandAction> actions;
     public OnCommandFinished finishedCallback;
     public Command(UnitEntity owner, UnitEntity[] targets, string actionsID)
     {
         this.owner = owner;
         this.targets = targets;
-        JSONArray actions = owner.data.commands[actionsID];
+        JSONArray actions = owner.data.commands[actionsID]["actions"].AsArray;
+        if (owner.data.commands[actionsID]["cost"] != null)
+        {
+            costData = owner.data.commands[actionsID]["cost"];
+        }
         this.actions = new List<CommandAction>();
         for (int i = 0; i < actions.Count; i++)
         {
@@ -29,6 +34,13 @@ public class Command
             }
 
             this.actions.Add(_act);
+        }
+    }
+
+    public void ReturnCostToOwner() {
+        if (costData != null)
+        {
+            owner.GainCost(costData);
         }
     }
 

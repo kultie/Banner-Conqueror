@@ -91,23 +91,36 @@ public class BattleController : ManagerBase<BattleController>
         battleContext.SetPlayerCurrentTarget(entity);
     }
 
-    public Command AddCommandQueue(UnitEntity caster, string actionID)
+    public void AddCommandQueue(UnitEntity caster, string actionID)
     {
         if (battleContext.playerCurrentTarget == null)
         {
             battleContext.SetPlayerCurrentTarget(battleContext.enemyParty.mainUnit[0]);
         }
         Command command = new Command(caster, new UnitEntity[] { battleContext.playerCurrentTarget }, actionID);
-        battleContext.AddCommand(command);
-        BattleUI.Instance.AddCommandToStack(null, command);
-        return command;
+        if (command.costData != null)
+        {
+            if (caster.CheckCost(command.costData))
+            {
+                caster.LoseCost(command.costData);
+                battleContext.AddCommand(command);
+                BattleUI.Instance.AddCommandToStack(null, command);
+            }
+            else
+            {
+                Debug.Log("Not enough cost");
+            }
+        }
+        else {
+            battleContext.AddCommand(command);
+            BattleUI.Instance.AddCommandToStack(null, command);
+        }
     }
 
-    public Command AddCommandQueueAuto(UnitEntity caster, string actionID)
+    public void AddCommandQueueAuto(UnitEntity caster, string actionID)
     {
         Command command = new Command(caster, (UnitEntity[])caster.variables["targets"], actionID);
         battleContext.AddCommand(command);
-        return command;
     }
 
     public void RemoveCommand(Command command)

@@ -9,6 +9,7 @@ public class CommandDisplay : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         BattleController.Instance.RemoveCommand(command);
+        command.ReturnCostToOwner();
         Destroy(gameObject);
     }
 

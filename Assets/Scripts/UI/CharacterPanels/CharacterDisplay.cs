@@ -52,27 +52,30 @@ public class CharacterDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (!allowInput)
-        {
-            return;
-        }
         if (unit is BannerUnit)
         {
             return;
         }
-        if (input.Tap)
+
+        if (allowInput)
         {
-            BattleController.Instance.AddCommandQueue(unit, "attack");
+            if (input.Tap)
+            {
+                Debug.Log("attack");
+                BattleController.Instance.AddCommandQueue(unit, "attack");
+            }
+            else if (input.SwipeUp)
+            {
+                Debug.Log("Offensive");
+                BattleController.Instance.AddCommandQueue(unit, "offensive");
+            }
+            else if (input.SwipeDown)
+            {
+                Debug.Log("Defensive");
+                BattleController.Instance.AddCommandQueue(unit, "defensive");
+            }
+            input.ManualUpdate();
         }
-        else if (input.SwipeUp)
-        {
-            Debug.Log("Offensive");
-            BattleController.Instance.AddCommandQueue(unit, "offensive");
-        }
-        else if (input.SwipeDown)
-        {
-            Debug.Log("Defensive");
-            BattleController.Instance.AddCommandQueue(unit, "defensive");
-        }
+        else input.ResetInput();
     }
 }

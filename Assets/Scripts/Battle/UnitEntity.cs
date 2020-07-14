@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleJSON;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,10 +88,68 @@ public class UnitEntity : Entity
 
     public void UpdateMP(float value)
     {
-        EventDispatcher.CallEvent("update_hp_" + partyID, new Dictionary<string, object>()
+        EventDispatcher.CallEvent("update_mp_" + partyID, new Dictionary<string, object>()
         {
             {"current",  stats.SetMP(value)},
             {"max", stats.GetStats(UnitStat.MaxMP) }
         });
+    }
+
+    public bool CheckCost(JSONNode costData)
+    {
+        bool result = true;
+
+        foreach (KeyValuePair<string, JSONNode> kv in costData.AsObject)
+        {
+            float cost = kv.Value.AsFloat;
+            UnitStat stat = Utilities.ConvertToEnum<UnitStat>(kv.Key);
+            float currentValue = stats.GetCurrentStats(stat);
+            if (cost > currentValue)
+            {
+                return false;
+            }
+        }
+
+        return result;
+    }
+
+    public void LoseCost(JSONNode costData)
+    {
+        foreach (KeyValuePair<string, JSONNode> kv in costData.AsObject)
+        {
+            float cost = kv.Value.AsFloat;
+            UnitStat stat = Utilities.ConvertToEnum<UnitStat>(kv.Key);
+            float currentValue = stats.GetCurrentStats(stat);
+            currentValue -= cost;
+            switch (stat)
+            {
+                case UnitStat.HP:
+                    UpdateHP(currentValue);
+                    break;
+                case UnitStat.MP:
+                    UpdateMP(currentValue);
+                    break;
+            }
+        }
+    }
+
+    public void GainCost(JSONNode costData)
+    {
+        foreach (KeyValuePair<string, JSONNode> kv in costData.AsObject)
+        {
+            float cost = kv.Value.AsFloat;
+            UnitStat stat = Utilities.ConvertToEnum<UnitStat>(kv.Key);
+            float currentValue = stats.GetCurrentStats(stat);
+            currentValue += cost;
+            switch (stat)
+            {
+                case UnitStat.HP:
+                    UpdateHP(currentValue);
+                    break;
+                case UnitStat.MP:
+                    UpdateMP(currentValue);
+                    break;
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ public class UnitData
     public Vector2 bannerOffset;
     public Vector2 avatarOffset;
     public JSONNode statsData;
-    public Dictionary<string, JSONArray> commands;
+    public Dictionary<string, JSONNode> commands;
 
     public UnitData(JSONNode data)
     {
@@ -57,13 +57,13 @@ public class UnitData
         return sprites[index];
     }
 
-    private Dictionary<string, JSONArray> GenerateUnitCommands(JSONNode input)
+    private Dictionary<string, JSONNode> GenerateUnitCommands(JSONNode input)
     {
-        Dictionary<string, JSONArray> result = new Dictionary<string, JSONArray>();
+        Dictionary<string, JSONNode> result = new Dictionary<string, JSONNode>();
         foreach (KeyValuePair<string, JSONNode> kv in input.AsObject)
         {
             string key = kv.Key;
-            result[key] = kv.Value.AsArray;
+            result[key] = kv.Value;
         }
         return result;
     }

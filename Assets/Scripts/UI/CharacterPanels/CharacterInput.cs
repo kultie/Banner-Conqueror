@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,7 +11,7 @@ public class CharacterInput : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     private bool isDragging = false;
     private Vector2 startTouch, swipeDelta;
 
-    private void Update()
+    public void ManualUpdate()
     {
         tap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
 //#if UNITY_EDITOR || UNITY_STANDALONE
@@ -81,6 +82,13 @@ public class CharacterInput : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         }
     }
 
+    public void ResetInput()
+    {
+        startTouch = swipeDelta = Vector2.zero;
+        isDragging = false;
+        tap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+    }
+
     private void Reset()
     {
         startTouch = swipeDelta = Vector2.zero;
@@ -96,7 +104,9 @@ public class CharacterInput : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (tapRequested) { tap = true; }
+        if (tapRequested) { 
+            tap = true; 
+        }
         isDragging = false;
         Reset();
     }
