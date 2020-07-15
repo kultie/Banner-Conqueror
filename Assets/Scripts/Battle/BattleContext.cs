@@ -9,14 +9,18 @@ public class BattleContext : StateContextBase
     public BattleController battleController { private set; get; }
     public Party playerParty;
     public Party enemyParty;
+    public BattleState lastState { private set; get; }
+
     public int turnCount { private set; get; }
     public Turn currentTurn { private set; get; }
     public TeamSide currentTeam { private set; get; }
     public BattleResult battleResult { private set; get; }
     public List<Command> commandQueue { private set; get; }
     public UnitEntity playerCurrentTarget { private set; get; }
+    public StoryBoard storyBoard { private set; get; }
     public BattleContext(BattleController controller, Party playerParty, Party enemyParty)
     {
+        storyBoard = new StoryBoard();
         battleController = controller;
         turnCount = 0;
         this.playerParty = playerParty;
@@ -55,6 +59,7 @@ public class BattleContext : StateContextBase
     public void SetTeam(Party party)
     {
         currentTeam = party.team;
+        party.SetBattleContext(this);
         currentTurn = new Turn(party);
         commandQueue = new List<Command>();
     }
@@ -89,5 +94,25 @@ public class BattleContext : StateContextBase
     public void SetPlayerCurrentTarget(UnitEntity target)
     {
         playerCurrentTarget = target;
+    }
+
+    public void SetLastState(BattleState state)
+    {
+        lastState = state;
+    }
+
+    public void ChangeBattleState(BattleState state)
+    {
+        battleController.stateMachine.Change(state, this);
+    }
+
+    public void ChangeToLastState()
+    {
+        battleController.stateMachine.Change(lastState, this);
+    }
+
+    public void AddEvent(StoryBoardEvent evt)
+    {
+        storyBoard.AddToStoryBoard(evt);
     }
 }

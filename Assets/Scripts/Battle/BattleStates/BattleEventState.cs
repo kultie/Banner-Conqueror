@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleStartState : BattleStateBase
+public class BattleEventState : BattleStateBase
 {
     protected override void OnEnter()
     {
-        context.playerParty.InitUnits();
-        context.ChangeBattleState(BattleState.Input);
+
     }
 
     protected override void OnExit()
@@ -17,6 +16,10 @@ public class BattleStartState : BattleStateBase
 
     protected override void OnUpdate(float dt)
     {
-
+        context.storyBoard.Update(dt);
+        if (context.storyBoard.IsFinished())
+        {
+            context.ChangeToLastState();
+        }
     }
 }

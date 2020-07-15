@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Party
 {
@@ -18,6 +19,15 @@ public class Party
         this.bannerUnit = bannerUnit;
         bannerUnit.SetPartyId(team + "banner");
         this.team = team;
+    }
+
+    public void SetBattleContext(BattleContext c)
+    {
+        for (int i = 0; i < mainUnit.Length; i++)
+        {
+            mainUnit[i].SetTurn(c);
+        }
+        bannerUnit.SetTurn(c);
     }
 
     public bool Lost()

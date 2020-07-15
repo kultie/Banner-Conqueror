@@ -72,6 +72,7 @@ public class BattleController : ManagerBase<BattleController>
         states[BattleState.Input] = new BattleInputState();
         states[BattleState.EnemyTurn] = new BattleEnemyTurnState();
         states[BattleState.Result] = new BattleResultState();
+        states[BattleState.Event] = new BattleEventState();
         states[BattleState.TurnProcess] = new BattleTurnProcessState();
         return states;
     }
@@ -111,7 +112,8 @@ public class BattleController : ManagerBase<BattleController>
                 Debug.Log("Not enough cost");
             }
         }
-        else {
+        else
+        {
             battleContext.AddCommand(command);
             BattleUI.Instance.AddCommandToStack(null, command);
         }

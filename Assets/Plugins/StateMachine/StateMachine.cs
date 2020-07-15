@@ -1,23 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 namespace Kultie.StateMachine
 {
-    public class StateMachine<T1,T2> : StateMachineBase<T2> where T1 : System.Enum where T2 : StateContextBase 
+    public class StateMachine<T1, T2> : StateMachineBase<T2> where T1 : System.Enum where T2 : StateContextBase
     {
         private Dictionary<T1, IState<T2>> states;
 
         public IState<T2> currentState;
         T1 currentStateName;
 
-        public StateMachine(Dictionary<T1, IState<T2>> states) {
+        public StateMachine(Dictionary<T1, IState<T2>> states)
+        {
             this.states = states;
         }
 
-        public void Change(T1 name, T2 context) {
-            if (!states.ContainsKey(name)) {
+        public void Change(T1 name, T2 context)
+        {
+            if (!states.ContainsKey(name))
+            {
                 return;
             }
 
-            if (currentState != null) {
+            if (currentState != null)
+            {
                 currentState.Exit();
             }
 
@@ -26,14 +31,21 @@ namespace Kultie.StateMachine
             currentState.Enter(context);
         }
 
+        public void Change(object lastState)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void Update(float dt)
         {
-            if (currentState != null) {
+            if (currentState != null)
+            {
                 currentState.Update(dt);
             }
         }
 
-        public T1 CurrentState() {
+        public T1 CurrentState()
+        {
             return currentStateName;
         }
     }

@@ -13,11 +13,18 @@ public class UnitEntity : Entity
 
     public OnResourceValueChanged onHealthChanged;
     public OnResourceValueChanged onChargeBarChanged;
+
+    private BattleContext context;
     public UnitEntity(UnitData data)
     {
         this.data = data;
         stats = new UnitStats(data.statsData);
         stats.InitCurrentStats();
+    }
+
+    public void SetTurn(BattleContext c)
+    {
+        context = c;
     }
 
     public void SetPartyId(string value)
@@ -52,6 +59,10 @@ public class UnitEntity : Entity
         float currentHP = stats.GetCurrentStats(UnitStat.HP);
         currentHP -= damage;
         UpdateHP(currentHP);
+        if (IsDead())
+        {
+            Dead(context);
+        }
         BattleController.Instance.timer.After(GameConfig.STAGGER_TIME, () =>
         {
             display.RequestAnimation("idle");
@@ -151,5 +162,10 @@ public class UnitEntity : Entity
                     break;
             }
         }
+    }
+
+    public void Dead(BattleContext context)
+    {
+        context.storyBoard.AddToStoryBoard(new SpriteFadeEvent(this, 1f));
     }
 }

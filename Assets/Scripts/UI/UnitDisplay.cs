@@ -86,6 +86,13 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
         unitAvatar.sprite = unitModel.data.GetSprite(spriteIndex);
     }
 
+    public void SetSpriteAlpha(float value)
+    {
+        Color col = unitAvatar.color;
+        col.a = value;
+        unitAvatar.color = col;
+    }
+
     public bool AnimFinished()
     {
         if (anim == null)

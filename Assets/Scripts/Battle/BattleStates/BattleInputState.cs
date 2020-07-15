@@ -7,6 +7,11 @@ public class BattleInputState : BattleStateBase
 {
     protected override void OnEnter()
     {
+        context.SetLastState(BattleState.Input);
+        if (!context.storyBoard.IsFinished()) {
+            context.ChangeBattleState(BattleState.Event);
+            return;
+        }
         EventDispatcher.CallEvent("on_player_turn", null);
         context.SetTeam(context.playerParty);
         BattleUI.Instance.ShowExecuteButton(true);

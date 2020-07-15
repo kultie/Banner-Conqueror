@@ -7,6 +7,7 @@ public class BattleTurnProcessState : BattleStateBase
 {
     protected override void OnEnter()
     {
+        context.SetLastState(BattleState.TurnProcess);
         Debug.Log("On turn process enter");
     }
 
@@ -21,9 +22,21 @@ public class BattleTurnProcessState : BattleStateBase
     {
         if (context.BattleOver())
         {
-            context.battleController.stateMachine.Change(BattleState.Result, context);
+            context.ChangeBattleState(BattleState.Result);
         }
-        context.currentTurn.Update(dt);
+        if (context.currentTurn.CurrentCommandFinished())
+        {
+            if (!context.storyBoard.IsFinished())
+            {
+                context.ChangeBattleState(BattleState.Event);
+                return;
+            }
+            context.currentTurn.ProcessNextCommand();
+        }
+        else
+        {
+            context.currentTurn.ProcessCurrentCommand(dt);
+        }
         if (context.currentTurn.Finished())
         {
             context.ChangeParty();

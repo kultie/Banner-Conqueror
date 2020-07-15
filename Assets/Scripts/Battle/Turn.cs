@@ -5,19 +5,17 @@ using UnityEngine;
 public class Turn
 {
     private List<Command> commands;
-    private StoryBoard storyBoard;
-    private Command currentCommand;
+    public Command currentCommand { private set; get; }
     private Party party;
-    private bool isFinished;
+    private BattleContext context;
     public Turn(Party party)
     {
-        storyBoard = new StoryBoard();
-        isFinished = false;
         this.party = party;
     }
 
     public void Execute(List<Command> commands, BattleContext battleContext)
     {
+        context = battleContext;
         if (party.team == TeamSide.Player)
         {
             battleContext.IncreaseTurn();
@@ -31,46 +29,16 @@ public class Turn
 
     public bool Finished()
     {
-        return isFinished;
+        return commands.Count == 0 && CurrentCommandFinished();
     }
 
-    public void Update(float dt)
-    {
-
-        if (currentCommand == null)
-        {
-            if (!storyBoard.IsFinished())
-            {
-                storyBoard.Update(dt);
-                return;
-            }
-        }
-
-        if (currentCommand == null && commands.Count == 0)
-        {
-
-            Debug.Log("All command has executed");
-            isFinished = true;
-            return;
-        }
-
-        if (currentCommand == null && commands.Count > 0)
-        {
-            ProcessNextCommand();
-        }
-        if (currentCommand != null)
-        {
-            ProcessCurrentCommand(dt);
-        }
-    }
-
-    void ProcessNextCommand()
+    public void ProcessNextCommand()
     {
         currentCommand = commands[0];
         commands.RemoveAt(0);
     }
 
-    void ProcessCurrentCommand(float dt)
+    public void ProcessCurrentCommand(float dt)
     {
         currentCommand.Update(dt);
         if (currentCommand.IsFinished())
@@ -80,8 +48,12 @@ public class Turn
         }
     }
 
-    public void AddStoryboardEvent(StoryBoardEvent evt)
+    public bool CurrentCommandFinished()
     {
-        storyBoard.AddToStoryBoard(evt);
+        if (currentCommand == null)
+        {
+            return true;
+        }
+        return currentCommand.IsFinished();
     }
 }
