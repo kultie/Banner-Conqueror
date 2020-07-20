@@ -20,14 +20,26 @@ public class BattleTurnProcessState : BattleStateBase
 
     protected override void OnUpdate(float dt)
     {
-        if (context.BattleOver())
+        if (context.storyBoard.IsFinished())
         {
-            context.ChangeBattleState(BattleState.Result);
+            if (context.BattleOver())
+            {
+                context.ChangeBattleState(BattleState.Result);
+                return;
+            }
+
+            if (context.currentTurn.Finished())
+            {
+                context.ChangeParty();
+                return;
+            }
         }
+
         if (context.currentTurn.CurrentCommandFinished())
         {
             if (!context.storyBoard.IsFinished())
             {
+                Debug.Log("Running story board evet");
                 context.ChangeBattleState(BattleState.Event);
                 return;
             }
@@ -37,9 +49,11 @@ public class BattleTurnProcessState : BattleStateBase
         {
             context.currentTurn.ProcessCurrentCommand(dt);
         }
-        if (context.currentTurn.Finished())
-        {
-            context.ChangeParty();
-        }
+
+
+
+
+
+
     }
 }

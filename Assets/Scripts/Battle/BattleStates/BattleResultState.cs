@@ -7,7 +7,7 @@ public class BattleResultState : BattleStateBase
 {
     protected override void OnEnter()
     {
-
+        Debug.Log(context.battleResult);
     }
 
     protected override void OnExit()
