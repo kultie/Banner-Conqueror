@@ -25,6 +25,9 @@ public class BattleContext : StateContextBase
         turnCount = 0;
         this.playerParty = playerParty;
         this.enemyParty = enemyParty;
+
+        playerParty.SetBattleContext(this);
+        enemyParty.SetBattleContext(this);
     }
 
     public void ChangeParty()
@@ -59,7 +62,6 @@ public class BattleContext : StateContextBase
     public void SetTeam(Party party)
     {
         currentTeam = party.team;
-        party.SetBattleContext(this);
         currentTurn = new Turn(party);
         commandQueue = new List<Command>();
     }

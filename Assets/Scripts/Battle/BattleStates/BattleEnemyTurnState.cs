@@ -17,8 +17,11 @@ public class BattleEnemyTurnState : BattleStateBase
         Debug.Log("Entering enemy turn");
         for (int i = 0; i < context.enemyParty.mainUnit.Length; i++)
         {
-            context.enemyParty.mainUnit[i].variables["targets"] = new UnitEntity[] { context.playerParty.mainUnit[0] };
-            context.battleController.AddCommandQueueAuto(context.enemyParty.mainUnit[i], "attack");
+            if (!context.enemyParty.mainUnit[i].IsDead())
+            {
+                context.enemyParty.mainUnit[i].variables["targets"] = new UnitEntity[] { context.playerParty.mainUnit[0] };
+                context.battleController.AddCommandQueueAuto(context.enemyParty.mainUnit[i], "attack");
+            }
         }
         context.ExecuteTurn();
     }

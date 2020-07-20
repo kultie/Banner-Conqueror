@@ -50,7 +50,7 @@ public class UnitEntity : Entity
 
     public bool IsDead()
     {
-        return stats.GetStats(UnitStat.HP) <= 0;
+        return stats.GetCurrentStats(UnitStat.HP) <= 0;
     }
 
     public void TakeDamage(float damage)
@@ -59,6 +59,8 @@ public class UnitEntity : Entity
         float currentHP = stats.GetCurrentStats(UnitStat.HP);
         currentHP -= damage;
         UpdateHP(currentHP);
+        Debug.Log(partyID + ": " + currentHP);
+        Debug.Log(partyID + ": " + IsDead());
         if (IsDead())
         {
             Dead(context);
