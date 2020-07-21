@@ -35,6 +35,7 @@ public class Turn
     public void ProcessNextCommand()
     {
         currentCommand = commands[0];
+        currentCommand.ResolveTarget();
         commands.RemoveAt(0);
     }
 

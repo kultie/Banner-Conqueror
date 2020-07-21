@@ -4,6 +4,7 @@ using SimpleJSON;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -65,6 +66,31 @@ public class BattleController : ManagerBase<BattleController>
         stateMachine.Change(BattleState.Start, battleContext);
     }
 
+    public UnitEntity[] GetTarget(TargetType targetType, UnitEntity caster)
+    {
+        Party enemyParty = battleContext.enemyParty;
+        Party allyParty = battleContext.playerParty;
+        if (!caster.isPlayerUnit)
+        {
+            enemyParty = battleContext.playerParty;
+            allyParty = battleContext.enemyParty;
+        }
+
+        switch (targetType)
+        {
+            case TargetType.SingleEnemy:
+                return new UnitEntity[] { enemyParty.mainUnit.First(u => !u.IsDead()) };
+            case TargetType.AllEnemies:
+                return enemyParty.mainUnit.Where(u => !u.IsDead()).ToArray();
+            case TargetType.SingleAlly:
+                return new UnitEntity[] { allyParty.mainUnit.First(u => !u.IsDead()) };
+            case TargetType.AllAllies:
+                return allyParty.mainUnit.Where(u => !u.IsDead()).ToArray();
+            default:
+                return null;
+        }
+    }
+
     Dictionary<BattleState, IState<BattleContext>> CreateBattleStates()
     {
         Dictionary<BattleState, IState<BattleContext>> states = new Dictionary<BattleState, IState<BattleContext>>();
@@ -94,11 +120,12 @@ public class BattleController : ManagerBase<BattleController>
 
     public void AddCommandQueue(UnitEntity caster, string actionID)
     {
-        if (battleContext.playerCurrentTarget == null)
+        UnitEntity[] playerTarget = null;
+        if (battleContext.playerCurrentTarget != null)
         {
-            battleContext.SetPlayerCurrentTarget(battleContext.enemyParty.mainUnit[0]);
+            playerTarget = new UnitEntity[] { battleContext.playerCurrentTarget };
         }
-        Command command = new Command(caster, new UnitEntity[] { battleContext.playerCurrentTarget }, actionID);
+        Command command = new Command(caster, playerTarget, actionID, this);
         if (command.costData != null)
         {
             if (caster.CheckCost(command.costData))
@@ -121,7 +148,7 @@ public class BattleController : ManagerBase<BattleController>
 
     public void AddCommandQueueAuto(UnitEntity caster, string actionID)
     {
-        Command command = new Command(caster, (UnitEntity[])caster.variables["targets"], actionID);
+        Command command = new Command(caster, (UnitEntity[])caster.variables["targets"], actionID, this);
         battleContext.AddCommand(command);
     }
 

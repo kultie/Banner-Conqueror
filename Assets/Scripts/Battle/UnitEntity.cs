@@ -14,6 +14,8 @@ public class UnitEntity : Entity
     public OnResourceValueChanged onHealthChanged;
     public OnResourceValueChanged onChargeBarChanged;
 
+    public bool isPlayerUnit { protected set; get; }
+
     private BattleContext context;
     public UnitEntity(UnitData data)
     {
@@ -27,8 +29,9 @@ public class UnitEntity : Entity
         context = c;
     }
 
-    public void SetPartyId(string value)
+    public void SetPartyId(string value, bool isPlayerUnit)
     {
+        this.isPlayerUnit = isPlayerUnit;
         partyID = value;
     }
 
@@ -53,22 +56,43 @@ public class UnitEntity : Entity
         return stats.GetCurrentStats(UnitStat.HP) <= 0;
     }
 
-    public void TakeDamage(float damage)
+    public void Stagger()
     {
         display.RequestAnimation("hit");
-        float currentHP = stats.GetCurrentStats(UnitStat.HP);
-        currentHP -= damage;
-        UpdateHP(currentHP);
-        Debug.Log(partyID + ": " + currentHP);
-        Debug.Log(partyID + ": " + IsDead());
-        if (IsDead())
-        {
-            Dead(context);
-        }
         BattleController.Instance.timer.After(GameConfig.STAGGER_TIME, () =>
         {
             display.RequestAnimation("idle");
         });
+    }
+
+    public void TakeDamage(float damage)
+    {
+        Stagger();
+        float currentHP = stats.GetCurrentStats(UnitStat.HP);
+        currentHP -= damage;
+        UpdateHP(currentHP);
+        if (IsDead())
+        {
+            Dead(context);
+        }
+    }
+
+    public void Heal(float amount)
+    {
+        float currentHP = stats.GetCurrentStats(UnitStat.HP);
+        currentHP += amount;
+        UpdateHP(currentHP);
+    }
+
+    public void ChangeHP(float value)
+    {
+        float currentHP = stats.GetCurrentStats(UnitStat.HP);
+        currentHP -= value;
+        UpdateHP(currentHP);
+        if (IsDead())
+        {
+            Dead(context);
+        }
     }
 
     public virtual void ResetAnimation()

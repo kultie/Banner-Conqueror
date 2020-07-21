@@ -19,7 +19,7 @@ public class BattleEnemyTurnState : BattleStateBase
         {
             if (!context.enemyParty.mainUnit[i].IsDead())
             {
-                context.enemyParty.mainUnit[i].variables["targets"] = new UnitEntity[] { context.playerParty.mainUnit[0] };
+                context.enemyParty.mainUnit[i].variables["targets"] = null;
                 context.battleController.AddCommandQueueAuto(context.enemyParty.mainUnit[i], "attack");
             }
         }

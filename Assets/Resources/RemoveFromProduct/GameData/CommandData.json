@@ -1,6 +1,7 @@
 {
     "f_arch_angel": {
         "attack": {
+            "target_type": "SingleEnemy",
             "actions": [
                 {
                     "on_execute": [
@@ -77,27 +78,15 @@
                                     "value_type": "float",
                                     "value": 30
                                 },
-                                "entity": {
+                                "targets": {
                                     "type": "function",
-                                    "namespace": "general",
-                                    "command": "index_from_array",
+                                    "namespace": "entity",
+                                    "command": "get_variable",
                                     "args": {
-                                        "index": {
+                                        "variable_id": {
                                             "type": "value",
-                                            "value_type": "int",
-                                            "value": 0
-                                        },
-                                        "array": {
-                                            "type": "function",
-                                            "namespace": "entity",
-                                            "command": "get_variable",
-                                            "args": {
-                                                "variable_id": {
-                                                    "type": "value",
-                                                    "value_type": "string",
-                                                    "value": "targets"
-                                                }
-                                            }
+                                            "value_type": "string",
+                                            "value": "targets"
                                         }
                                     }
                                 }
@@ -262,6 +251,7 @@
     },
     "f_assassin": {
         "attack": {
+            "target_type": "AllEnemies",
             "actions": [
                 {
                     "on_execute": [
@@ -338,27 +328,15 @@
                                     "value_type": "float",
                                     "value": 30
                                 },
-                                "entity": {
+                                "targets": {
                                     "type": "function",
-                                    "namespace": "general",
-                                    "command": "index_from_array",
+                                    "namespace": "entity",
+                                    "command": "get_variable",
                                     "args": {
-                                        "index": {
+                                        "variable_id": {
                                             "type": "value",
-                                            "value_type": "int",
-                                            "value": 0
-                                        },
-                                        "array": {
-                                            "type": "function",
-                                            "namespace": "entity",
-                                            "command": "get_variable",
-                                            "args": {
-                                                "variable_id": {
-                                                    "type": "value",
-                                                    "value_type": "string",
-                                                    "value": "targets"
-                                                }
-                                            }
+                                            "value_type": "string",
+                                            "value": "targets"
                                         }
                                     }
                                 }

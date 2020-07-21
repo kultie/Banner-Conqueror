@@ -9,15 +9,16 @@ public class Party
     public TeamSide team;
     public UnitEntity[] mainUnit;
     public BannerUnit bannerUnit;
+
     public Party(UnitEntity[] mainUnit, BannerUnit bannerUnit, TeamSide team)
     {
         this.mainUnit = mainUnit;
         for (int i = 0; i < mainUnit.Length; i++)
         {
-            mainUnit[i].SetPartyId(team + i.ToString());
+            mainUnit[i].SetPartyId(team + i.ToString(), team == TeamSide.Player);
         }
         this.bannerUnit = bannerUnit;
-        bannerUnit.SetPartyId(team + "banner");
+        bannerUnit.SetPartyId(team + "banner", team == TeamSide.Player);
         this.team = team;
     }
 

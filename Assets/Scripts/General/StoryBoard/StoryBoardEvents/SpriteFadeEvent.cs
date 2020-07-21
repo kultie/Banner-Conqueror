@@ -26,6 +26,6 @@ public class SpriteFadeEvent : StoryBoardEvent
 
     public override bool IsBlock()
     {
-        return true;
+        return false;
     }
 }

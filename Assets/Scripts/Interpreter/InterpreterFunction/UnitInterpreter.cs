@@ -14,7 +14,9 @@ public static class UnitInterpreter
         {"play_animation", PlayAnimation },
         {"set_sprite", SetSprite },
         {"is_animation_done", IsAnimationDone },
-        {"deal_damage", DealDamage }
+        {"deal_damage", DealDamage },
+        {"heal", Heal },
+        {"change_hp", ChangeHP }
     };
 
     private static object IsAnimationDone(Dictionary<string, object> args)
@@ -73,8 +75,24 @@ public static class UnitInterpreter
 
     private static object DealDamage(Dictionary<string, object> args)
     {
+        UnitEntity[] entities = (UnitEntity[])args["targets"];
+        for (int i = 0; i < entities.Length; i++)
+        {
+            entities[i].TakeDamage((float)args["damage"]);
+        }
+        return null;
+    }
+
+    private static object Heal(Dictionary<string, object> args)
+    {
         UnitEntity entity = (UnitEntity)args["entity"];
-        entity.TakeDamage((float)args["damage"]);
+        entity.Heal((float)args["amount"]);
+        return null;
+    }
+    private static object ChangeHP(Dictionary<string, object> args)
+    {
+        UnitEntity entity = (UnitEntity)args["entity"];
+        entity.ChangeHP((float)args["value"]);
         return null;
     }
 }

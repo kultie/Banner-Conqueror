@@ -12,6 +12,7 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
     public SpriteRenderer unitBanner;
     private AnimationSystem anim;
     bool pauseAnimation;
+    public string currentAnimID { private set; get; }
     public void SetUp(UnitEntity unit, TeamSide teamSide)
     {
         this.unitData = unit.data;
@@ -53,6 +54,7 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
 
     public void RequestAnimation(string id)
     {
+        currentAnimID = id;
         AnimationData animData = unitData.GetAnimation(id);
         if (anim == null)
         {
@@ -96,6 +98,10 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
     public bool AnimFinished()
     {
         if (anim == null)
+        {
+            return true;
+        }
+        if (anim.IsLoop())
         {
             return true;
         }

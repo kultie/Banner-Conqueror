@@ -76,4 +76,8 @@ public class AnimationSystem
     {
         index = 0;
     }
+
+    public bool IsLoop() {
+        return loop;
+    }
 }

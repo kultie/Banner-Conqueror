@@ -2,23 +2,37 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Command
 {
+    private BattleController battleController;
     public UnitEntity owner;
     public UnitEntity[] targets;
     public JSONNode costData;
     List<CommandAction> actions;
     public OnCommandFinished finishedCallback;
-    public Command(UnitEntity owner, UnitEntity[] targets, string actionsID)
+    TargetType targetType;
+    public Command(UnitEntity owner, UnitEntity[] targets, string actionsID, BattleController battleController)
     {
         this.owner = owner;
         this.targets = targets;
-        JSONArray actions = owner.data.commands[actionsID]["actions"].AsArray;
-        if (owner.data.commands[actionsID]["cost"] != null)
+        this.battleController = battleController;
+        RegisterCommandData(actionsID);
+    }
+
+    void RegisterCommandData(string id)
+    {
+        JSONNode commandData = owner.data.commands[id];
+        JSONArray actions = commandData["actions"].AsArray;
+        if (commandData["cost"] != null)
         {
-            costData = owner.data.commands[actionsID]["cost"];
+            costData = commandData["cost"];
+        }
+        if (commandData["target_type"] != null)
+        {
+            targetType = Utilities.ConvertToEnum<TargetType>(commandData["target_type"]);
         }
         this.actions = new List<CommandAction>();
         for (int i = 0; i < actions.Count; i++)
@@ -37,7 +51,27 @@ public class Command
         }
     }
 
-    public void ReturnCostToOwner() {
+    public void ResolveTarget()
+    {
+        if (targets == null)
+        {
+            targets = battleController.GetTarget(targetType, owner);
+        }
+        else if ((targetType == TargetType.SingleAlly || targetType == TargetType.SingleEnemy) && targets[0] != null)
+        {
+            if (targets[0].IsDead())
+            {
+                targets = battleController.GetTarget(targetType, owner);
+            }
+        }
+        else
+        {
+            targets = battleController.GetTarget(targetType, owner);
+        }
+    }
+
+    public void ReturnCostToOwner()
+    {
         if (costData != null)
         {
             owner.GainCost(costData);

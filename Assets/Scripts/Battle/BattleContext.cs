@@ -98,6 +98,11 @@ public class BattleContext : StateContextBase
         playerCurrentTarget = target;
     }
 
+
+    void ResetPlayerCurrentTarget() { 
+        
+    }
+
     public void SetLastState(BattleState state)
     {
         lastState = state;
