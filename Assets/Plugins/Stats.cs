@@ -17,11 +17,21 @@ namespace Kultie.Stats
 
         public Stats(JSONNode def)
         {
+            if (def == null) return;
             foreach (KeyValuePair<string, JSONNode> s in def.AsObject)
             {
                 T statsType = Utilities.ConvertToEnum<T>(s.Key);
                 baseStats[statsType] = s.Value.AsFloat;
                 dirtyStats[statsType] = false;
+            }
+        }
+
+        protected void Init()
+        {
+            foreach (var kv in baseStats)
+            {
+                currentStats[kv.Key] = kv.Value;
+                dirtyStats[kv.Key] = false;
             }
         }
 

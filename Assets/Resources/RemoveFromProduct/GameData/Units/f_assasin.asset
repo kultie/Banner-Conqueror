@@ -242,3 +242,4 @@ MonoBehaviour:
     Wisdom: 1
     Defend: 1
     MagDefend: 1
+  commands: f_assassin

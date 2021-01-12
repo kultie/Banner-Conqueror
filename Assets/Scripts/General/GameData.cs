@@ -19,7 +19,7 @@ public class UnitData
     public Vector2 avatarOffset;
     public JSONNode statsData;
     public Dictionary<string, JSONNode> commands;
-
+    public UnitStats stats;
     public UnitData(JSONNode data)
     {
         id = data["id"];
@@ -71,6 +71,8 @@ public class UnitData
         }
         bannerOffset = data.bannerOffset;
         avatarOffset = data.avatarOffset;
+        stats = new UnitStats(data.stats);
+        commands = GenerateUnitCommands(ResourcesManager.GetCommandData(data.commands));
     }
 
     public AnimationData GetAnimation(string id)

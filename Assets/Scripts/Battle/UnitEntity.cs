@@ -20,7 +20,7 @@ public class UnitEntity : Entity
     public UnitEntity(UnitData data)
     {
         this.data = data;
-        stats = new UnitStats(data.statsData);
+        stats = data.stats;
         stats.InitCurrentStats();
     }
 
@@ -38,7 +38,7 @@ public class UnitEntity : Entity
     public virtual void SetDisplay(UnitDisplay display)
     {
         this.display = display;
-        display.RequestAnimation("idle");
+        display.RequestAnimation(UnitAnimation.Idle.ToString());
     }
 
     protected override void OnUpdate(float dt)
@@ -58,10 +58,11 @@ public class UnitEntity : Entity
 
     public void Stagger()
     {
-        display.RequestAnimation("hit");
+        display.RequestAnimation(UnitAnimation.Hit.ToString());
         BattleController.Instance.timer.After(GameConfig.STAGGER_TIME, () =>
         {
-            display.RequestAnimation("idle");
+            if (!IsDead())
+                display.RequestAnimation(UnitAnimation.Idle.ToString());
         });
     }
 
@@ -97,7 +98,8 @@ public class UnitEntity : Entity
 
     public virtual void ResetAnimation()
     {
-        display.RequestAnimation("idle");
+        if (!IsDead())
+            display.RequestAnimation(UnitAnimation.Idle.ToString());
     }
 
     public void Init()
@@ -192,6 +194,7 @@ public class UnitEntity : Entity
 
     public void Dead(BattleContext context)
     {
+        display.RequestAnimation(UnitAnimation.Dead.ToString());
         context.storyBoard.AddToStoryBoard(new SpriteFadeEvent(this, 1f));
     }
 }

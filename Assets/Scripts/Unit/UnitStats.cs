@@ -19,8 +19,10 @@ public class UnitStats : Stats<UnitStat>
         baseStats[UnitStat.Wisdom] = template.Wisdom;
         baseStats[UnitStat.Defend] = template.Defend;
         baseStats[UnitStat.MagicDefend] = template.MagDefend;
+        baseStats[UnitStat.HP] = template.MaxHP;
+        baseStats[UnitStat.MP] = template.MaxMP;
+        Init();
     }
-
     public void InitCurrentStats()
     {
         currentStats[UnitStat.HP] = GetStats(UnitStat.MaxHP);

@@ -11,6 +11,7 @@ public class UnitScriptableObject : SerializedScriptableObject
     public Vector2 bannerOffset;
     public Vector2 avatarOffset;
     public UnitStatsTemplate stats;
+    public string commands;
 }
 public enum UnitAnimation
 {
