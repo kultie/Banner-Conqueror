@@ -1,7 +1,9 @@
 ﻿using SimpleJSON;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
+[Serializable]
 public class AnimationData
 {
     public Sprite[] frames;
@@ -45,6 +47,30 @@ public class UnitData
         avatarOffset = new Vector2(avatar_offset[0].AsFloat, avatar_offset[1].AsFloat);
         statsData = data["stats"];
         commands = GenerateUnitCommands(ResourcesManager.GetCommandData(data["commands"]));
+    }
+
+    public UnitData(UnitScriptableObject data)
+    {
+        id = data.name;
+        sprites = data.sprites;
+        foreach (var kv in data.animData)
+        {
+            string animData = kv.Value.data;
+            int[] numbers = animData.Split(',').Select(Int32.Parse).ToArray();
+            Sprite[] anim_frames = new Sprite[numbers.Length];
+            for (int i = 0; i < anim_frames.Length; i++)
+            {
+                anim_frames[i] = sprites[numbers[i]];
+            }
+            animations[kv.Key.ToString()] = new AnimationData()
+            {
+                frames = anim_frames,
+                spf = kv.Value.spf,
+                loop = kv.Value.loop
+            };
+        }
+        bannerOffset = data.bannerOffset;
+        avatarOffset = data.avatarOffset;
     }
 
     public AnimationData GetAnimation(string id)

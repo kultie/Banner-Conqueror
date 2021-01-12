@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Kultie.EventDispatcher;
 public class BattleInputState : BattleStateBase
 {
     protected override void OnEnter()

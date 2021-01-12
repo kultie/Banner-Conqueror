@@ -1,0 +1,246 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699b19214eeb1214caed175e480ff454, type: 3}
+  m_Name: f_arch_angle 1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: animData
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[UnitAnimation, Assembly-CSharp],[UnityAnimationData,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[UnitAnimation, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|UnityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 0,1,2
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|UnityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 3,4,5
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|UnityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 6,7,8,8,9,6,0
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 5|UnityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 10,11,12,13,14,0
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 6|UnityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 15,16,17
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 7|UnityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 18
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 7
+      Data: 8|UnityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 18
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  sprites:
+  - {fileID: 6218847740628421148, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -6449429932182720221, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -5338569125443103757, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 2432831750749456802, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -2604714607309602021, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -5724264350166543965, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -60480835581560878, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -4355454265639735622, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -6660765980928482698, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -1677185251888997580, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 1467486744109624110, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -7824974225193235121, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 4072689100403443249, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 2464683590232512234, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: -7135835179089248267, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 7951122761620753678, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 114355183055645705, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 368887413480436930, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  - {fileID: 8836260750216747671, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+  bannerOffset: {x: -0.37, y: 0.1}
+  avatarOffset: {x: 0, y: 0}
+  stats:
+    MaxHP: 200
+    MaxMP: 200
+    Strength: 1
+    Wisdom: 1
+    Defend: 1
+    MagDefend: 1

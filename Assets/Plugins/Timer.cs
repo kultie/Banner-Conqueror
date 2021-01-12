@@ -50,6 +50,11 @@ namespace Kultie.TimerSystem
             }
         }
 
+        public void RemoveTag(string tag)
+        {
+            dicTimer.Remove(tag);
+        }
+
         public void Update(float dt)
         {
             var list = new Dictionary<string, TimerElement>(dicTimer);

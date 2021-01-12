@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Kultie.EventDispatcher;
 public class UnitEntity : Entity
 {
     public UnitDisplay display { protected set; get; }
