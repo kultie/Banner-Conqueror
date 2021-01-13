@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace BC.ActionSequence.Unit.Battle
 {
-    public class ChangeHP : UnitBattleActionBase
+    public class GetStats : UnitBattleActionBase
     {
         [SerializeField]
-        float amount;
+        UnitStat stats;
         public override void OnUpdate(float dt)
         {
-            owner.ChangeHP(amount);
+
+        }
+
+        public override object GetValue()
+        {
+            return owner.stats.GetCurrentStats(stats);
         }
     }
 }
+

@@ -23,45 +23,99 @@ MonoBehaviour:
     SerializationNodes:
     - Name: actions
       Entry: 7
-      Data: 0|MS.Internal.Xml.XPath.ClonableStack`1[[BC.ActionSequence.UnitActionBase,
-        Assembly-CSharp]], System.Xml
+      Data: 0|System.Collections.Generic.List`1[[BC.ActionSequence.AbilityActionBase,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 4
     - Name: 
       Entry: 7
-      Data: 1|BC.ActionSequence.Common.Log, Assembly-CSharp
-    - Name: owner
-      Entry: 6
-      Data: 
-    - Name: targets
-      Entry: 6
-      Data: 
-    - Name: valueType
+      Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
+    - Name: customAnimation
+      Entry: 5
+      Data: true
+    - Name: animState
       Entry: 3
-      Data: 1
-    - Name: value
+      Data: 6
+    - Name: data
+      Entry: 7
+      Data: 2|UnitAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 6,6,6,6,7,8
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|BC.ActionSequence.Common.Wait, Assembly-CSharp
+    - Name: time
+      Entry: 4
+      Data: 0.6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|BC.ActionSequence.Common.ShakeCamera, Assembly-CSharp
+    - Name: isBlock
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0.1
+    - Name: strength
+      Entry: 4
+      Data: 0.1
+    - Name: vibrator
+      Entry: 3
+      Data: 10
+    - Name: randomness
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
+    - Name: calculateType
+      Entry: 3
+      Data: 2
+    - Name: amount
+      Entry: 4
+      Data: 0
+    - Name: formular
       Entry: 6
       Data: 
     - Name: action
       Entry: 7
-      Data: 2|BC.ActionSequence.Common.MathFloat, Assembly-CSharp
-    - Name: owner
-      Entry: 6
-      Data: 
-    - Name: targets
-      Entry: 6
-      Data: 
-    - Name: valueType
+      Data: 6|BC.ActionSequence.Common.RandomValue, Assembly-CSharp
+    - Name: minValueType
       Entry: 3
       Data: 0
-    - Name: op
-      Entry: 3
-      Data: 0
-    - Name: value
+    - Name: min
       Entry: 4
-      Data: 5
-    - Name: actions
+      Data: 10
+    - Name: minValue
+      Entry: 6
+      Data: 
+    - Name: maxValueType
+      Entry: 3
+      Data: 0
+    - Name: max
+      Entry: 4
+      Data: 30
+    - Name: maxValue
       Entry: 6
       Data: 
     - Name: 
@@ -76,3 +130,4 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  targetType: 0

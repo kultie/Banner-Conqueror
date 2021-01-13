@@ -14,11 +14,6 @@ namespace BC.ActionSequence.Unit.Display
         [ShowIf("@this.customAnimation")]
         [SerializeField]
         UnitAnimationData data;
-
-        protected override bool ShowTargetSelf()
-        {
-            return false;
-        }
         public override void OnUpdate(float dt)
         {
             if (!customAnimation)

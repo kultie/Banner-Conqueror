@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,18 @@ namespace BC.ActionSequence.Common
         float value;
 
         [ShowIf("valueType", ValueType.ActionValue)]
-        public AbilityActionBase[] actions;
+        [ValueDropdown("TreeView")]
+        [SerializeField]
+        AbilityActionBase[] actions;
+
+        public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
+        {
+            base.Init(entity, targets, context);
+            if (valueType == ValueType.ActionValue)
+            {
+                actions.ForEach(a => a.Init(entity, targets, context));
+            }
+        }
 
         public override void OnUpdate(float dt)
         {

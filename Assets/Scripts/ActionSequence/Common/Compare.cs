@@ -32,6 +32,19 @@ namespace BC.ActionSequence.Common
         [SerializeField]
         AbilityActionBase bValue;
 
+        public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
+        {
+            base.Init(entity, targets, context);
+            if (aValueType == ValueType.ActionValue)
+            {
+                aValue.Init(entity, targets, context);
+            }
+            if (bValueType == ValueType.ActionValue)
+            {
+                bValue.Init(entity, targets, context);
+            }
+        }
+
         public override void OnUpdate(float dt)
         { }
 

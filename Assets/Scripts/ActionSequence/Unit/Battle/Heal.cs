@@ -9,10 +9,7 @@ namespace BC.ActionSequence.Unit.Battle
         float amount;
         public override void OnUpdate(float dt)
         {
-            ResolvingTarget(e =>
-            {
-                e.Heal(amount);
-            });
+            owner.Heal(amount);
         }
     }
 }

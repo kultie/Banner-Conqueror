@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: animData
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[UnitAnimation, Assembly-CSharp],[UnityAnimationData,
+      Data: 0|System.Collections.Generic.Dictionary`2[[UnitAnimation, Assembly-CSharp],[UnitAnimationData,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 2|UnityAnimationData, Assembly-CSharp
+      Data: 2|UnitAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 0,1,2
@@ -73,7 +73,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 3|UnityAnimationData, Assembly-CSharp
+      Data: 3|UnitAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 3,4,5
@@ -97,7 +97,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 4|UnityAnimationData, Assembly-CSharp
+      Data: 4|UnitAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 6,7,8,8,9,6,0
@@ -121,7 +121,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 5|UnityAnimationData, Assembly-CSharp
+      Data: 5|UnitAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 10,11,12,13,14,0
@@ -145,7 +145,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 6|UnityAnimationData, Assembly-CSharp
+      Data: 6|UnitAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 15,16,17
@@ -169,7 +169,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 7|UnityAnimationData, Assembly-CSharp
+      Data: 7|UnitAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 18
@@ -193,7 +193,7 @@ MonoBehaviour:
       Data: 6
     - Name: $v
       Entry: 7
-      Data: 8|UnityAnimationData, Assembly-CSharp
+      Data: 8|UnitAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 18
@@ -244,4 +244,5 @@ MonoBehaviour:
     Wisdom: 1
     Defend: 1
     MagDefend: 1
-  commands: f_arch_angel
+  abilities:
+  - {fileID: 11400000, guid: 5ad101be3abd0f9428b74fc6cf24dfe4, type: 2}

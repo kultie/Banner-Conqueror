@@ -5,11 +5,6 @@ namespace BC.ActionSequence.Unit.Display
 {
     public class WaitForAnimation : UnitDisplayActionBase
     {
-        protected override bool ShowTargetSelf()
-        {
-            return false;
-        }
-
         public override void OnUpdate(float dt)
         {
 

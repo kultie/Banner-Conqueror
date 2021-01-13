@@ -1,5 +1,6 @@
 ﻿
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 namespace BC.ActionSequence.Common
 {
@@ -16,8 +17,16 @@ namespace BC.ActionSequence.Common
         Vector2 value;
 
         [ShowIf("valueType", ValueType.ActionValue)]
-        [ValueDropdown("TreeView", ExpandAllMenuItems = false)]
+        [ValueDropdown("TreeView")]
         public AbilityActionBase[] actions;
+
+        public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
+        {
+            base.Init(entity, targets, context);
+            if (valueType == ValueType.ActionValue) {
+                actions.ForEach(a => a.Init(entity, targets, context));
+            }
+        }
 
         public override void OnUpdate(float dt)
         {

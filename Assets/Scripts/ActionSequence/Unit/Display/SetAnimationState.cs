@@ -9,17 +9,14 @@ namespace BC.ActionSequence.Unit.Display
         bool resume;
         public override void OnUpdate(float dt)
         {
-            ResolvingTarget(e =>
+            if (!resume)
             {
-                if (!resume)
-                {
-                    e.display.PauseAnimation();
-                }
-                else
-                {
-                    e.display.ResumeAnimation();
-                }
-            });
+                owner.display.PauseAnimation();
+            }
+            else
+            {
+                owner.display.ResumeAnimation();
+            }
         }
     }
 }

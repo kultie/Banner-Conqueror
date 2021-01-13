@@ -9,7 +9,7 @@ namespace BC.ActionSequence.Unit.Display
         int spriteIndex;
         public override void OnUpdate(float dt)
         {
-            ResolvingTarget(e => e.display.SetSprite(spriteIndex));
+            owner.display.SetSprite(spriteIndex);
         }
     }
 }

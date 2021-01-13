@@ -28,6 +28,18 @@ namespace BC.ActionSequence.Common
         [ValueDropdown("TreeView")]
         [SerializeField]
         AbilityActionBase maxValue;
+
+        public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
+        {
+            base.Init(entity, targets, context);
+            if (minValueType == ValueType.ActionValue) {
+                minValue.Init(entity, targets, context);
+            }
+            if (maxValueType == ValueType.ActionValue)
+            {
+                maxValue.Init(entity, targets, context);
+            }
+        }
         public override void OnUpdate(float dt)
         {
         }

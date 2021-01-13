@@ -17,6 +17,12 @@ namespace BC.ActionSequence.Common
         [ValueDropdown("TreeView")]
         [SerializeField]
         AbilityActionBase action;
+
+        public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
+        {
+            base.Init(entity, targets, context);
+            action.Init(entity, targets, context);
+        }
         public override void OnUpdate(float dt)
         {
             if (valueType == ValueType.RawValue)

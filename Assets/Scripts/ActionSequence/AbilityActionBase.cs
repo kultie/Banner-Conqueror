@@ -11,12 +11,9 @@ namespace BC.ActionSequence
     [System.Serializable]
     public abstract class AbilityActionBase
     {
-        protected UnitAbility context;
-        [HideInEditorMode]
-        public UnitEntity owner;
-
-        [HideInEditorMode]
-        public UnitEntity[] targets;
+        protected UnitAbility context;        
+        protected UnitEntity owner;
+        protected UnitEntity[] targets;
 
         public virtual string DisplayOnEditor()
         {
