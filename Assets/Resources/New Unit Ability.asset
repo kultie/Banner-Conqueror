@@ -27,7 +27,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
       Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
@@ -66,7 +66,104 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|BC.ActionSequence.Common.ShakeCamera, Assembly-CSharp
+      Data: 4|BC.ActionSequence.Common.Condition, Assembly-CSharp
+    - Name: isBlock
+      Entry: 5
+      Data: true
+    - Name: condition
+      Entry: 7
+      Data: 5|BC.ActionSequence.Common.Compare, Assembly-CSharp
+    - Name: compareOp
+      Entry: 3
+      Data: 4
+    - Name: aValueType
+      Entry: 3
+      Data: 1
+    - Name: a
+      Entry: 4
+      Data: 0
+    - Name: aValue
+      Entry: 7
+      Data: 6|BC.ActionSequence.Unit.Battle.GetStats, Assembly-CSharp
+    - Name: stats
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: bValueType
+      Entry: 3
+      Data: 1
+    - Name: b
+      Entry: 4
+      Data: 190
+    - Name: bValue
+      Entry: 7
+      Data: 7|BC.ActionSequence.Common.MathFloat, Assembly-CSharp
+    - Name: valueType
+      Entry: 3
+      Data: 1
+    - Name: op
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 4
+      Data: 0
+    - Name: actions
+      Entry: 7
+      Data: 8|BC.ActionSequence.AbilityActionBase[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 9|BC.ActionSequence.Unit.Battle.GetStats, Assembly-CSharp
+    - Name: stats
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|BC.ActionSequence.Common.MathFloat, Assembly-CSharp
+    - Name: valueType
+      Entry: 3
+      Data: 0
+    - Name: op
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 0.9
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenTrue
+      Entry: 7
+      Data: 11|MS.Internal.Xml.XPath.ClonableStack`1[[BC.ActionSequence.AbilityActionBase,
+        Assembly-CSharp]], System.Xml
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 12|BC.ActionSequence.Common.ShakeCamera, Assembly-CSharp
     - Name: isBlock
       Entry: 5
       Data: false
@@ -81,45 +178,24 @@ MonoBehaviour:
       Data: 10
     - Name: randomness
       Entry: 3
-      Data: 50
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
+      Data: 13|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
     - Name: calculateType
       Entry: 3
-      Data: 2
+      Data: 0
     - Name: amount
       Entry: 4
-      Data: 0
+      Data: 10
     - Name: formular
       Entry: 6
       Data: 
     - Name: action
-      Entry: 7
-      Data: 6|BC.ActionSequence.Common.RandomValue, Assembly-CSharp
-    - Name: minValueType
-      Entry: 3
-      Data: 0
-    - Name: min
-      Entry: 4
-      Data: 10
-    - Name: minValue
       Entry: 6
-      Data: 
-    - Name: maxValueType
-      Entry: 3
-      Data: 0
-    - Name: max
-      Entry: 4
-      Data: 30
-    - Name: maxValue
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
       Data: 
     - Name: 
       Entry: 8
@@ -130,4 +206,86 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  targetType: 0
+    - Name: whenFalse
+      Entry: 7
+      Data: 14|MS.Internal.Xml.XPath.ClonableStack`1[[BC.ActionSequence.AbilityActionBase,
+        Assembly-CSharp]], System.Xml
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 15|BC.ActionSequence.Common.ShakeCamera, Assembly-CSharp
+    - Name: isBlock
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0.5
+    - Name: strength
+      Entry: 4
+      Data: 0.5
+    - Name: vibrator
+      Entry: 3
+      Data: 20
+    - Name: randomness
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 16|BC.ActionSequence.Unit.Battle.DealDamage, Assembly-CSharp
+    - Name: amount
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 17|BC.ActionSequence.Common.WaitStagger, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 18|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
+    - Name: calculateType
+      Entry: 3
+      Data: 0
+    - Name: amount
+      Entry: 4
+      Data: 10
+    - Name: formular
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 19|BC.ActionSequence.Common.WaitStagger, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  targetType: 1

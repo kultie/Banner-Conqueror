@@ -17,38 +17,8 @@ public class UnitData
     public Dictionary<string, AnimationData> animations = new Dictionary<string, AnimationData>();
     public Vector2 bannerOffset;
     public Vector2 avatarOffset;
-    public JSONNode statsData;
     public UnitAbility[] abilities;
-    public Dictionary<string, JSONNode> commands;
     public UnitStats stats;
-    public UnitData(JSONNode data)
-    {
-        id = data["id"];
-        sprites = ResourcesManager.GetSpritesSheet(data["sprite_source"]);
-        foreach (KeyValuePair<string, JSONNode> kv in data["animation"].AsObject)
-        {
-            var data_frames = kv.Value["frames"].AsArray;
-            Sprite[] anim_frames = new Sprite[data_frames.Count];
-            for (int i = 0; i < anim_frames.Length; i++)
-            {
-                anim_frames[i] = sprites[data_frames[i].AsInt];
-            }
-            float data_spf = kv.Value["spf"].AsFloat;
-            bool data_loop = kv.Value["loop"].AsBool;
-            animations[kv.Key] = new AnimationData()
-            {
-                frames = anim_frames,
-                spf = data_spf,
-                loop = data_loop
-            };
-        }
-        var banner_offset = data["banner_offset"].AsArray;
-        var avatar_offset = data["avatar_offset"].AsArray;
-        bannerOffset = new Vector2(banner_offset[0].AsFloat, banner_offset[1].AsFloat);
-        avatarOffset = new Vector2(avatar_offset[0].AsFloat, avatar_offset[1].AsFloat);
-        statsData = data["stats"];
-        commands = GenerateUnitCommands(ResourcesManager.GetCommandData(data["commands"]));
-    }
 
     public UnitData(UnitScriptableObject data)
     {
