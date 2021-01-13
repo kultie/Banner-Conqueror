@@ -41,8 +41,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: value
-      Entry: 1
-      Data: Hello World
+      Entry: 6
+      Data: 
     - Name: action
       Entry: 7
       Data: 2|BC.ActionSequence.Common.MathFloat, Assembly-CSharp
