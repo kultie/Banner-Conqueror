@@ -5,18 +5,12 @@ using UnityEngine;
 
 public static class ResourcesManager
 {
-    static JSONNode unitData;
-    static JSONNode enemyData;
-    static JSONNode commandData;
     static JSONNode formulaData;
     static JSONNode itemData;
     static JSONNode passiveData;
 
     static Dictionary<string, JSONNode> cachedFormulasData = new Dictionary<string, JSONNode>();
-
     static Dictionary<string, UnitScriptableObject> cachedUnitData = new Dictionary<string, UnitScriptableObject>();
-    //static Dictionary<string, UnitScriptableObject> cachedEnemyData = new Dictionary<string, UnitScriptableObject>();
-    static Dictionary<string, JSONNode> cachedCommandData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedItemData = new Dictionary<string, JSONNode>();
     static Dictionary<string, JSONNode> cachedPassiveData = new Dictionary<string, JSONNode>();
     static Dictionary<string, AudioClip> cachedAudioClip = new Dictionary<string, AudioClip>();
@@ -47,32 +41,6 @@ public static class ResourcesManager
         }
         return data;
     }
-
-    public static JSONNode GetCommandData(string id)
-    {
-        JSONNode data = null;
-        if (!cachedCommandData.TryGetValue(id, out data))
-        {
-            TextAsset a = Resources.Load("RemoveFromProduct/GameData/CommandData") as TextAsset;
-            commandData = JSON.Parse(a.text);
-            data = commandData[id];
-            cachedCommandData[id] = data;
-        }
-        return data;
-    }
-
-    //public static JSONNode GetEnemyData(string id)
-    //{
-    //    JSONNode data = null;
-    //    if (!cachedEnemyData.TryGetValue(id, out data))
-    //    {
-    //        TextAsset a = Resources.Load("GameData/EnemyData") as TextAsset;
-    //        enemyData = JSON.Parse(a.text);
-    //        data = enemyData["enemies"][id];
-    //        cachedEnemyData[id] = data;
-    //    }
-    //    return data;
-    //}
 
     public static JSONNode GetItemData(string id)
     {
