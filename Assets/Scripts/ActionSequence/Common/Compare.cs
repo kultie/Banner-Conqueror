@@ -18,7 +18,7 @@ namespace BC.ActionSequence.Common
         [ShowIf("aValueType", ValueType.ActionValue)]
         [ValueDropdown("TreeView")]
         [SerializeField]
-        UnitActionBase aValue;
+        AbilityActionBase aValue;
         [Header("Second number")]
         [SerializeField]
         ValueType bValueType;
@@ -30,7 +30,7 @@ namespace BC.ActionSequence.Common
         [ShowIf("bValueType", ValueType.ActionValue)]
         [ValueDropdown("TreeView")]
         [SerializeField]
-        UnitActionBase bValue;
+        AbilityActionBase bValue;
 
         public override void OnUpdate(float dt)
         { }

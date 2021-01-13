@@ -9,18 +9,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Create Ability", order = -1)]
 public class UnitAbility : SerializedScriptableObject
 {
+    public TargetType targetType;
+
     [ValueDropdown("TreeView")]
-    public List<UnitActionBase> actions;
-    List<UnitActionBase> runningActions;
+    public List<AbilityActionBase> actions;
+    List<AbilityActionBase> runningActions;
+
     protected IEnumerable TreeView()
     {
-        return UnitActionBase.TreeView();
+        return AbilityActionBase.TreeView();
     }
 
     public void Execute(UnitEntity owner, UnitEntity[] targets)
     {
-        runningActions = new List<UnitActionBase>(actions);
-        runningActions.ForEach(a => a.Init(owner, targets));
+        runningActions = new List<AbilityActionBase>(actions);
+        runningActions.ForEach(a => a.Init(owner, targets, this));
     }
 
     public void OnUpdate(float dt)
@@ -30,7 +33,7 @@ public class UnitAbility : SerializedScriptableObject
             int deleteIndex = -1;
             for (int i = 0; i < runningActions.Count; i++)
             {
-                UnitActionBase act = runningActions[i];
+                AbilityActionBase act = runningActions[i];
                 act.OnUpdate(dt);
                 if (act.IsFinished())
                 {
@@ -47,5 +50,10 @@ public class UnitAbility : SerializedScriptableObject
                 runningActions.RemoveAt(deleteIndex);
             }
         }
+    }
+
+    public bool IsFinished()
+    {
+        return runningActions.Count == 0;
     }
 }

@@ -17,7 +17,7 @@ namespace BC.ActionSequence.Common
         float value;
 
         [ShowIf("valueType", ValueType.ActionValue)]
-        public UnitActionBase[] actions;
+        public AbilityActionBase[] actions;
 
         public override void OnUpdate(float dt)
         {

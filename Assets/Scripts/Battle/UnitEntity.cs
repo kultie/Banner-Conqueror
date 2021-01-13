@@ -10,6 +10,7 @@ public class UnitEntity : Entity
     public UnitStats stats { protected set; get; }
     public UnitData data { protected set; get; }
     public string partyID { protected set; get; }
+    public Party party { protected set; get; }
 
     public OnResourceValueChanged onHealthChanged;
     public OnResourceValueChanged onChargeBarChanged;
@@ -29,8 +30,9 @@ public class UnitEntity : Entity
         context = c;
     }
 
-    public void SetPartyId(string value, bool isPlayerUnit)
+    public void SetPartyId(Party party, string value, bool isPlayerUnit)
     {
+        this.party = party;
         this.isPlayerUnit = isPlayerUnit;
         partyID = value;
     }

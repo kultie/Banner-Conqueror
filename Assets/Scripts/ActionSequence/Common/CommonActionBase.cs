@@ -1,6 +1,6 @@
 ﻿namespace BC.ActionSequence.Common
 {
-    public abstract class CommonActionBase : UnitActionBase
+    public abstract class CommonActionBase : AbilityActionBase
     {
         public override string DisplayOnEditor()
         {

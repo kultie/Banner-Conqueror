@@ -16,7 +16,7 @@ namespace BC.ActionSequence.Common
         [ShowIf("valueType", ValueType.ActionValue)]
         [ValueDropdown("TreeView")]
         [SerializeField]
-        UnitActionBase action;
+        AbilityActionBase action;
         public override void OnUpdate(float dt)
         {
             if (valueType == ValueType.RawValue)

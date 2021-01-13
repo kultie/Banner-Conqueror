@@ -55,13 +55,18 @@ public class BattleController : ManagerBase<BattleController>
             new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin"))),
             new UnitEntity(new UnitData(ResourcesManager.GetUnitData("m_assasin")))};
             BannerUnit enemyBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
-            battleContext = new BattleContext(this, new Party(playerUnits, playerBannerUnit, TeamSide.Player), new Party(enemyUnits, enemyBannerUnit, TeamSide.Enemy));
+
+            Party pParty = null;
+            Party eParty = null;
+            pParty = new Party(playerUnits, playerBannerUnit, TeamSide.Player, eParty);
+            eParty = new Party(enemyUnits, enemyBannerUnit, TeamSide.Enemy, pParty);
+            battleContext = new BattleContext(this, pParty, eParty);
         }
 
 
         playerParty.Setup(battleContext.playerParty);
         enemyParty.Setup(battleContext.enemyParty);
-        BattleUI.Instance.InitCharacters(battleContext.playerParty.mainUnit, battleContext.playerParty.bannerUnit);
+        BattleUI.Instance.InitCharacters(battleContext.playerParty.members, battleContext.playerParty.bannerUnit);
 
         stateMachine.Change(BattleState.Start, battleContext);
     }
@@ -78,14 +83,20 @@ public class BattleController : ManagerBase<BattleController>
 
         switch (targetType)
         {
-            case TargetType.SingleEnemy:
-                return new UnitEntity[] { enemyParty.mainUnit.First(u => !u.IsDead()) };
+            case TargetType.OneEnemy:
+                return new UnitEntity[] { enemyParty.GetRandom() };
             case TargetType.AllEnemies:
-                return enemyParty.mainUnit.Where(u => !u.IsDead()).ToArray();
-            case TargetType.SingleAlly:
-                return new UnitEntity[] { allyParty.mainUnit.First(u => !u.IsDead()) };
+                return enemyParty.members.Where(u => !u.IsDead()).ToArray();
+            case TargetType.OneAlly:
+                return new UnitEntity[] { allyParty.members.First(u => !u.IsDead()) };
             case TargetType.AllAllies:
-                return allyParty.mainUnit.Where(u => !u.IsDead()).ToArray();
+                return allyParty.members.Where(u => !u.IsDead()).ToArray();
+            case TargetType.Self:
+                return new UnitEntity[] { caster };
+            case TargetType.AllAlliesButSelf:
+                return allyParty.members.Where(u => !u.IsDead() && u != caster).ToArray();
+            case TargetType.All:
+                return enemyParty.members.Union(allyParty.members).ToArray();
             default:
                 return null;
         }
@@ -118,14 +129,14 @@ public class BattleController : ManagerBase<BattleController>
         battleContext.SetPlayerCurrentTarget(entity);
     }
 
-    public void AddCommandQueue(UnitEntity caster, string actionID)
+    public void AddCommandQueue(UnitEntity caster, int index)
     {
         UnitEntity[] playerTarget = null;
         if (battleContext.playerCurrentTarget != null)
         {
             playerTarget = new UnitEntity[] { battleContext.playerCurrentTarget };
         }
-        Command command = new Command(caster, playerTarget, actionID, this);
+        Command command = new Command(caster, playerTarget, caster.data.abilities[index], this);
         if (command.costData != null)
         {
             if (caster.CheckCost(command.costData))
@@ -146,9 +157,9 @@ public class BattleController : ManagerBase<BattleController>
         }
     }
 
-    public void AddCommandQueueAuto(UnitEntity caster, string actionID)
+    public void AddCommandQueueAuto(UnitEntity caster, int index)
     {
-        Command command = new Command(caster, (UnitEntity[])caster.variables["targets"], actionID, this);
+        Command command = new Command(caster, (UnitEntity[])caster.variables["targets"], caster.data.abilities[index], this);
         battleContext.AddCommand(command);
     }
 

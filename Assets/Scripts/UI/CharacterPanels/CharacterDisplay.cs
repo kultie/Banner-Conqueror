@@ -62,17 +62,17 @@ public class CharacterDisplay : MonoBehaviour
             if (input.Tap)
             {
                 Debug.Log("attack");
-                BattleController.Instance.AddCommandQueue(unit, "attack");
+                BattleController.Instance.AddCommandQueue(unit, 0);
             }
             else if (input.SwipeUp)
             {
                 Debug.Log("Offensive");
-                BattleController.Instance.AddCommandQueue(unit, "offensive");
+                BattleController.Instance.AddCommandQueue(unit, 1);
             }
             else if (input.SwipeDown)
             {
                 Debug.Log("Defensive");
-                BattleController.Instance.AddCommandQueue(unit, "defensive");
+                BattleController.Instance.AddCommandQueue(unit, 2);
             }
             input.ManualUpdate();
         }

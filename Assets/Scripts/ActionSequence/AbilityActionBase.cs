@@ -9,8 +9,9 @@ namespace BC.ActionSequence
     public enum ValueType { RawValue, ActionValue }
     public enum CompareOperator { Greater, Lesser, Equal, GreaterOrEqual, LesserOrEqual }
     [System.Serializable]
-    public abstract class UnitActionBase
+    public abstract class AbilityActionBase
     {
+        protected UnitAbility context;
         [HideInEditorMode]
         public UnitEntity owner;
 
@@ -22,10 +23,11 @@ namespace BC.ActionSequence
             return "Action";
         }
 
-        public virtual void Init(UnitEntity entity, UnitEntity[] targets)
+        public virtual void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
         {
-            this.owner = entity;
+            owner = entity;
             this.targets = targets;
+            this.context = context;
         }
 
         public abstract void OnUpdate(float dt);
@@ -55,16 +57,16 @@ namespace BC.ActionSequence
 
         public static IEnumerable TreeView()
         {
-            ValueDropdownList<UnitActionBase> result = new ValueDropdownList<UnitActionBase>();
-            var q = typeof(UnitActionBase).Assembly.GetTypes()
+            ValueDropdownList<AbilityActionBase> result = new ValueDropdownList<AbilityActionBase>();
+            var q = typeof(AbilityActionBase).Assembly.GetTypes()
                 .Where(x => !x.IsAbstract)
                 .Where(x => !x.IsGenericTypeDefinition)
-                .Where(x => typeof(UnitActionBase).IsAssignableFrom(x));
+                .Where(x => typeof(AbilityActionBase).IsAssignableFrom(x));
 
             foreach (var e in q)
             {
-                UnitActionBase instance = (UnitActionBase)Activator.CreateInstance(e);
-                result.Add(instance.DisplayOnEditor() + "/" + e.Name, (UnitActionBase)Activator.CreateInstance(e));
+                AbilityActionBase instance = (AbilityActionBase)Activator.CreateInstance(e);
+                result.Add(instance.DisplayOnEditor() + "/" + e.Name, (AbilityActionBase)Activator.CreateInstance(e));
             }
             return result;
         }

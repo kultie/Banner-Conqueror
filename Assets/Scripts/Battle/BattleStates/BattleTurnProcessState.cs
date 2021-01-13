@@ -49,11 +49,5 @@ public class BattleTurnProcessState : BattleStateBase
         {
             context.currentTurn.ProcessCurrentCommand(dt);
         }
-
-
-
-
-
-
     }
 }

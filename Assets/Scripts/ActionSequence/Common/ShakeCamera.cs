@@ -18,9 +18,9 @@ namespace BC.ActionSequence.Common
 
         bool started;
         bool isFinished;
-        public override void Init(UnitEntity entity, UnitEntity[] targets)
+        public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
         {
-            base.Init(entity, targets);
+            base.Init(entity, targets, context);
             started = false;
             isFinished = false;
         }

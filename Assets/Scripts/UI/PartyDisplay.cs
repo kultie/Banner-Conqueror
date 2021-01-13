@@ -10,13 +10,13 @@ public class PartyDisplay : MonoBehaviour
 
     public void Setup(Party party)
     {
-        PartyFormation formation = unitsFormation[party.mainUnit.Length - 1];
+        PartyFormation formation = unitsFormation[party.members.Length - 1];
         if (party.bannerUnit != null)
         {
             bannerUnitDisplay.gameObject.SetActive(true);
             bannerUnitDisplay.SetUp(party.bannerUnit, party.team);
         }
         formation.gameObject.SetActive(true);
-        formation.Setup(party.mainUnit, party.team);
+        formation.Setup(party.members, party.team);
     }
 }

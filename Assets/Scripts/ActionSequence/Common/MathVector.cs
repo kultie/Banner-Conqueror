@@ -17,7 +17,7 @@ namespace BC.ActionSequence.Common
 
         [ShowIf("valueType", ValueType.ActionValue)]
         [ValueDropdown("TreeView", ExpandAllMenuItems = false)]
-        public UnitActionBase[] actions;
+        public AbilityActionBase[] actions;
 
         public override void OnUpdate(float dt)
         {

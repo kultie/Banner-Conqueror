@@ -36,6 +36,7 @@ public class Turn
     {
         currentCommand = commands[0];
         currentCommand.ResolveTarget();
+        currentCommand.Execute();
         commands.RemoveAt(0);
     }
 

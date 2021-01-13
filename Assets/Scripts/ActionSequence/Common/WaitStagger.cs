@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace BC.ActionSequence.Common
 {
-    public class Wait : CommonActionBase
+    public class WaitStagger : CommonActionBase
     {
-        [SerializeField]
-        float time;
         float currentTime;
 
         public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
         {
             this.context = context;
-            currentTime = time;
+            currentTime = GameConfig.STAGGER_TIME + 0.05f;
         }
         public override void OnUpdate(float dt)
         {

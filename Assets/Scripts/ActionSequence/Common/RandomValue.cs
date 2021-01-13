@@ -15,7 +15,7 @@ namespace BC.ActionSequence.Common
         [ShowIf("minValueType", ValueType.ActionValue)]
         [ValueDropdown("TreeView")]
         [SerializeField]
-        UnitActionBase minValue;
+        AbilityActionBase minValue;
 
         [SerializeField]
         ValueType maxValueType;
@@ -27,7 +27,7 @@ namespace BC.ActionSequence.Common
         [ShowIf("maxValueType", ValueType.ActionValue)]
         [ValueDropdown("TreeView")]
         [SerializeField]
-        UnitActionBase maxValue;
+        AbilityActionBase maxValue;
         public override void OnUpdate(float dt)
         {
         }

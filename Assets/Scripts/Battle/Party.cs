@@ -7,26 +7,28 @@ using System;
 public class Party
 {
     public TeamSide team;
-    public UnitEntity[] mainUnit;
+    public UnitEntity[] members;
     public BannerUnit bannerUnit;
+    public Party enemyParty;
 
-    public Party(UnitEntity[] mainUnit, BannerUnit bannerUnit, TeamSide team)
+    public Party(UnitEntity[] mainUnit, BannerUnit bannerUnit, TeamSide team, Party enemyParty)
     {
-        this.mainUnit = mainUnit;
+        this.members = mainUnit;
         for (int i = 0; i < mainUnit.Length; i++)
         {
-            mainUnit[i].SetPartyId(team + i.ToString(), team == TeamSide.Player);
+            mainUnit[i].SetPartyId(this, team + i.ToString(), team == TeamSide.Player);
         }
         this.bannerUnit = bannerUnit;
-        bannerUnit.SetPartyId(team + "banner", team == TeamSide.Player);
+        bannerUnit.SetPartyId(this, team + "banner", team == TeamSide.Player);
         this.team = team;
+        this.enemyParty = enemyParty;
     }
 
     public void SetBattleContext(BattleContext c)
     {
-        for (int i = 0; i < mainUnit.Length; i++)
+        for (int i = 0; i < members.Length; i++)
         {
-            mainUnit[i].SetTurn(c);
+            members[i].SetTurn(c);
         }
         bannerUnit.SetTurn(c);
     }
@@ -35,30 +37,34 @@ public class Party
     {
         if (bannerUnit != null)
         {
-            return bannerUnit.IsDead() || mainUnit.Count(a => !a.IsDead()) == 0;
+            return bannerUnit.IsDead() || members.Count(a => !a.IsDead()) == 0;
         }
         else
         {
-            return mainUnit.Count(a => !a.IsDead()) == 0;
+            return members.Count(a => !a.IsDead()) == 0;
         }
     }
 
     public void ResetAnimation()
     {
-        for (int i = 0; i < mainUnit.Length; i++)
+        for (int i = 0; i < members.Length; i++)
         {
-            mainUnit[i].ResetAnimation();
+            members[i].ResetAnimation();
         }
         bannerUnit.ResetAnimation();
     }
 
     public void InitUnits()
     {
-        for (int i = 0; i < mainUnit.Length; i++)
+        for (int i = 0; i < members.Length; i++)
         {
-            mainUnit[i].Init();
+            members[i].Init();
         }
         bannerUnit.Init();
     }
 
+    public UnitEntity GetRandom()
+    {
+        return members.Where(m => !m.IsDead()).Random();
+    }
 }

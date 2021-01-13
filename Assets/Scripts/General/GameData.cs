@@ -18,6 +18,7 @@ public class UnitData
     public Vector2 bannerOffset;
     public Vector2 avatarOffset;
     public JSONNode statsData;
+    public UnitAbility[] abilities;
     public Dictionary<string, JSONNode> commands;
     public UnitStats stats;
     public UnitData(JSONNode data)
@@ -72,7 +73,7 @@ public class UnitData
         bannerOffset = data.bannerOffset;
         avatarOffset = data.avatarOffset;
         stats = new UnitStats(data.stats);
-        commands = GenerateUnitCommands(ResourcesManager.GetCommandData(data.commands));
+        abilities = data.abilities;
     }
 
     public AnimationData GetAnimation(string id)
