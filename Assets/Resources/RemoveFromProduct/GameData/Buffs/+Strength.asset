@@ -18,8 +18,10 @@ MonoBehaviour:
   duration: 5
   modifers:
   - flatValues:
-      keyData: 
-      valueData: []
+      keyData: 04000000
+      valueData:
+      - 500
     multValues:
-      keyData: 
-      valueData: []
+      keyData: 06000000
+      valueData:
+      - 2

@@ -21,7 +21,10 @@ namespace BC.ActionSequence.Common
         public override void Init(UnitEntity entity, UnitEntity[] targets, UnitAbility context)
         {
             base.Init(entity, targets, context);
-            action.Init(entity, targets, context);
+            if (valueType == ValueType.ActionValue)
+            {
+                action.Init(entity, targets, context);
+            }
         }
         public override void OnUpdate(float dt)
         {

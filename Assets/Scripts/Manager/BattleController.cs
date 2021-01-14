@@ -176,4 +176,8 @@ public class BattleController : ManagerBase<BattleController>
         particle.transform.localScale = Vector3.one;
         particle.gameObject.SetActive(true);
     }
+
+    public void AddEventToStoryBoard(StoryBoardEvent evt) {
+        battleContext.storyBoard.AddToStoryBoard(evt);
+    }
 }
