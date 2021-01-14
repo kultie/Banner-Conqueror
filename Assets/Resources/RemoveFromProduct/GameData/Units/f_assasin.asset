@@ -238,9 +238,9 @@ MonoBehaviour:
   stats:
     MaxHP: 200
     MaxMP: 200
-    Strength: 1
-    Wisdom: 1
-    Defend: 1
-    MagDefend: 1
+    Strength: 5
+    Wisdom: 5
+    Defend: 0
+    MagDefend: 0
   abilities:
   - {fileID: 11400000, guid: 5ad101be3abd0f9428b74fc6cf24dfe4, type: 2}

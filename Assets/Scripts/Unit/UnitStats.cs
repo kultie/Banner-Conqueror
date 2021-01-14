@@ -7,6 +7,21 @@ using System;
 
 public class UnitStats : Stats<UnitStat>
 {
+    private static Dictionary<string, UnitStat> formularMap = new Dictionary<string, UnitStat>() {
+        { "mhp", UnitStat.MaxHP},
+        { "mmp", UnitStat.MaxMP},
+        { "str", UnitStat.Strength},
+        { "wis", UnitStat.Wisdom },
+        { "def", UnitStat.Defend},
+        { "mdef", UnitStat.MagicDefend},
+        { "hp", UnitStat.HP},
+        { "mp", UnitStat.MP},
+    };
+
+    public float GetStats(string key)
+    {
+        return GetStats(formularMap[key]);
+    }
     public UnitStats(JSONNode def) : base(def)
     {
     }
