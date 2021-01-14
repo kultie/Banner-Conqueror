@@ -19,8 +19,8 @@ public static class GameFormula
     private static float GetValueFromEntity(string data, UnitEntity attacker, UnitEntity defender)
     {
         string[] _args = data.Split('.');
-        if (_args[0] == "a") return attacker.stats.GetStats(_args[1]);
-        if (_args[0] == "b") return defender.stats.GetStats(_args[1]);
+        if (_args[0] == "a") return attacker.GetStats(_args[1]);
+        if (_args[0] == "b") return defender.GetStats(_args[1]);
         return 0;
     }
 }

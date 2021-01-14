@@ -4,11 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Kultie.EventDispatcher;
+[Serializable]
 public class UnitEntity : Entity
 {
     public UnitDisplay display { protected set; get; }
-    public UnitStats stats { protected set; get; }
+    [SerializeField]
+    protected UnitStats stats;
     public UnitData data { protected set; get; }
+    public BuffContainer buffContainer { protected set; get; }
     public string partyID { protected set; get; }
     public Party party { protected set; get; }
 
@@ -23,6 +26,7 @@ public class UnitEntity : Entity
         this.data = data;
         stats = data.stats;
         stats.InitCurrentStats();
+        buffContainer = new BuffContainer(this);
     }
 
     public void SetTurn(BattleContext c)
@@ -55,7 +59,7 @@ public class UnitEntity : Entity
 
     public bool IsDead()
     {
-        return stats.GetCurrentStats(UnitStat.HP) <= 0;
+        return stats.GetStats(UnitStat.HP) <= 0;
     }
 
     public void Stagger()
@@ -71,7 +75,7 @@ public class UnitEntity : Entity
     public void TakeDamage(float damage)
     {
         Stagger();
-        float currentHP = stats.GetCurrentStats(UnitStat.HP);
+        float currentHP = stats.GetStats(UnitStat.HP);
         currentHP -= damage;
         UpdateHP(currentHP);
         if (IsDead())
@@ -82,14 +86,14 @@ public class UnitEntity : Entity
 
     public void Heal(float amount)
     {
-        float currentHP = stats.GetCurrentStats(UnitStat.HP);
+        float currentHP = stats.GetStats(UnitStat.HP);
         currentHP += amount;
         UpdateHP(currentHP);
     }
 
     public void ChangeHP(float value)
     {
-        float currentHP = stats.GetCurrentStats(UnitStat.HP);
+        float currentHP = stats.GetStats(UnitStat.HP);
         currentHP -= value;
         UpdateHP(currentHP);
         if (IsDead())
@@ -108,12 +112,12 @@ public class UnitEntity : Entity
     {
         EventDispatcher.CallEvent("update_hp_" + partyID, new Dictionary<string, object>()
         {
-            {"current", stats.GetCurrentStats(UnitStat.HP) },
+            {"current", stats.GetStats(UnitStat.HP) },
             {"max", stats.GetStats(UnitStat.MaxHP) }
         });
         EventDispatcher.CallEvent("update_mp_" + partyID, new Dictionary<string, object>()
         {
-            {"current", stats.GetCurrentStats(UnitStat.MP) },
+            {"current", stats.GetStats(UnitStat.MP) },
             {"max", stats.GetStats(UnitStat.MaxMP) }
         });
     }
@@ -144,7 +148,7 @@ public class UnitEntity : Entity
         {
             float cost = kv.Value.AsFloat;
             UnitStat stat = Utilities.ConvertToEnum<UnitStat>(kv.Key);
-            float currentValue = stats.GetCurrentStats(stat);
+            float currentValue = stats.GetStats(stat);
             if (cost > currentValue)
             {
                 return false;
@@ -160,7 +164,7 @@ public class UnitEntity : Entity
         {
             float cost = kv.Value.AsFloat;
             UnitStat stat = Utilities.ConvertToEnum<UnitStat>(kv.Key);
-            float currentValue = stats.GetCurrentStats(stat);
+            float currentValue = stats.GetStats(stat);
             currentValue -= cost;
             switch (stat)
             {
@@ -180,7 +184,7 @@ public class UnitEntity : Entity
         {
             float cost = kv.Value.AsFloat;
             UnitStat stat = Utilities.ConvertToEnum<UnitStat>(kv.Key);
-            float currentValue = stats.GetCurrentStats(stat);
+            float currentValue = stats.GetStats(stat);
             currentValue += cost;
             switch (stat)
             {
@@ -198,5 +202,22 @@ public class UnitEntity : Entity
     {
         display.RequestAnimation(UnitAnimation.Dead.ToString());
         context.storyBoard.AddToStoryBoard(new SpriteFadeEvent(this, 1f));
+    }
+
+    public void AddStatModifer(string id, StatModifier[] mods)
+    {
+        for (int i = 0; i < mods.Length; i++)
+        {
+            stats.AddModifier(id, mods[i]);
+        }
+    }
+
+    public float GetStats(UnitStat key)
+    {
+        return stats.GetStats(key);
+    }
+    public float GetStats(string key)
+    {
+        return stats.GetStats(key);
     }
 }

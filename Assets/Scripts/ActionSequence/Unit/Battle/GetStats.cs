@@ -15,7 +15,7 @@ namespace BC.ActionSequence.Unit.Battle
 
         public override object GetValue()
         {
-            return owner.stats.GetCurrentStats(stats);
+            return owner.GetStats(stats);
         }
     }
 }

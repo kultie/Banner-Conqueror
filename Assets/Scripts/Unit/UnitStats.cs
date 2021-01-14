@@ -2,11 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Kultie.Stats;
 using System;
-
-public class UnitStats : Stats<UnitStat>
+using System.Linq;
+using Sirenix.OdinInspector;
+[Serializable]
+public class UnitStats
 {
+    [SerializeField]
+    protected Dictionary<UnitStat, float> baseStats = new Dictionary<UnitStat, float>();
+
+    protected Dictionary<object, string> statsModifiersSources = new Dictionary<object, string>();
+    protected Dictionary<string, StatModifier> statsModifiers = new Dictionary<string, StatModifier>();
+    private Dictionary<UnitStat, bool> dirtyStats = new Dictionary<UnitStat, bool>();
+    public StatDictionary currentStats = new StatDictionary();
+
     private static Dictionary<string, UnitStat> formularMap = new Dictionary<string, UnitStat>() {
         { "mhp", UnitStat.MaxHP},
         { "mmp", UnitStat.MaxMP},
@@ -22,21 +31,24 @@ public class UnitStats : Stats<UnitStat>
     {
         return GetStats(formularMap[key]);
     }
-    public UnitStats(JSONNode def) : base(def)
-    {
-    }
 
-    public UnitStats(UnitStatsTemplate template) : base(null)
+
+    public UnitStats(UnitStatsTemplate template)
     {
-        baseStats[UnitStat.MaxHP] = template.MaxHP;
-        baseStats[UnitStat.MaxMP] = template.MaxMP;
-        baseStats[UnitStat.Strength] = template.Strength;
-        baseStats[UnitStat.Wisdom] = template.Wisdom;
-        baseStats[UnitStat.Defend] = template.Defend;
-        baseStats[UnitStat.MagicDefend] = template.MagDefend;
-        baseStats[UnitStat.HP] = template.MaxHP;
-        baseStats[UnitStat.MP] = template.MaxMP;
-        Init();
+        baseStats[UnitStat.MaxHP] = template.maxHP;
+        baseStats[UnitStat.MaxMP] = template.maxMP;
+        dirtyStats[UnitStat.MaxHP] = true;
+        dirtyStats[UnitStat.MaxMP] = true;
+        foreach (var kv in template.values)
+        {
+            baseStats[kv.Key] = kv.Value;
+            dirtyStats[kv.Key] = true;
+        }
+        baseStats[UnitStat.HP] = GetStats(UnitStat.MaxHP);
+        baseStats[UnitStat.MP] = GetStats(UnitStat.MaxMP);
+        dirtyStats[UnitStat.HP] = true;
+        dirtyStats[UnitStat.MP] = true;
+
     }
     public void InitCurrentStats()
     {
@@ -57,14 +69,61 @@ public class UnitStats : Stats<UnitStat>
         currentStats[UnitStat.MP] = Mathf.Clamp(value, 0, maxHPValue);
         return currentStats[UnitStat.MP];
     }
+    public void AddModifier(string id, StatModifier statModifier)
+    {
+        statsModifiers[id] = statModifier;
+        SetDirty(statModifier.stat);
+    }
+
+    public void RemoveModifier(string id, StatModifier statModifier)
+    {
+        statsModifiers.Remove(id);
+        SetDirty(statModifier.stat);
+    }
+
+    public void ClearModifer()
+    {
+        statsModifiers.Clear();
+        foreach (var kv in dirtyStats)
+        {
+            dirtyStats[kv.Key] = true;
+        }
+    }
+
+    public float GetStats(UnitStat key)
+    {
+        if (!baseStats.ContainsKey(key)) return 0;
+        if (dirtyStats[key])
+        {
+            float baseValue = baseStats[key];
+            float flatValue = 0;
+            float multValue = 0;
+            var mods = statsModifiers.Values.ToArray();
+            foreach (var data in mods)
+            {
+                flatValue += data.flatValue;
+                multValue += data.multValue;
+            }
+            float realValue = (baseValue + flatValue) * (1 + multValue);
+            currentStats[key] = realValue;
+            dirtyStats[key] = false;
+        }
+        return currentStats[key];
+    }
+
+    private void SetDirty(UnitStat key)
+    {
+        dirtyStats[key] = true;
+    }
+
 }
 [Serializable]
 public class UnitStatsTemplate
 {
-    public float MaxHP;
-    public float MaxMP;
-    public float Strength;
-    public float Wisdom;
-    public float Defend;
-    public float MagDefend;
+    public float maxHP;
+    public float maxMP;
+    public StatDictionary values;
 }
+
+[Serializable]
+public class StatDictionary : UnitySerializedDictionary<UnitStat, float> { }
