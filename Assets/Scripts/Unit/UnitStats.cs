@@ -101,8 +101,11 @@ public class UnitStats
             var mods = statsModifiers.Values.ToArray();
             foreach (var data in mods)
             {
-                flatValue += data.flatValue;
-                multValue += data.multValue;
+                if (data.stat == key)
+                {
+                    flatValue += data.flatValue;
+                    multValue += data.multValue;
+                }
             }
             float realValue = (baseValue + flatValue) * (1 + multValue);
             currentStats[key] = realValue;

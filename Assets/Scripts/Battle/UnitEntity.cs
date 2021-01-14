@@ -12,6 +12,12 @@ public class UnitEntity : Entity
     protected UnitStats stats;
     public UnitData data { protected set; get; }
     public BuffContainer buffContainer { protected set; get; }
+
+    internal void AddBuff(BuffBase buff)
+    {
+        buffContainer.AddBuff(buff);
+    }
+
     public string partyID { protected set; get; }
     public Party party { protected set; get; }
 
@@ -204,7 +210,7 @@ public class UnitEntity : Entity
         context.storyBoard.AddToStoryBoard(new SpriteFadeEvent(this, 1f));
     }
 
-    public void AddStatModifer(string id, StatModifier[] mods)
+    public void AddStatModifer(string id, params StatModifier[] mods)
     {
         for (int i = 0; i < mods.Length; i++)
         {

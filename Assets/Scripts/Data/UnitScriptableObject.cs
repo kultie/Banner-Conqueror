@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Create Unit")]
+[CreateAssetMenu(menuName = "BC/Create Unit")]
 public class UnitScriptableObject : SerializedScriptableObject
 {
     public Sprite[] sprites;

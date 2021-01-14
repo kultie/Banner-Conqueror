@@ -66,7 +66,7 @@ public class BuffContainer
                 {
                     buffs.Remove(b.id);
                     b.OnRemove(owner);
-                }
+                }               
             }
             buffList = buffs.Values.OrderBy(b => b.order).ToList();
         }

@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Create Ability", order = -1)]
+[CreateAssetMenu(menuName = "BC/Create Ability")]
 public class UnitAbility : SerializedScriptableObject
 {
     public TargetType targetType;
