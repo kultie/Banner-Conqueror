@@ -10,18 +10,86 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 807b0023f8e77784a843d77348fa1e19, type: 3}
-  m_Name: New Unit Ability 1
+  m_Name: Add Buff
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 012d390225778214180378ae978d1968, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: actions
-      Entry: 6
+      Entry: 7
+      Data: 0|MS.Internal.Xml.XPath.ClonableStack`1[[BC.ActionSequence.AbilityActionBase,
+        Assembly-CSharp]], System.Xml
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
+    - Name: customAnimation
+      Entry: 5
+      Data: true
+    - Name: animState
+      Entry: 3
+      Data: 3
+    - Name: data
+      Entry: 7
+      Data: 2|UnitAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 15,15,16,17,17
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|BC.ActionSequence.Common.Wait, Assembly-CSharp
+    - Name: time
+      Entry: 4
+      Data: 0.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|BC.ActionSequence.Unit.Battle.AddBuff, Assembly-CSharp
+    - Name: target
+      Entry: 3
+      Data: 0
+    - Name: buff
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|BC.ActionSequence.Common.Wait, Assembly-CSharp
+    - Name: time
+      Entry: 4
+      Data: 0.5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
   targetType: 0

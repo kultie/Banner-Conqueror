@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 807b0023f8e77784a843d77348fa1e19, type: 3}
-  m_Name: New Unit Ability
+  m_Name: Template Attack
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2

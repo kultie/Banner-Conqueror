@@ -72,13 +72,13 @@ public class UnitStats
     public void AddModifier(string id, StatModifier statModifier)
     {
         statsModifiers[id] = statModifier;
-        SetDirty(statModifier.stat);
+        SetDirty(statModifier);
     }
 
     public void RemoveModifier(string id, StatModifier statModifier)
     {
         statsModifiers.Remove(id);
-        SetDirty(statModifier.stat);
+        SetDirty(statModifier);
     }
 
     public void ClearModifer()
@@ -101,10 +101,13 @@ public class UnitStats
             var mods = statsModifiers.Values.ToArray();
             foreach (var data in mods)
             {
-                if (data.stat == key)
+                if (data.flatValues.ContainsKey(key))
                 {
-                    flatValue += data.flatValue;
-                    multValue += data.multValue;
+                    flatValue += data.flatValues[key];
+                }
+                if (data.multValues.ContainsKey(key))
+                {
+                    multValue += data.multValues[key];
                 }
             }
             float realValue = (baseValue + flatValue) * (1 + multValue);
@@ -114,9 +117,16 @@ public class UnitStats
         return currentStats[key];
     }
 
-    private void SetDirty(UnitStat key)
+    private void SetDirty(StatModifier mod)
     {
-        dirtyStats[key] = true;
+        foreach (var kv in mod.flatValues)
+        {
+            dirtyStats[kv.Key] = true;
+        }
+        foreach (var kv in mod.multValues)
+        {
+            dirtyStats[kv.Key] = true;
+        }
     }
 
 }

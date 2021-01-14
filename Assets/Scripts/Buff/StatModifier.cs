@@ -6,7 +6,6 @@ using UnityEngine;
 [Serializable]
 public class StatModifier
 {
-    public UnitStat stat;
-    public float flatValue;
-    public float multValue;
+    public StatDictionary flatValues;
+    public StatDictionary multValues;
 }
