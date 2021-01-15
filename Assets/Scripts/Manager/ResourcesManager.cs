@@ -22,7 +22,7 @@ public static class ResourcesManager
         UnitScriptableObject data = null;
         if (!cachedUnitData.TryGetValue(id, out data))
         {
-            UnitScriptableObject a = Resources.Load("RemoveFromProduct/GameData/Units/" + id) as UnitScriptableObject;
+            UnitScriptableObject a = Resources.Load("GameData/Units/" + id) as UnitScriptableObject;
             data = a;
             cachedUnitData[id] = data;
         }
