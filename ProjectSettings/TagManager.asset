@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BattleFX
+    uniqueID: 1703317447
+    locked: 0

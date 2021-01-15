@@ -3,29 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleFXEntity
+public class ParticleFXEntity : FXEntity
 {
-    Sprite[] sprites;
     AnimationSystem anim;
-    public ParticleFXEntity(JSONNode data)
+    public ParticleFXEntity(Sprite[] sprites, EntityAnimationData data)
     {
-        var sheet = ResourcesManager.GetSpritesSheet(data["source"]);
-        JSONArray framesData = data["frames"].AsArray;
-        sprites = new Sprite[framesData.Count];
-        for (int i = 0; i < framesData.Count; i++)
+        int[] _d = data.GetData();
+        Sprite[] _s = new Sprite[_d.Length];
+        for (int i = 0; i < _d.Length; i++)
         {
-            sprites[i] = sheet[framesData[i].AsInt];
+            _s[i] = sprites[_d[i]];
         }
-        float spf = data["spf"].AsFloat;
-        anim = new AnimationSystem(sprites, false, spf);
+        anim = new AnimationSystem(sprites, data.loop, data.spf);
     }
 
-    public void Update(float dt)
+    public override void Update(float dt)
     {
         anim.Update(dt);
     }
 
-    public Sprite GetSprite() {
+    public bool FinishedAnim()
+    {
+        return anim.IsFinished();
+    }
+
+    public Sprite GetSprite()
+    {
         return anim.Frame();
     }
 }

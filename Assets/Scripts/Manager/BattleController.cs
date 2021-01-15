@@ -17,7 +17,8 @@ public class BattleController : ManagerBase<BattleController>
     public UpdateEntity updateEntity;
 
     public ParticleFXDisplay particleFXPrefab;
-    public Transform particleContainer;
+    public BattleDamageFXDisplay damageFXPrefab;
+    public Transform fxContainer;
 
     public Timer timer;
 
@@ -168,16 +169,27 @@ public class BattleController : ManagerBase<BattleController>
         battleContext.RemoveCommand(command);
     }
 
-    public void CreateParticleFx(JSONNode data)
+    public void CreateParticleFx(Sprite[] sprites, EntityAnimationData data)
     {
-        ParticleFXEntity entity = new ParticleFXEntity(data);
-        var particle = particleFXPrefab.Spawn(particleContainer);
+        ParticleFXEntity entity = new ParticleFXEntity(sprites, data);
+        var particle = particleFXPrefab.Spawn(fxContainer);
         particle.SetEntity(entity);
         particle.transform.localScale = Vector3.one;
         particle.gameObject.SetActive(true);
     }
 
-    public void AddEventToStoryBoard(StoryBoardEvent evt) {
+    public void CreateBattleDamageFX(int value, UnitEntity target)
+    {
+        BattleDamageFXEntity e = new BattleDamageFXEntity(value);
+        var dmg = damageFXPrefab.Spawn(fxContainer);
+        dmg.SetEntity(e);
+        dmg.transform.localScale = Vector3.one;
+        dmg.transform.position = target.display.transform.position;
+        dmg.gameObject.SetActive(true); 
+    }
+
+    public void AddEventToStoryBoard(StoryBoardEvent evt)
+    {
         battleContext.storyBoard.AddToStoryBoard(evt);
     }
 }

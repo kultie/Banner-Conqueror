@@ -88,6 +88,7 @@ public class UnitEntity : Entity
         {
             Dead(context);
         }
+        BattleController.Instance.CreateBattleDamageFX(Mathf.FloorToInt(damage), this);
     }
 
     public void Heal(float amount)

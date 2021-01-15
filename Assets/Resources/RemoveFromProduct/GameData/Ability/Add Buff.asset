@@ -15,7 +15,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 012d390225778214180378ae978d1968, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,7 +28,7 @@ MonoBehaviour:
         Assembly-CSharp]], System.Xml
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
@@ -39,7 +40,7 @@ MonoBehaviour:
       Data: 3
     - Name: data
       Entry: 7
-      Data: 2|UnitAnimationData, Assembly-CSharp
+      Data: 2|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 15,15,16,16
@@ -57,22 +58,25 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|BC.ActionSequence.Common.AddEventToStoryBoard, Assembly-CSharp
+      Data: 3|BC.ActionSequence.Unit.Display.WaitForAnimation, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|BC.ActionSequence.Common.Log, Assembly-CSharp
-    - Name: valueType
+      Data: 4|BC.ActionSequence.Unit.Battle.AddBuff, Assembly-CSharp
+    - Name: target
       Entry: 3
       Data: 0
-    - Name: value
-      Entry: 1
-      Data: Lmao
-    - Name: action
-      Entry: 6
+    - Name: buff
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
       Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|BC.ActionSequence.Common.WaitStagger, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

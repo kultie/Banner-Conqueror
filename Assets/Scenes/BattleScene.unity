@@ -386,6 +386,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1983244592}
   unitBanner: {fileID: 0}
 --- !u!1 &296019638
@@ -562,6 +569,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 706494676}
   unitBanner: {fileID: 0}
 --- !u!61 &329151786
@@ -858,6 +872,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 495143842}
   unitBanner: {fileID: 0}
 --- !u!1 &495143840
@@ -1067,7 +1088,9 @@ MonoBehaviour:
   enemyParty: {fileID: 1175152189}
   particleFXPrefab: {fileID: 5004206268205944202, guid: 4170a55a143885449b9c80d377d97990,
     type: 3}
-  particleContainer: {fileID: 308399992}
+  damageFXPrefab: {fileID: 2344063102567010598, guid: c90624af221637b4ea555536d89fe2af,
+    type: 3}
+  fxContainer: {fileID: 2089594268}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1369,6 +1392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1629965730}
   unitBanner: {fileID: 0}
 --- !u!61 &584829048
@@ -1659,6 +1689,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1953740410}
   unitBanner: {fileID: 792569264}
 --- !u!61 &693414959
@@ -1941,6 +1978,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1109532290}
   unitBanner: {fileID: 0}
 --- !u!1 &838658666
@@ -2392,6 +2436,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1426763841}
   unitBanner: {fileID: 1664203855}
 --- !u!1 &1164111794
@@ -2439,6 +2490,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 296019640}
   unitBanner: {fileID: 0}
 --- !u!61 &1164111797
@@ -2512,6 +2570,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 461552096}
   unitBanner: {fileID: 0}
 --- !u!61 &1171663200
@@ -3521,6 +3586,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1490640018}
   unitBanner: {fileID: 0}
 --- !u!1 &1611927331
@@ -3998,6 +4070,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1174018939}
   unitBanner: {fileID: 0}
 --- !u!1 &1953740408
@@ -4126,6 +4205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 510835078}
   unitBanner: {fileID: 0}
 --- !u!61 &1955018442
@@ -4432,6 +4518,36 @@ MonoBehaviour:
   banner: {fileID: 1559258886}
   commandStack: {fileID: 383492528}
   commandDisplay: {fileID: 1526167301}
+--- !u!1 &2089594267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089594268}
+  m_Layer: 0
+  m_Name: FxContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2089594268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089594267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115838731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4523,6 +4639,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 1557466080}
   unitBanner: {fileID: 0}
 --- !u!61 &2124114483
@@ -4595,6 +4718,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b52467392891e43ba657e17e72da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitModel:
+    id: 
+    position: {x: 0, y: 0}
+    stats:
+      currentStats:
+        keyData: 
+        valueData: []
   unitAvatar: {fileID: 972004344}
   unitBanner: {fileID: 0}
 --- !u!1001 &8684956174046906900

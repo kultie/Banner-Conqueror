@@ -13,7 +13,7 @@ namespace BC.ActionSequence.Unit.Display
         UnitAnimation animState;
         [ShowIf("@this.customAnimation")]
         [SerializeField]
-        UnitAnimationData data;
+        EntityAnimationData data;
         public override void OnUpdate(float dt)
         {
             if (!customAnimation)

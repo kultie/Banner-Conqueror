@@ -8,7 +8,7 @@ using UnityEngine;
 public class UnitScriptableObject : SerializedScriptableObject
 {
     public Sprite[] sprites;
-    public Dictionary<UnitAnimation, UnitAnimationData> animData;
+    public Dictionary<UnitAnimation, EntityAnimationData> animData;
     public Vector2 bannerOffset;
     public Vector2 avatarOffset;
     public UnitStatsTemplate stats;
@@ -25,7 +25,7 @@ public enum UnitAnimation
     Dead
 }
 [Serializable]
-public class UnitAnimationData
+public class EntityAnimationData
 {
     public string data;
     public float spf = 0.12f;
