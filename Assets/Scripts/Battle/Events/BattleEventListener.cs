@@ -14,14 +14,13 @@ namespace BC.BattleEvent
         {
             return "BattleEvent";
         }
-
-
     }
-    [Serializable]
+
+
     public class BattleEventContainer
     {
         [ValueDropdown("TreeView")]
-        public BattleEventListener[] events = new BattleEventListener[] { new BattleLogEvent() };
+        public BattleEventListener[] events;
         public static IEnumerable TreeView()
         {
             ValueDropdownList<BattleEventListener> result = new ValueDropdownList<BattleEventListener>();

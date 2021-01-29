@@ -78,13 +78,24 @@ public class UnitEntity : Entity
         });
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, UnitEntity damageDealer)
     {
         Stagger();
+        BattleDamage bd = new BattleDamage()
+        {
+            attacker = damageDealer,
+            defeneder = this,
+            value = damage
+        };
+
+        EventDispatcher.CallEvent(BattleEvents.on_receive_damage.ToString() + partyID, new Dictionary<string, object> {
+            { "battle_damage", bd},
+        });
+
         float currentHP = stats.GetStats(UnitStat.HP);
-        currentHP -= damage;
+        currentHP -= bd.value;
         UpdateHP(currentHP);
-        EventDispatcher.CallEvent(BattleEvents.on_receive_damage.ToString() + partyID, null);
+
         if (IsDead())
         {
             Dead(context);

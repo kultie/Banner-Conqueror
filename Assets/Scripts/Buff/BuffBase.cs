@@ -20,9 +20,6 @@ public class BuffBase : ScriptableObject
     BattleEventDictionary commands;
     int turnPassed;
 
-    [SerializeField]
-    BattleEventListener[] listneres;
-
     public virtual void OnAdd(UnitEntity owner)
     {
         turnPassed = 0;

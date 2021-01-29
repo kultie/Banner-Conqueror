@@ -11,7 +11,7 @@ namespace BC.ActionSequence.Unit.Battle
         {
             for (int i = 0; i < targets.Length; i++)
             {
-                targets[i].TakeDamage(GetValue(targets[i]));
+                targets[i].TakeDamage(GetValue(targets[i]), owner);
             }
         }
     }

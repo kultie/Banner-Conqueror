@@ -7,7 +7,7 @@ namespace BC.ActionSequence.Unit.Battle
     {
         public override void OnUpdate(float dt)
         {
-            owner.TakeDamage(GetValue(owner));
+            owner.TakeDamage(GetValue(owner), owner);
         }
     }
 }
