@@ -20,7 +20,7 @@ namespace BC.BattleEvent
     public class BattleEventContainer
     {
         [ValueDropdown("TreeView")]
-        public BattleEventListener[] events = new BattleEventListener[] { new BattleLogEvent() };
+        public BattleEventListener[] events;
         public static IEnumerable TreeView()
         {
             ValueDropdownList<BattleEventListener> result = new ValueDropdownList<BattleEventListener>();
@@ -37,6 +37,4 @@ namespace BC.BattleEvent
             return result;
         }
     }
-    [Serializable]
-    public class BattleEventDictionary : UnitySerializedDictionary<BattleEvents, BattleEventContainer> { }
 }

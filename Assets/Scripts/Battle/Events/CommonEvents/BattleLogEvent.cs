@@ -5,11 +5,11 @@ namespace BC.BattleEvent
 {
     public class BattleLogEvent : BattleCommonEvent
     {
+        [SerializeField]
+        string value;
         public override void OnTrigger(Dictionary<string, object> args)
         {
-            BattleDamage dmg = (BattleDamage)args["battle_damage"];
-            Debug.Log(dmg.value);
-            dmg.value = 10;
+            Debug.Log(value);
         }
     }
 }

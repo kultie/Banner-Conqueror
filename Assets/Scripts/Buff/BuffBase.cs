@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "BC/Create Buff")]
-public class BuffBase : ScriptableObject
+public class BuffBase : SerializedScriptableObject
 {
     public enum BuffType { Buff, Debuff, Passive };
     [SerializeField]
@@ -17,7 +17,7 @@ public class BuffBase : ScriptableObject
     public int duration;
     public StatModifier[] modifers;
     [SerializeField]
-    BattleEventDictionary commands;
+    Dictionary<BattleEvents, BattleEventContainer> commands;
     int turnPassed;
 
     public virtual void OnAdd(UnitEntity owner)

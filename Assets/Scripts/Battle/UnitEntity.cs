@@ -92,8 +92,6 @@ public class UnitEntity : Entity
             { "battle_damage", bd},
         });
 
-        Debug.Log(bd.value);
-
         float currentHP = stats.GetStats(UnitStat.HP);
         currentHP -= bd.value;
         UpdateHP(currentHP);
