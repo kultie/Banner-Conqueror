@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Kultie.StateMachine;
 using System;
+using Kultie.EventDispatcher;
 
 public class BattleContext : StateContextBase
 {
@@ -17,10 +18,8 @@ public class BattleContext : StateContextBase
     public BattleResult battleResult { private set; get; }
     public List<Command> commandQueue { private set; get; }
     public UnitEntity playerCurrentTarget { private set; get; }
-    public StoryBoard storyBoard { private set; get; }
     public BattleContext(BattleController controller, Party playerParty, Party enemyParty)
     {
-        storyBoard = new StoryBoard();
         battleController = controller;
         turnCount = 0;
         this.playerParty = playerParty;
@@ -40,18 +39,18 @@ public class BattleContext : StateContextBase
         SetTeam(nextParty);
         if (currentTeam == TeamSide.Player)
         {
-            battleController.stateMachine.Change(BattleState.Input, this);
+            battleController.battleStateMachine.Change(BattleState.Input, this);
         }
         else
         {
-            battleController.stateMachine.Change(BattleState.EnemyTurn, this);
+            battleController.battleStateMachine.Change(BattleState.EnemyTurn, this);
         }
     }
 
     public void ExecuteTurn()
     {
         currentTurn.Execute(commandQueue, this);
-        battleController.stateMachine.Change(BattleState.TurnProcess, this);
+        battleController.battleStateMachine.Change(BattleState.TurnProcess, this);
     }
 
     public void IncreaseTurn(int value = 1)
@@ -99,8 +98,9 @@ public class BattleContext : StateContextBase
     }
 
 
-    void ResetPlayerCurrentTarget() { 
-        
+    void ResetPlayerCurrentTarget()
+    {
+
     }
 
     public void SetLastState(BattleState state)
@@ -110,16 +110,11 @@ public class BattleContext : StateContextBase
 
     public void ChangeBattleState(BattleState state)
     {
-        battleController.stateMachine.Change(state, this);
+        battleController.battleStateMachine.Change(state, this);
     }
 
     public void ChangeToLastState()
     {
-        battleController.stateMachine.Change(lastState, this);
-    }
-
-    public void AddEvent(StoryBoardEvent evt)
-    {
-        storyBoard.AddToStoryBoard(evt);
+        battleController.battleStateMachine.Change(lastState, this);
     }
 }

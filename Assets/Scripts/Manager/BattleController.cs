@@ -21,9 +21,12 @@ public class BattleController : ManagerBase<BattleController>
     public Transform fxContainer;
 
     public Timer timer;
+    public StoryBoard storyBoard { private set; get; }
 
-    public StateMachine<BattleState, BattleContext> stateMachine { private set; get; }
+    public StateMachine<BattleState, BattleContext> battleStateMachine { private set; get; }
+    public StateMachine<GameState, GameContext> gameStateMachine { private set; get; }
     BattleContext battleContext;
+    GameContext gameContext;
 
     protected override BattleController GetInstance()
     {
@@ -41,9 +44,11 @@ public class BattleController : ManagerBase<BattleController>
 
     public void StartBattle()
     {
+        storyBoard = new StoryBoard();
         battleContext = GameManager.Instance.battleContext;
-        stateMachine = new StateMachine<BattleState, BattleContext>(CreateBattleStates());
-
+        gameStateMachine = new StateMachine<GameState, GameContext>(CreateGameStates());
+        battleStateMachine = new StateMachine<BattleState, BattleContext>(CreateBattleStates());
+        gameContext = new GameContext(battleStateMachine, storyBoard);
         if (battleContext == null)
         {
             UnitEntity[] playerUnits = new UnitEntity[] {
@@ -68,10 +73,9 @@ public class BattleController : ManagerBase<BattleController>
         playerParty.Setup(battleContext.playerParty);
         enemyParty.Setup(battleContext.enemyParty);
         BattleUI.Instance.InitCharacters(battleContext.playerParty.members, battleContext.playerParty.bannerUnit);
-
-        stateMachine.Change(BattleState.Start, battleContext);
+        gameStateMachine.Change(GameState.Battle, gameContext);
+        battleStateMachine.Change(BattleState.Start, battleContext);
     }
-
     public UnitEntity[] GetTarget(TargetType targetType, UnitEntity caster)
     {
         Party enemyParty = battleContext.enemyParty;
@@ -102,7 +106,6 @@ public class BattleController : ManagerBase<BattleController>
                 return null;
         }
     }
-
     Dictionary<BattleState, IState<BattleContext>> CreateBattleStates()
     {
         Dictionary<BattleState, IState<BattleContext>> states = new Dictionary<BattleState, IState<BattleContext>>();
@@ -110,8 +113,14 @@ public class BattleController : ManagerBase<BattleController>
         states[BattleState.Input] = new BattleInputState();
         states[BattleState.EnemyTurn] = new BattleEnemyTurnState();
         states[BattleState.Result] = new BattleResultState();
-        states[BattleState.Event] = new BattleEventState();
         states[BattleState.TurnProcess] = new BattleTurnProcessState();
+        return states;
+    }
+    private Dictionary<GameState, IState<GameContext>> CreateGameStates()
+    {
+        Dictionary<GameState, IState<GameContext>> states = new Dictionary<GameState, IState<GameContext>>();
+        states[GameState.Event] = new GameEventState();
+        states[GameState.Battle] = new GameBattleState();
         return states;
     }
 
@@ -121,7 +130,7 @@ public class BattleController : ManagerBase<BattleController>
         float dt = Time.deltaTime;
         updateEntityAnimation?.Invoke(dt);
         updateEntity?.Invoke(dt);
-        stateMachine.Update(dt);
+        gameStateMachine.Update(dt);
         timer.Update(dt);
     }
 
@@ -185,11 +194,11 @@ public class BattleController : ManagerBase<BattleController>
         dmg.SetEntity(e);
         dmg.transform.localScale = Vector3.one;
         dmg.transform.position = target.display.transform.position;
-        dmg.gameObject.SetActive(true); 
+        dmg.gameObject.SetActive(true);
     }
 
     public void AddEventToStoryBoard(StoryBoardEvent evt)
     {
-        battleContext.storyBoard.AddToStoryBoard(evt);
+        storyBoard.AddToStoryBoard(evt);
     }
 }

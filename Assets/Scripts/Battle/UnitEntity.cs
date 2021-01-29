@@ -117,12 +117,12 @@ public class UnitEntity : Entity
 
     public void Init()
     {
-        EventDispatcher.CallEvent("update_hp_" + partyID, new Dictionary<string, object>()
+        EventDispatcher.CallEvent(BattleEvents.on_update_hp.ToString() + partyID, new Dictionary<string, object>()
         {
             {"current", stats.GetStats(UnitStat.HP) },
             {"max", stats.GetStats(UnitStat.MaxHP) }
         });
-        EventDispatcher.CallEvent("update_mp_" + partyID, new Dictionary<string, object>()
+        EventDispatcher.CallEvent(BattleEvents.on_update_mp.ToString() + partyID, new Dictionary<string, object>()
         {
             {"current", stats.GetStats(UnitStat.MP) },
             {"max", stats.GetStats(UnitStat.MaxMP) }
@@ -131,7 +131,7 @@ public class UnitEntity : Entity
 
     public void UpdateHP(float value)
     {
-        EventDispatcher.CallEvent("update_hp_" + partyID, new Dictionary<string, object>()
+        EventDispatcher.CallEvent(BattleEvents.on_update_hp.ToString() + partyID, new Dictionary<string, object>()
         {
             {"current",  stats.SetHP(value)},
             {"max", stats.GetStats(UnitStat.MaxHP) }
@@ -140,7 +140,7 @@ public class UnitEntity : Entity
 
     public void UpdateMP(float value)
     {
-        EventDispatcher.CallEvent("update_mp_" + partyID, new Dictionary<string, object>()
+        EventDispatcher.CallEvent(BattleEvents.on_update_mp.ToString() + partyID, new Dictionary<string, object>()
         {
             {"current",  stats.SetMP(value)},
             {"max", stats.GetStats(UnitStat.MaxMP) }
@@ -208,7 +208,7 @@ public class UnitEntity : Entity
     public void Dead(BattleContext context)
     {
         display.RequestAnimation(UnitAnimation.Dead.ToString());
-        context.storyBoard.AddToStoryBoard(new SpriteFadeEvent(this, 1f));
+        BattleController.Instance.AddEventToStoryBoard(new SpriteFadeEvent(this, 1f));
     }
 
     public void AddStatModifer(string id, params StatModifier[] mods)

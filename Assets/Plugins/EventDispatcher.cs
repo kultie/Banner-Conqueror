@@ -21,6 +21,7 @@ namespace Kultie.EventDispatcher
         {
             if (listeners.TryGetValue(key, out Action<Dictionary<string, object>> func))
             {
+
                 func?.Invoke(arg);
             }
 

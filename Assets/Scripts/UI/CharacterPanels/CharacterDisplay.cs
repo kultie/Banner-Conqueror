@@ -23,16 +23,16 @@ public class CharacterDisplay : MonoBehaviour
     {
         this.unit = unit;
         nameText.text = unit.data.id;
-        EventDispatcher.RegisterEvent("update_hp_" + unit.partyID, OnHealthChange);
-        EventDispatcher.RegisterEvent("update_mp_" + unit.partyID, OnChargeBarChange);
-        EventDispatcher.RegisterEvent("on_player_turn", OnPlayerTurn);
-        EventDispatcher.RegisterEvent("on_player_turn_execute", OnPlayerTurnExecute);
+        EventDispatcher.RegisterEvent(BattleEvents.on_update_hp.ToString() + unit.partyID, OnHealthChange);
+        EventDispatcher.RegisterEvent(BattleEvents.on_update_mp.ToString() + unit.partyID, OnChargeBarChange);
+        EventDispatcher.RegisterEvent(BattleEvents.on_player_turn.ToString(), OnPlayerTurn);
+        EventDispatcher.RegisterEvent(BattleEvents.on_player_turn_start.ToString(), OnPlayerTurnExecute);
         gameObject.SetActive(true);
     }
 
     private void OnPlayerTurnExecute(Dictionary<string, object> obj)
     {
-        allowInput = false;
+        allowInput = false;       
     }
 
     private void OnPlayerTurn(Dictionary<string, object> obj)

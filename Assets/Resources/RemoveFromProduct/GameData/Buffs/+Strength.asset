@@ -20,8 +20,8 @@ MonoBehaviour:
   - flatValues:
       keyData: 04000000
       valueData:
-      - 500
+      - 1000000
     multValues:
-      keyData: 06000000
+      keyData: 04000000
       valueData:
       - 2

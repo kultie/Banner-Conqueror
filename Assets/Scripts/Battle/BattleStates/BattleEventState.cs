@@ -16,10 +16,6 @@ public class BattleEventState : BattleStateBase
 
     protected override void OnUpdate(float dt)
     {
-        context.storyBoard.Update(dt);
-        if (context.storyBoard.IsFinished())
-        {
-            context.ChangeToLastState();
-        }
+
     }
 }

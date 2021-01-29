@@ -9,11 +9,6 @@ public class BattleEnemyTurnState : BattleStateBase
     {
         context.SetPlayerCurrentTarget(null);
         context.SetLastState(BattleState.EnemyTurn);
-        if (!context.storyBoard.IsFinished())
-        {
-            context.ChangeBattleState(BattleState.Event);
-            return;
-        }
         Debug.Log("Entering enemy turn");
         for (int i = 0; i < context.enemyParty.members.Length; i++)
         {

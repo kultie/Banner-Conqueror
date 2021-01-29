@@ -8,11 +8,7 @@ public class BattleInputState : BattleStateBase
     protected override void OnEnter()
     {
         context.SetLastState(BattleState.Input);
-        if (!context.storyBoard.IsFinished()) {
-            context.ChangeBattleState(BattleState.Event);
-            return;
-        }
-        EventDispatcher.CallEvent("on_player_turn", null);
+        EventDispatcher.CallEvent(BattleEvents.on_player_turn.ToString(), null);
         context.SetTeam(context.playerParty);
         BattleUI.Instance.ShowExecuteButton(true);
         BattleUI.Instance.SetButtonFunction(Execute);
@@ -31,7 +27,9 @@ public class BattleInputState : BattleStateBase
     void Execute()
     {
         context.ExecuteTurn();
-        EventDispatcher.CallEvent("on_player_turn_execute", null);
         BattleUI.Instance.ShowExecuteButton(false);
+        BattleController.Instance.AddEventToStoryBoard(new LogEvent("Hello wait for 5s"));
+        BattleController.Instance.AddEventToStoryBoard(new WaitEvent(5));
+        BattleController.Instance.AddEventToStoryBoard(new LogEvent("End of wait process to battle"));
     }
 }
