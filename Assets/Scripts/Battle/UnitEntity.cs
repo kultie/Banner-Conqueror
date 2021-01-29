@@ -92,6 +92,8 @@ public class UnitEntity : Entity
             { "battle_damage", bd},
         });
 
+        Debug.Log(bd.value);
+
         float currentHP = stats.GetStats(UnitStat.HP);
         currentHP -= bd.value;
         UpdateHP(currentHP);
@@ -100,7 +102,7 @@ public class UnitEntity : Entity
         {
             Dead(context);
         }
-        BattleController.Instance.CreateBattleDamageFX(Mathf.FloorToInt(damage), this);
+        BattleController.Instance.CreateBattleDamageFX(Mathf.FloorToInt(bd.value), this);
     }
 
     public void Heal(float amount)

@@ -67,7 +67,7 @@ MonoBehaviour:
       Data: 4|BC.ActionSequence.Unit.Battle.AddBuff, Assembly-CSharp
     - Name: target
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: buff
       Entry: 10
       Data: 0

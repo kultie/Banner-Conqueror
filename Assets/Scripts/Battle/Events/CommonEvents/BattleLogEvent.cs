@@ -9,6 +9,7 @@ namespace BC.BattleEvent
         {
             BattleDamage dmg = (BattleDamage)args["battle_damage"];
             Debug.Log(dmg.value);
+            dmg.value = 10;
         }
     }
 }
