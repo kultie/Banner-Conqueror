@@ -201,4 +201,10 @@ public class BattleController : ManagerBase<BattleController>
     {
         storyBoard.AddToStoryBoard(evt);
     }
+
+    public void AddEventsToStoryBoard(StoryBoardEvent[] evt) {
+        for (int i = 0; i < evt.Length; i++) {
+            storyBoard.AddToStoryBoard(evt[i]);
+        }
+    }
 }
