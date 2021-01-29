@@ -84,6 +84,7 @@ public class UnitEntity : Entity
         float currentHP = stats.GetStats(UnitStat.HP);
         currentHP -= damage;
         UpdateHP(currentHP);
+        EventDispatcher.CallEvent(BattleEvents.on_receive_damage.ToString() + partyID, null);
         if (IsDead())
         {
             Dead(context);
@@ -93,6 +94,7 @@ public class UnitEntity : Entity
 
     public void Heal(float amount)
     {
+        EventDispatcher.CallEvent(BattleEvents.on_heal.ToString() + partyID, null);
         float currentHP = stats.GetStats(UnitStat.HP);
         currentHP += amount;
         UpdateHP(currentHP);
@@ -100,6 +102,7 @@ public class UnitEntity : Entity
 
     public void ChangeHP(float value)
     {
+        EventDispatcher.CallEvent(BattleEvents.on_update_hp.ToString() + partyID, null);
         float currentHP = stats.GetStats(UnitStat.HP);
         currentHP -= value;
         UpdateHP(currentHP);

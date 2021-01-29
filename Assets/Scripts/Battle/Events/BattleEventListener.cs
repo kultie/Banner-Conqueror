@@ -1,5 +1,4 @@
-﻿using BC.BattleEvent;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,11 +20,8 @@ namespace BC.BattleEvent
     [Serializable]
     public class BattleEventContainer
     {
-
-        [SerializeField]
         [ValueDropdown("TreeView")]
-        public BattleEventListener[] events;
-
+        public BattleEventListener[] events = new BattleEventListener[] { new BattleLogEvent() };
         public static IEnumerable TreeView()
         {
             ValueDropdownList<BattleEventListener> result = new ValueDropdownList<BattleEventListener>();

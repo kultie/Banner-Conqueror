@@ -7,7 +7,7 @@ namespace BC.BattleEvent
     {
         public override void OnTrigger(Dictionary<string, object> args)
         {
-            Debug.Log("Hello world");
+            Debug.Log("Hello world from battle log event");
         }
     }
 }

@@ -7,6 +7,7 @@
     on_enemy_turn_end,
     on_receive_damage,
     on_deal_damage,
+    on_heal,
     on_update_hp,
     on_update_mp,
     on_active_buff,

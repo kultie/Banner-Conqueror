@@ -28,8 +28,5 @@ public class BattleInputState : BattleStateBase
     {
         context.ExecuteTurn();
         BattleUI.Instance.ShowExecuteButton(false);
-        BattleController.Instance.AddEventToStoryBoard(new LogEvent("Hello wait for 5s"));
-        BattleController.Instance.AddEventToStoryBoard(new WaitEvent(5));
-        BattleController.Instance.AddEventToStoryBoard(new LogEvent("End of wait process to battle"));
     }
 }

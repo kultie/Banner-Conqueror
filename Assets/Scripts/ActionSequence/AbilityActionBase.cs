@@ -43,15 +43,6 @@ namespace BC.ActionSequence
             return false;
         }
 
-        //protected IEnumerable TreeView()
-        //{
-        //    var q = typeof(UnitActionBase).Assembly.GetTypes()
-        //        .Where(x => !x.IsAbstract)
-        //        .Where(x => !x.IsGenericTypeDefinition)
-        //        .Where(x => typeof(UnitActionBase).IsAssignableFrom(x));
-        //    return q;
-        //}
-
         public static IEnumerable TreeView()
         {
             ValueDropdownList<AbilityActionBase> result = new ValueDropdownList<AbilityActionBase>();

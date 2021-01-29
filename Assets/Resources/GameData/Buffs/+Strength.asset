@@ -25,3 +25,6 @@ MonoBehaviour:
       keyData: 04000000
       valueData:
       - 2
+  commands:
+    keyData: 01000000
+    valueData: []

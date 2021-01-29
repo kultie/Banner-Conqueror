@@ -20,6 +20,9 @@ public class BuffBase : ScriptableObject
     BattleEventDictionary commands;
     int turnPassed;
 
+    [SerializeField]
+    BattleEventListener[] listneres;
+
     public virtual void OnAdd(UnitEntity owner)
     {
         turnPassed = 0;
@@ -68,6 +71,7 @@ public class BuffBase : ScriptableObject
                 case BattleEvents.on_pre_ability:
                 case BattleEvents.on_post_ability:
                 case BattleEvents.on_battle_event:
+                case BattleEvents.on_heal:
                     eventName = kv.Key.ToString() + target.partyID;
                     break;
             }
