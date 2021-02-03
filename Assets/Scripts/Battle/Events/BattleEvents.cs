@@ -14,5 +14,6 @@
     on_buff_expire,
     on_pre_ability,
     on_post_ability,
-    on_battle_event
+    on_battle_event,
+    on_ability_cancel
 }

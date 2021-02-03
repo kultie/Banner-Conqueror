@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: animData
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[UnitAnimation, Assembly-CSharp],[UnitAnimationData,
+      Data: 0|System.Collections.Generic.Dictionary`2[[UnitAnimation, Assembly-CSharp],[EntityAnimationData,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 2|UnitAnimationData, Assembly-CSharp
+      Data: 2|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 0,1,2
@@ -73,7 +73,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 3|UnitAnimationData, Assembly-CSharp
+      Data: 3|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 3,4,5
@@ -97,7 +97,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 4|UnitAnimationData, Assembly-CSharp
+      Data: 4|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 6,7,8
@@ -121,7 +121,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 5|UnitAnimationData, Assembly-CSharp
+      Data: 5|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 9,10,11
@@ -145,7 +145,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 6|UnitAnimationData, Assembly-CSharp
+      Data: 6|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 12,13,14
@@ -169,7 +169,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 7|UnitAnimationData, Assembly-CSharp
+      Data: 7|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 15
@@ -193,7 +193,7 @@ MonoBehaviour:
       Data: 6
     - Name: $v
       Entry: 7
-      Data: 8|UnitAnimationData, Assembly-CSharp
+      Data: 8|EntityAnimationData, Assembly-CSharp
     - Name: data
       Entry: 1
       Data: 16
@@ -215,6 +215,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  attack: {fileID: 11400000, guid: 61969ddd537c42446bdefea543bbde2b, type: 2}
   sprites:
   - {fileID: -1558139447121961014, guid: 7d8df1d172bf0c648bca0cadbc3b54e1, type: 3}
   - {fileID: 7595138905128541494, guid: 7d8df1d172bf0c648bca0cadbc3b54e1, type: 3}
@@ -246,4 +247,5 @@ MonoBehaviour:
       - 1
       - 1
   abilities:
-  - {fileID: 11400000, guid: 5ad101be3abd0f9428b74fc6cf24dfe4, type: 2}
+  - {fileID: 11400000, guid: c06d5f91c2cc96142b45138f79b9f744, type: 2}
+  - {fileID: 11400000, guid: 2aa2137ecabb72d458b105b2960b2ed0, type: 2}

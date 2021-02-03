@@ -11,6 +11,9 @@ public class CharacterDisplay : MonoBehaviour
     public Image portraitImage;
     public ResourceBar healthBar;
     public ResourceBar chargeBar;
+
+    [SerializeField]
+    AbilityContainer abilityContainer;
     UnitEntity unit;
     CharacterInput input;
     bool allowInput;
@@ -27,6 +30,7 @@ public class CharacterDisplay : MonoBehaviour
         EventDispatcher.RegisterEvent(BattleEvents.on_update_mp.ToString() + unit.partyID, OnChargeBarChange);
         EventDispatcher.RegisterEvent(BattleEvents.on_player_turn.ToString(), OnPlayerTurn);
         EventDispatcher.RegisterEvent(BattleEvents.on_player_turn_start.ToString(), OnPlayerTurnExecute);
+        abilityContainer.Init(unit);
         gameObject.SetActive(true);
     }
 

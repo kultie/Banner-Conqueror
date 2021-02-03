@@ -1,4 +1,5 @@
-﻿using Kultie.StateMachine;
+﻿using Kultie.EventDispatcher;
+using Kultie.StateMachine;
 using Kultie.TimerSystem;
 using SimpleJSON;
 using System;
@@ -167,6 +168,34 @@ public class BattleController : ManagerBase<BattleController>
         }
     }
 
+    public void AddCommandQueue(UnitEntity caster, UnitAbility ability)
+    {
+        UnitEntity[] playerTarget = null;
+        if (battleContext.playerCurrentTarget != null)
+        {
+            playerTarget = new UnitEntity[] { battleContext.playerCurrentTarget };
+        }
+        Command command = new Command(caster, playerTarget, ability, this);
+        if (command.costData != null)
+        {
+            if (caster.CheckCost(command.costData))
+            {
+                caster.LoseCost(command.costData);
+                battleContext.AddCommand(command);
+                BattleUI.Instance.AddCommandToStack(null, command);
+            }
+            else
+            {
+                Debug.Log("Not enough cost");
+            }
+        }
+        else
+        {
+            battleContext.AddCommand(command);
+            BattleUI.Instance.AddCommandToStack(null, command);
+        }
+    }
+
     public void AddCommandQueueAuto(UnitEntity caster, int index)
     {
         Command command = new Command(caster, (UnitEntity[])caster.variables["targets"], caster.data.abilities[index], this);
@@ -175,6 +204,7 @@ public class BattleController : ManagerBase<BattleController>
 
     public void RemoveCommand(Command command)
     {
+        EventDispatcher.CallEvent(BattleEvents.on_ability_cancel.ToString() + command.owner.partyID + command.ability.GetInstanceID(), null);
         battleContext.RemoveCommand(command);
     }
 
@@ -202,8 +232,10 @@ public class BattleController : ManagerBase<BattleController>
         storyBoard.AddToStoryBoard(evt);
     }
 
-    public void AddEventsToStoryBoard(StoryBoardEvent[] evt) {
-        for (int i = 0; i < evt.Length; i++) {
+    public void AddEventsToStoryBoard(StoryBoardEvent[] evt)
+    {
+        for (int i = 0; i < evt.Length; i++)
+        {
             storyBoard.AddToStoryBoard(evt[i]);
         }
     }

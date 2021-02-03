@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BC/Create Unit")]
 public class UnitScriptableObject : SerializedScriptableObject
 {
+    public UnitAbility attack;
     public Sprite[] sprites;
     public Dictionary<UnitAnimation, EntityAnimationData> animData;
     public Vector2 bannerOffset;

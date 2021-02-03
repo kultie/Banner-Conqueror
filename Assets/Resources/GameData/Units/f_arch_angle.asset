@@ -215,6 +215,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  attack: {fileID: 11400000, guid: edc40aad4de69ed49baf6f378cceb60b, type: 2}
   sprites:
   - {fileID: 6218847740628421148, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
   - {fileID: -6449429932182720221, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
@@ -248,4 +249,5 @@ MonoBehaviour:
       - 1
       - 1
   abilities:
-  - {fileID: 11400000, guid: 21e643695775d9540a865bb43a155be1, type: 2}
+  - {fileID: 11400000, guid: 5a03d32423771d84895b5930fae4aa07, type: 2}
+  - {fileID: 11400000, guid: 3543bfdce9990d14d98c0155862c65b3, type: 2}

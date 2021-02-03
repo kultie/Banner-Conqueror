@@ -9,7 +9,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BC/Create Ability")]
 public class UnitAbility : SerializedScriptableObject
 {
+    public Sprite icon;
+    public int cooldown;
     public TargetType targetType;
+
+    private int currentCoolDown;
 
     [ValueDropdown("TreeView")]
     public List<AbilityActionBase> actions;
@@ -22,12 +26,30 @@ public class UnitAbility : SerializedScriptableObject
 
     public void Execute(UnitEntity owner, UnitEntity[] targets)
     {
-        runningActions = new List<AbilityActionBase>(actions);
-        runningActions.ForEach(a => a.Init(owner, targets, this));
+        currentCoolDown = cooldown;
+        if (actions != null)
+        {
+            runningActions = new List<AbilityActionBase>(actions);
+            runningActions.ForEach(a => a.Init(owner, targets, this));
+        }
+    }
+
+    public void ProcessCooldown()
+    {
+        currentCoolDown--;
+    }
+
+    public bool IsCooledDown()
+    {
+        return currentCoolDown <= 0;
+    }
+
+    public int CurrentCoolDown() {
+        return currentCoolDown;
     }
 
     public void OnUpdate(float dt)
-    {
+    {        
         if (runningActions != null && runningActions.Count > 0)
         {
             int deleteIndex = -1;
@@ -54,6 +76,7 @@ public class UnitAbility : SerializedScriptableObject
 
     public bool IsFinished()
     {
+        if (runningActions == null) return true;
         return runningActions.Count == 0;
     }
 }
