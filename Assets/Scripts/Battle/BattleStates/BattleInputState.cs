@@ -26,6 +26,7 @@ public class BattleInputState : BattleStateBase
 
     void Execute()
     {
+        BattleController.Instance.AddPlayerPartyAttackCommand();
         context.ExecuteTurn();
         BattleUI.Instance.ShowExecuteButton(false);
     }

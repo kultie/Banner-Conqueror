@@ -22,8 +22,57 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: actions
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[BC.ActionSequence.AbilityActionBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
+    - Name: customAnimation
+      Entry: 5
+      Data: false
+    - Name: animState
+      Entry: 3
+      Data: 2
+    - Name: data
       Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
+    - Name: calculateType
+      Entry: 3
+      Data: 0
+    - Name: amount
+      Entry: 4
+      Data: 0
+    - Name: formular
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|BC.ActionSequence.Unit.Display.WaitForAnimation, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
   icon: {fileID: 0}
   cooldown: 0
-  targetType: 0
+  targetType: 1

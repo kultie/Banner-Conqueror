@@ -18,6 +18,7 @@ public class UnitData
     public Vector2 bannerOffset;
     public Vector2 avatarOffset;
     public UnitAbility[] abilities;
+    public UnitAbility attack;
     public UnitStats stats;
 
     public UnitData(UnitScriptableObject data)
@@ -44,6 +45,7 @@ public class UnitData
         avatarOffset = data.avatarOffset;
         stats = new UnitStats(data.stats);
         abilities = data.abilities;
+        attack = data.attack;
     }
 
     public AnimationData GetAnimation(string id)

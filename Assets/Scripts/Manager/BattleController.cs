@@ -208,6 +208,21 @@ public class BattleController : ManagerBase<BattleController>
         battleContext.RemoveCommand(command);
     }
 
+    public void AddPlayerPartyAttackCommand()
+    {
+        UnitEntity[] playerTarget = null;
+        if (battleContext.playerCurrentTarget != null)
+        {
+            playerTarget = new UnitEntity[] { battleContext.playerCurrentTarget };
+        }
+        for (int i = 0; i < battleContext.playerParty.members.Length; i++)
+        {
+            var p = battleContext.playerParty.members[i];
+            Command cmd = new Command(p, playerTarget, p.data.attack, this);
+            battleContext.AddCommand(cmd);
+        }
+    }
+
     public void CreateParticleFx(Sprite[] sprites, EntityAnimationData data)
     {
         ParticleFXEntity entity = new ParticleFXEntity(sprites, data);
