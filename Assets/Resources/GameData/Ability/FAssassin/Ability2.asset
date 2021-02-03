@@ -15,14 +15,76 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 012d390225778214180378ae978d1968, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: actions
-      Entry: 6
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[BC.ActionSequence.AbilityActionBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
+    - Name: customAnimation
+      Entry: 5
+      Data: true
+    - Name: animState
+      Entry: 3
+      Data: 3
+    - Name: data
+      Entry: 7
+      Data: 2|EntityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 15,15,16,16
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|BC.ActionSequence.Unit.Display.WaitForAnimation, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|BC.ActionSequence.Unit.Battle.AddBuff, Assembly-CSharp
+    - Name: target
+      Entry: 3
+      Data: 0
+    - Name: buff
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|BC.ActionSequence.Common.WaitStagger, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
   icon: {fileID: 21300000, guid: 933e1ef0e77a8924aab7230667357ddc, type: 3}
   cooldown: 0
