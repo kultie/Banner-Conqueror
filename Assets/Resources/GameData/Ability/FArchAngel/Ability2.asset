@@ -87,5 +87,5 @@ MonoBehaviour:
       Entry: 8
       Data: 
   icon: {fileID: 21300000, guid: 926fc31d6fa674a4c9348fa4c5e352d9, type: 3}
-  cooldown: 0
+  cooldown: 5
   targetType: 0

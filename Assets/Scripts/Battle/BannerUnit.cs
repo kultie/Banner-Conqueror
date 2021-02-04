@@ -33,6 +33,6 @@ public class BannerUnit : UnitEntity
 
     public void TriggerBannerEffect(BattleContext battleContext)
     {
-        Debug.Log("Banner effect lmao");
+
     }
 }

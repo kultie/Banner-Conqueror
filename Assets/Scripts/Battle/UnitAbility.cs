@@ -18,6 +18,8 @@ public class UnitAbility : SerializedScriptableObject
     [ValueDropdown("TreeView")]
     public List<AbilityActionBase> actions;
     List<AbilityActionBase> runningActions;
+    [SerializeField]
+    int startedCooldown;
 
     protected IEnumerable TreeView()
     {
@@ -44,12 +46,13 @@ public class UnitAbility : SerializedScriptableObject
         return currentCoolDown <= 0;
     }
 
-    public int CurrentCoolDown() {
+    public int CurrentCoolDown()
+    {
         return currentCoolDown;
     }
 
     public void OnUpdate(float dt)
-    {        
+    {
         if (runningActions != null && runningActions.Count > 0)
         {
             int deleteIndex = -1;
@@ -78,5 +81,10 @@ public class UnitAbility : SerializedScriptableObject
     {
         if (runningActions == null) return true;
         return runningActions.Count == 0;
+    }
+
+    public UnitAbility Clone()
+    {
+        return Instantiate(this);
     }
 }

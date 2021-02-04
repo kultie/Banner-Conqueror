@@ -44,7 +44,11 @@ public class UnitData
         bannerOffset = data.bannerOffset;
         avatarOffset = data.avatarOffset;
         stats = new UnitStats(data.stats);
-        abilities = data.abilities;
+        abilities = new UnitAbility[data.abilities.Length];
+        for (int i = 0; i < data.abilities.Length; i++)
+        {
+            abilities[i] = data.abilities[i].Clone();
+        }
         attack = data.attack;
     }
 
@@ -56,16 +60,5 @@ public class UnitData
     public Sprite GetSprite(int index)
     {
         return sprites[index];
-    }
-
-    private Dictionary<string, JSONNode> GenerateUnitCommands(JSONNode input)
-    {
-        Dictionary<string, JSONNode> result = new Dictionary<string, JSONNode>();
-        foreach (KeyValuePair<string, JSONNode> kv in input.AsObject)
-        {
-            string key = kv.Key;
-            result[key] = kv.Value;
-        }
-        return result;
     }
 }

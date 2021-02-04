@@ -7,7 +7,6 @@ public class GameEventState : GameStateBase
 {
     protected override void OnEnter()
     {
-        Debug.Log("game has event initiate them");
     }
 
     protected override void OnExit()

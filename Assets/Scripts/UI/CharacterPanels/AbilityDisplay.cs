@@ -45,13 +45,15 @@ public class AbilityDisplay : MonoBehaviour
 
     private void OnPlayerTurn(Dictionary<string, object> obj)
     {
+        ability.ProcessCooldown();
         coolDownText.text = ability.CurrentCoolDown().ToString();
-        coolDownText.gameObject.SetActive(ability.IsCooledDown());
+        coolDownText.gameObject.SetActive(!ability.IsCooledDown());
         abilityMask.SetActive(!ability.IsCooledDown());
     }
 
     public void OnInteract()
     {
+        if (!ability.IsCooledDown() || abilityMask.gameObject.activeInHierarchy) return;
         EventDispatcher.RegisterEvent(BattleEvents.on_ability_cancel.ToString() + caster.partyID + ability.GetInstanceID(), OnAbilityCancel);
         abilityMask.SetActive(true);
         BattleController.Instance.AddCommandQueue(caster, ability);

@@ -53,33 +53,4 @@ public class CharacterDisplay : MonoBehaviour
     {
         chargeBar.SetCurrentValue((float)arg["current"], (float)arg["max"]);
     }
-
-    private void Update()
-    {
-        if (unit is BannerUnit)
-        {
-            return;
-        }
-
-        if (allowInput)
-        {
-            if (input.Tap)
-            {
-                Debug.Log("attack");
-                BattleController.Instance.AddCommandQueue(unit, 0);
-            }
-            else if (input.SwipeUp)
-            {
-                Debug.Log("Offensive");
-                BattleController.Instance.AddCommandQueue(unit, 1);
-            }
-            else if (input.SwipeDown)
-            {
-                Debug.Log("Defensive");
-                BattleController.Instance.AddCommandQueue(unit, 2);
-            }
-            input.ManualUpdate();
-        }
-        else input.ResetInput();
-    }
 }

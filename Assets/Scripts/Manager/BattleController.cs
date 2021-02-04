@@ -1,4 +1,5 @@
-﻿using Kultie.EventDispatcher;
+﻿using BC.StoryBoard;
+using Kultie.EventDispatcher;
 using Kultie.StateMachine;
 using Kultie.TimerSystem;
 using SimpleJSON;

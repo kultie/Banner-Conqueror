@@ -7,7 +7,6 @@ public class GameBattleState : GameStateBase
 {
     protected override void OnEnter()
     {
-        Debug.Log("Entering batlte state");
     }
 
     protected override void OnExit()

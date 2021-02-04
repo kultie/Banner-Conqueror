@@ -17,12 +17,10 @@ public class BattleTurnProcessState : BattleStateBase
         {
             EventDispatcher.CallEvent(BattleEvents.on_enemy_turn_start.ToString(), null);
         }
-        Debug.Log("On turn process enter");
     }
 
     protected override void OnExit()
     {
-        Debug.Log("Will run all post turn process here");
         context.playerParty.ResetAnimation();
         context.enemyParty.ResetAnimation();
     }

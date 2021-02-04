@@ -1,45 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class StoryBoard
+namespace BC.StoryBoard
 {
-    private List<StoryBoardEvent> events;
-
-    public StoryBoard()
+    public class StoryBoard
     {
-        events = new List<StoryBoardEvent>();
-    }
+        private List<StoryBoardEvent> events;
 
-    public void AddToStoryBoard(StoryBoardEvent evt)
-    {
-        events.Add(evt);
-    }
-
-    public void Update(float dt)
-    {
-        int deleteIndex = -1;
-        for (int i = 0; i < events.Count; i++)
+        public StoryBoard()
         {
-            events[i].Update(dt);
-            if (events[i].IsFinished())
+            events = new List<StoryBoardEvent>();
+        }
+
+        public void AddToStoryBoard(StoryBoardEvent evt)
+        {
+            events.Add(evt);
+            evt.OnAdd();
+        }
+
+        public void Update(float dt)
+        {
+            int deleteIndex = -1;
+            for (int i = 0; i < events.Count; i++)
             {
-                deleteIndex = i;
-                break;
+                events[i].Update(dt);
+                if (events[i].IsFinished())
+                {
+                    deleteIndex = i;
+                    break;
+                }
+                if (events[i].IsBlock())
+                {
+                    break;
+                }
             }
-            if (events[i].IsBlock())
+            if (deleteIndex != -1)
             {
-                break;
+                events.RemoveAt(deleteIndex);
             }
         }
-        if (deleteIndex != -1)
-        {
-            events.RemoveAt(deleteIndex);
-        }
-    }
 
-    public bool IsFinished()
-    {
-        return events.Count == 0;
+        public bool IsFinished()
+        {
+            return events.Count == 0;
+        }
     }
 }

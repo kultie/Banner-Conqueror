@@ -1,16 +1,26 @@
-﻿using System.Collections;
+﻿using BC.StoryBoard;
+using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace BC.ActionSequence.Common
 {
     public class AddEventToStoryBoard : CommonActionBase
     {
+        [SerializeField]
+        [ValueDropdown("StoryBoardEventTree")]
+        public StoryBoardEvent[] events;
+
+        private IEnumerable StoryBoardEventTree()
+        {
+            return StoryBoardEvent.TreeView();
+        }
         public override void OnUpdate(float dt)
         {
-            BattleController.Instance.AddEventToStoryBoard(new WaitEvent(5));
-            BattleController.Instance.AddEventToStoryBoard(new LogEvent("hehe you will wait for more 2 sec"));
-            BattleController.Instance.AddEventToStoryBoard(new WaitEvent(2));
-            BattleController.Instance.AddEventToStoryBoard(new LogEvent("Finished"));
+            for (int i = 0; i < events.Length; i++)
+            {
+                BattleController.Instance.AddEventToStoryBoard(events[i]);          
+            }
         }
     }
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 6218847740628421148, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,7 +28,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
       Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
@@ -72,15 +73,39 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
-    - Name: customAnimation
-      Entry: 5
-      Data: false
-    - Name: animState
-      Entry: 3
+      Data: 4|BC.ActionSequence.Unit.Display.WaitForAnimation, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|BC.ActionSequence.Common.AddEventToStoryBoard, Assembly-CSharp
+    - Name: events
+      Entry: 7
+      Data: 6|BC.StoryBoard.StoryBoardEvent[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|BC.StoryBoard.Common.DialogueEvent, Assembly-CSharp
+    - Name: actorAvatar
+      Entry: 10
       Data: 0
-    - Name: data
-      Entry: 6
+    - Name: actorName
+      Entry: 1
+      Data: Arch Angel
+    - Name: content
+      Entry: 1
+      Data: Hello world!
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
@@ -92,5 +117,5 @@ MonoBehaviour:
       Entry: 8
       Data: 
   icon: {fileID: 21300000, guid: 3edaffecbc55e8d44a3b8d993592d846, type: 3}
-  cooldown: 0
+  cooldown: 5
   targetType: 1

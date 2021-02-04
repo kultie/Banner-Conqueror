@@ -222,7 +222,7 @@ public class UnitEntity : Entity
     public void Dead(BattleContext context)
     {
         display.RequestAnimation(UnitAnimation.Dead.ToString());
-        BattleController.Instance.AddEventToStoryBoard(new SpriteFadeEvent(this, 1f));
+        BattleController.Instance.AddEventToStoryBoard(BC.StoryBoard.Common.SpriteFadeEvent.CreateInstance(this, 1));
     }
 
     public void AddStatModifer(string id, params StatModifier[] mods)

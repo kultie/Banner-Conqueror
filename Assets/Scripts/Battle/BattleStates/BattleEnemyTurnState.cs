@@ -9,7 +9,6 @@ public class BattleEnemyTurnState : BattleStateBase
     {
         context.SetPlayerCurrentTarget(null);
         context.SetLastState(BattleState.EnemyTurn);
-        Debug.Log("Entering enemy turn");
         for (int i = 0; i < context.enemyParty.members.Length; i++)
         {
             if (!context.enemyParty.members[i].IsDead())
@@ -23,7 +22,7 @@ public class BattleEnemyTurnState : BattleStateBase
 
     protected override void OnExit()
     {
-        Debug.Log("Exitting enemy turn");
+        
     }
 
     protected override void OnUpdate(float dt)
