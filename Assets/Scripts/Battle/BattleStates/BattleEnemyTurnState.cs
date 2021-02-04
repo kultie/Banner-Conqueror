@@ -7,7 +7,7 @@ public class BattleEnemyTurnState : BattleStateBase
 {
     protected override void OnEnter()
     {
-        context.SetPlayerCurrentTarget(null);
+        //context.SetPlayerCurrentTarget(null);
         context.SetLastState(BattleState.EnemyTurn);
         for (int i = 0; i < context.enemyParty.members.Length; i++)
         {

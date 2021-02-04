@@ -12,6 +12,8 @@ public class BattleUI : ManagerBase<BattleUI>
     public CharacterDisplay banner;
     public Transform commandStack;
     public CommandDisplay commandDisplay;
+
+    public bool IsInputting => executeButton.gameObject.activeInHierarchy;
     protected override BattleUI GetInstance()
     {
         return this;

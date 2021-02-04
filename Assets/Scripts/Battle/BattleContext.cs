@@ -94,6 +94,7 @@ public class BattleContext : StateContextBase
 
     public void SetPlayerCurrentTarget(UnitEntity target)
     {
+        EventDispatcher.CallEvent(BattleEvents.on_target_select.ToString() + target.partyID, null);
         playerCurrentTarget = target;
     }
 

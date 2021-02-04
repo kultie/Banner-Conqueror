@@ -15,5 +15,6 @@
     on_pre_ability,
     on_post_ability,
     on_battle_event,
-    on_ability_cancel
+    on_ability_cancel,
+    on_target_select
 }

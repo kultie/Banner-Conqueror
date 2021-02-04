@@ -7,6 +7,7 @@ public class BattleStartState : BattleStateBase
     protected override void OnEnter()
     {
         context.playerParty.InitUnits();
+        context.SetPlayerCurrentTarget(context.enemyParty.members[0]);
         context.ChangeBattleState(BattleState.Input);
     }
 

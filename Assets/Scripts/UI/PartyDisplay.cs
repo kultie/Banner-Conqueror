@@ -5,12 +5,15 @@ using UnityEngine;
 public class PartyDisplay : MonoBehaviour
 {
     public Party party { private set; get; }
-    public PartyFormation[] unitsFormation;
-    public UnitDisplay bannerUnitDisplay;
+    [SerializeField]
+    PartyFormation[] unitsFormation;
+    [SerializeField]
+    UnitDisplay bannerUnitDisplay;
+    private PartyFormation formation;
 
     public void Setup(Party party)
     {
-        PartyFormation formation = unitsFormation[party.members.Length - 1];
+        formation = unitsFormation[party.members.Length - 1];
         if (party.bannerUnit != null)
         {
             bannerUnitDisplay.gameObject.SetActive(true);

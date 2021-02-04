@@ -1,4 +1,6 @@
-﻿using SimpleJSON;
+﻿using Kultie.EventDispatcher;
+using SimpleJSON;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +17,7 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
     public string currentAnimID { private set; get; }
     public void SetUp(UnitEntity unit, TeamSide teamSide)
     {
-        this.unitData = unit.data;
+        unitData = unit.data;
         SetSprite(unitData.sprites[0]);
         switch (teamSide)
         {
@@ -27,16 +29,26 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
                 break;
         }
         unitModel.SetDisplay(this);
+        EventDispatcher.RegisterEvent(BattleEvents.on_target_select.ToString() + unitModel.partyID, OnTargetSelect);
     }
 
     private void OnEnable()
     {
+
         BattleController.Instance.updateEntityAnimation += UpdateAnimation;
         BattleController.Instance.updateEntity += UpdateUnit;
     }
 
+    private void OnTargetSelect(Dictionary<string, object> obj)
+    {
+        EventDispatcher.CallEvent(BattleEvents.on_target_select.ToString(), new Dictionary<string, object>() {
+            { "target", this}
+        });
+    }
+
     private void OnDisable()
     {
+        EventDispatcher.UnRegisterEvent(BattleEvents.on_target_select + unitModel.partyID, OnTargetSelect);
         BattleController.Instance.updateEntityAnimation -= UpdateAnimation;
         BattleController.Instance.updateEntity -= UpdateUnit;
     }
@@ -126,6 +138,9 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        BattleController.Instance.SetPlayerCurrentTarget(unitModel);
+        if (BattleUI.Instance.IsInputting)
+        {
+            BattleController.Instance.SetPlayerCurrentTarget(unitModel);
+        }
     }
 }

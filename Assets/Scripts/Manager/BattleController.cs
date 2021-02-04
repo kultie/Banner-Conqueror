@@ -91,7 +91,18 @@ public class BattleController : ManagerBase<BattleController>
         switch (targetType)
         {
             case TargetType.OneEnemy:
-                return new UnitEntity[] { enemyParty.GetRandom() };
+                if (caster.isPlayerUnit)
+                {
+                    if (battleContext.playerCurrentTarget.IsDead())
+                    {
+                        battleContext.SetPlayerCurrentTarget(enemyParty.GetRandom());
+                    }
+                    return new UnitEntity[] { battleContext.playerCurrentTarget };
+                }
+                else
+                {
+                    return new UnitEntity[] { enemyParty.GetRandom() };
+                }
             case TargetType.AllEnemies:
                 return enemyParty.members.Where(u => !u.IsDead()).ToArray();
             case TargetType.OneAlly:

@@ -53,6 +53,7 @@ public class AbilityDisplay : MonoBehaviour
 
     public void OnInteract()
     {
+        if (!BattleUI.Instance.IsInputting) return;
         if (!ability.IsCooledDown() || abilityMask.gameObject.activeInHierarchy) return;
         EventDispatcher.RegisterEvent(BattleEvents.on_ability_cancel.ToString() + caster.partyID + ability.GetInstanceID(), OnAbilityCancel);
         abilityMask.SetActive(true);
