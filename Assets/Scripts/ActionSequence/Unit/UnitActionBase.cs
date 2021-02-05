@@ -9,7 +9,7 @@ namespace BC.ActionSequence.Unit
     {
         public override string DisplayOnEditor()
         {
-            return "Action/Unit";
+            return "Unit";
         }    
     }
 }

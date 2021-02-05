@@ -16,7 +16,14 @@ namespace BC.ActionSequence.Animation
 
         public override bool IsBlock()
         {
-            return waitForAnimation && owner.display.AnimFinished();
+            return waitForAnimation;
+        }
+
+        public override bool IsFinished()
+        {
+            if (waitForAnimation)
+                return owner.display.AnimFinished();
+            else return true;
         }
     }
 }

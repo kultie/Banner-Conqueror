@@ -16,6 +16,10 @@ namespace BC.ActionSequence.Animation
         EntityAnimationData data;
         protected override void OnUpdate(float dt)
         {
+
+        }
+        public override void OnEnter()
+        {
             if (!customAnimation)
             {
                 owner.display.RequestAnimation(animState.ToString());

@@ -7,7 +7,7 @@ namespace BC.ActionSequence.Unit.Battle
     {
         public override string DisplayOnEditor()
         {
-            return "Action/Unit/Battle";
+            return "Unit/Battle";
         }
     }
 }

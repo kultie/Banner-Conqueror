@@ -4,7 +4,7 @@
     {
         public override string DisplayOnEditor()
         {
-            return "Action/Common";
+            return "Common";
         }
     }
 }
