@@ -27,7 +27,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 9
+      Data: 10
     - Name: 
       Entry: 7
       Data: 1|BC.ActionSequence.CameraSequence.Focus, Assembly-CSharp
@@ -81,7 +81,7 @@ MonoBehaviour:
       Data: 3|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
     - Name: waitForAnimation
       Entry: 5
-      Data: true
+      Data: false
     - Name: customAnimation
       Entry: 5
       Data: false
@@ -96,7 +96,16 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|BC.ActionSequence.CameraSequence.Focus, Assembly-CSharp
+      Data: 4|BC.ActionSequence.Common.Wait, Assembly-CSharp
+    - Name: time
+      Entry: 4
+      Data: 0.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|BC.ActionSequence.CameraSequence.Focus, Assembly-CSharp
     - Name: waitForCamera
       Entry: 5
       Data: true
@@ -126,7 +135,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
+      Data: 6|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
     - Name: calculateType
       Entry: 3
       Data: 1
@@ -144,7 +153,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|BC.ActionSequence.CameraSequence.ShakeCamera, Assembly-CSharp
+      Data: 7|BC.ActionSequence.CameraSequence.ShakeCamera, Assembly-CSharp
     - Name: waitForCamera
       Entry: 5
       Data: false
@@ -168,7 +177,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 7|BC.ActionSequence.Common.Wait, Assembly-CSharp
+      Data: 8|BC.ActionSequence.Common.Wait, Assembly-CSharp
     - Name: time
       Entry: 4
       Data: 0.5
@@ -177,7 +186,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 8|BC.ActionSequence.Animation.WaitForAnimation, Assembly-CSharp
+      Data: 9|BC.ActionSequence.Animation.WaitForAnimation, Assembly-CSharp
     - Name: waitForAnimation
       Entry: 5
       Data: false
@@ -186,7 +195,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 9|BC.ActionSequence.CameraSequence.Reset, Assembly-CSharp
+      Data: 10|BC.ActionSequence.CameraSequence.Reset, Assembly-CSharp
     - Name: waitForCamera
       Entry: 5
       Data: true
