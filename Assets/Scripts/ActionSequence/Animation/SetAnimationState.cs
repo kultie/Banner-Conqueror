@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace BC.ActionSequence.Unit.Display
+namespace BC.ActionSequence.Animation
 {
-    public class SetAnimationState : UnitDisplayActionBase
+    public class SetAnimationState : AnimationAction
     {
         [SerializeField]
         bool resume;
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             if (!resume)
             {
@@ -17,6 +17,11 @@ namespace BC.ActionSequence.Unit.Display
             {
                 owner.display.ResumeAnimation();
             }
+        }
+
+        public override bool IsBlock()
+        {
+            return false;
         }
     }
 }

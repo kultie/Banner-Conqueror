@@ -26,7 +26,7 @@ namespace BC.ActionSequence.Common
                 action.Init(entity, targets, context);
             }
         }
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             if (valueType == ValueType.RawValue)
             {

@@ -7,7 +7,7 @@ namespace BC.ActionSequence.Unit.Battle
 
     public class DealDamageToTarget : ChangeHP
     {
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             for (int i = 0; i < targets.Length; i++)
             {

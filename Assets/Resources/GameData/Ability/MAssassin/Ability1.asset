@@ -30,7 +30,10 @@ MonoBehaviour:
       Data: 4
     - Name: 
       Entry: 7
-      Data: 1|BC.ActionSequence.Unit.Display.RequestAnimation, Assembly-CSharp
+      Data: 1|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
+    - Name: waitForAnimation
+      Entry: 5
+      Data: false
     - Name: customAnimation
       Entry: 5
       Data: false
@@ -72,7 +75,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|BC.ActionSequence.Unit.Display.WaitForAnimation, Assembly-CSharp
+      Data: 4|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
+    - Name: waitForAnimation
+      Entry: 5
+      Data: false
+    - Name: customAnimation
+      Entry: 5
+      Data: false
+    - Name: animState
+      Entry: 3
+      Data: 0
+    - Name: data
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -85,3 +100,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 741c53c7b61505941b73e70a3e806af1, type: 3}
   cooldown: 5
   targetType: 1
+  startedCooldown: 0

@@ -9,7 +9,7 @@ namespace BC.ActionSequence.Unit.Battle
         BuffTarget target;
         [SerializeField]
         BuffBase buff;
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             if (target == BuffTarget.Self)
             {

@@ -12,7 +12,7 @@ namespace BC.ActionSequence.Common
             this.context = context;
             currentTime = GameConfig.STAGGER_TIME + 0.05f;
         }
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             currentTime -= dt;
         }

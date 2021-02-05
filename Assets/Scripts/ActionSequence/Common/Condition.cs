@@ -29,7 +29,7 @@ namespace BC.ActionSequence.Common
             whenTrue.ForEach(a => a.Init(entity, targets, context));
             whenFalse.ForEach(a => a.Init(entity, targets, context));
         }
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             if (actions == null || actions.Count == 0)
             {
@@ -41,7 +41,7 @@ namespace BC.ActionSequence.Common
             for (int i = 0; i < actions.Count; i++)
             {
                 AbilityActionBase act = actions[i];
-                act.OnUpdate(dt);
+                act.PublicUpdate(dt);
                 if (act.IsFinished())
                 {
                     deleteIndex = i;

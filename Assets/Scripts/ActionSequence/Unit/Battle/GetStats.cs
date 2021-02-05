@@ -8,7 +8,7 @@ namespace BC.ActionSequence.Unit.Battle
     {
         [SerializeField]
         UnitStat stats;
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
 
         }

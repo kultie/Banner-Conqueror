@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace BC.ActionSequence.Unit.Display
+namespace BC.ActionSequence.Animation
 {
-    public class WaitForAnimation : UnitDisplayActionBase
+    public class WaitForAnimation : AnimationAction
     {
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
 
         }

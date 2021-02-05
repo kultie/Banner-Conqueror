@@ -14,7 +14,7 @@ public class BattleEnemyTurnState : BattleStateBase
             if (!context.enemyParty.members[i].IsDead())
             {
                 context.enemyParty.members[i].variables["targets"] = null;
-                context.battleController.AddCommandQueueAuto(context.enemyParty.members[i], 0);
+                context.battleController.AddAttack(context.enemyParty.members[i]);
             }
         }
         context.ExecuteTurn();
@@ -22,7 +22,7 @@ public class BattleEnemyTurnState : BattleStateBase
 
     protected override void OnExit()
     {
-        
+
     }
 
     protected override void OnUpdate(float dt)

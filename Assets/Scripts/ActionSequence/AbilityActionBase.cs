@@ -11,10 +11,10 @@ namespace BC.ActionSequence
     [System.Serializable]
     public abstract class AbilityActionBase
     {
-        protected UnitAbility context;        
+        protected UnitAbility context;
         protected UnitEntity owner;
         protected UnitEntity[] targets;
-
+        bool started = false;
         public virtual string DisplayOnEditor()
         {
             return "Action";
@@ -25,9 +25,23 @@ namespace BC.ActionSequence
             owner = entity;
             this.targets = targets;
             this.context = context;
+            started = false;
+        }
+        public void PublicUpdate(float dt)
+        {
+            if (!started)
+            {
+                OnEnter();
+                started = true;
+            }
+            OnUpdate(dt);
+        }
+        public virtual void OnEnter()
+        {
+
         }
 
-        public abstract void OnUpdate(float dt);
+        protected abstract void OnUpdate(float dt);
         public virtual object GetValue()
         {
             return null;

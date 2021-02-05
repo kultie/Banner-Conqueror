@@ -50,7 +50,7 @@ namespace BC.ActionSequence.Unit.Battle
             return value;
         }
 
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             owner.ChangeHP(GetValue(owner));
         }

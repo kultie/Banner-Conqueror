@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BattleBG
+    uniqueID: 2491501795
+    locked: 0
+  - name: BattleUnit
+    uniqueID: 620999797
+    locked: 0
   - name: BattleFX
     uniqueID: 1703317447
     locked: 0

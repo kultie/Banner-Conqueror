@@ -14,7 +14,7 @@ namespace BC.ActionSequence.Common
             this.context = context;
             currentTime = time;
         }
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             currentTime -= dt;
         }

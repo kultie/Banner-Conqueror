@@ -45,7 +45,7 @@ namespace BC.ActionSequence.Common
             }
         }
 
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         { }
 
         public override object GetValue()

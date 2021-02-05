@@ -15,7 +15,7 @@ namespace BC.ActionSequence.Common
         {
             return StoryBoardEvent.TreeView();
         }
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             for (int i = 0; i < events.Length; i++)
             {

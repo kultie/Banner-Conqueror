@@ -7,7 +7,7 @@ namespace BC.ActionSequence.Unit.Display
     {
         [SerializeField]
         int spriteIndex;
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             owner.display.SetSprite(spriteIndex);
         }

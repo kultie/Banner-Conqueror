@@ -5,7 +5,7 @@ namespace BC.ActionSequence.Unit.Battle
 {
     public class DealDamage : ChangeHP
     {
-        public override void OnUpdate(float dt)
+        protected override void OnUpdate(float dt)
         {
             owner.TakeDamage(GetValue(owner), owner);
         }

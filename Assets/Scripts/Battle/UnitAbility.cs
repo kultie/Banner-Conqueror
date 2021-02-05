@@ -59,7 +59,7 @@ public class UnitAbility : SerializedScriptableObject
             for (int i = 0; i < runningActions.Count; i++)
             {
                 AbilityActionBase act = runningActions[i];
-                act.OnUpdate(dt);
+                act.PublicUpdate(dt);
                 if (act.IsFinished())
                 {
                     deleteIndex = i;

@@ -55,7 +55,7 @@ public class BattleController : ManagerBase<BattleController>
         {
             UnitEntity[] playerUnits = new UnitEntity[] {
             new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
-            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_arch_angle"))),
+            new UnitEntity(new UnitData(ResourcesManager.GetUnitData("m_assasin"))),
             new UnitEntity(new UnitData(ResourcesManager.GetUnitData("f_assasin")))};
             BannerUnit playerBannerUnit = new BannerUnit(new UnitData(ResourcesManager.GetUnitData("f_arch_angle")));
             UnitEntity[] enemyUnits = new UnitEntity[] {
@@ -218,6 +218,12 @@ public class BattleController : ManagerBase<BattleController>
     {
         EventDispatcher.CallEvent(BattleEvents.on_ability_cancel.ToString() + command.owner.partyID + command.ability.GetInstanceID(), null);
         battleContext.RemoveCommand(command);
+    }
+
+    public void AddAttack(UnitEntity caster)
+    {
+        Command cmd = new Command(caster, (UnitEntity[])caster.variables["targets"], caster.data.attack, this);
+        battleContext.AddCommand(cmd);
     }
 
     public void AddPlayerPartyAttackCommand()
