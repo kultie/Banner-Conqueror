@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace BC.ActionSequence.Unit.Display
+namespace BC.ActionSequence.Display
 {
-    public class SetSprite : UnitDisplayActionBase
+    public class SetSprite : DisplayAction
     {
         [SerializeField]
         int spriteIndex;

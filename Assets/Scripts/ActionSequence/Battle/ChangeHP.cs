@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace BC.ActionSequence.Unit.Battle
+namespace BC.ActionSequence.Battle
 {
 
     public class ChangeHP : UnitBattleActionBase

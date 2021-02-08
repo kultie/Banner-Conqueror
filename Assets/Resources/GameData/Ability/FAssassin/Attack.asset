@@ -30,7 +30,31 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 7
-      Data: 1|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
+      Data: 1|BC.ActionSequence.Display.SetFacing, Assembly-CSharp
+    - Name: faceDirection
+      Entry: 3
+      Data: 2
+    - Name: point
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forward
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
     - Name: waitForAnimation
       Entry: 5
       Data: false
@@ -48,28 +72,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|BC.ActionSequence.Common.Wait, Assembly-CSharp
+      Data: 3|BC.ActionSequence.Common.Wait, Assembly-CSharp
     - Name: time
       Entry: 4
       Data: 0.2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
-    - Name: calculateType
-      Entry: 3
-      Data: 1
-    - Name: amount
-      Entry: 4
-      Data: 0
-    - Name: formular
-      Entry: 1
-      Data: a.str * 10 - b.def * 5
-    - Name: action
-      Entry: 6
-      Data: 
     - Name: 
       Entry: 8
       Data: 

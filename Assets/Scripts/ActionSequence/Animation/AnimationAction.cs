@@ -7,7 +7,7 @@ namespace BC.ActionSequence.Animation
     public abstract class AnimationAction : AbilityActionBase
     {
         [SerializeField]
-        protected bool waitForAnimation;
+        protected bool waitForAnimation = true;
 
         public override string DisplayOnEditor()
         {

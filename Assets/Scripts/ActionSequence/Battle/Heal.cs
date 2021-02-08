@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace BC.ActionSequence.Unit.Battle
+namespace BC.ActionSequence.Battle
 {
-    public class DealDamage : ChangeHP
+    public class Heal : ChangeHP
     {
         protected override void OnUpdate(float dt)
         {
-            owner.TakeDamage(GetValue(owner), owner);
+            owner.Heal(GetValue(owner));
         }
     }
 }

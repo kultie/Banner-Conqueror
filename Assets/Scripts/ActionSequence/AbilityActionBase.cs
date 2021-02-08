@@ -41,7 +41,7 @@ namespace BC.ActionSequence
 
         }
 
-        protected abstract void OnUpdate(float dt);
+        protected virtual void OnUpdate(float dt) { }
         public virtual object GetValue()
         {
             return null;

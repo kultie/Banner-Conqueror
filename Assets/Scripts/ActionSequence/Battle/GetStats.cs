@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BC.ActionSequence.Unit.Battle
+namespace BC.ActionSequence.Battle
 {
     public class GetStats : UnitBattleActionBase
     {
         [SerializeField]
         UnitStat stats;
-        protected override void OnUpdate(float dt)
-        {
-
-        }
 
         public override object GetValue()
         {

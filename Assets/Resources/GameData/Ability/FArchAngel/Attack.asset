@@ -27,95 +27,14 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 10
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 1|BC.ActionSequence.CameraSequence.Focus, Assembly-CSharp
-    - Name: waitForCamera
+      Data: 1|BC.ActionSequence.Movement.MoveTo, Assembly-CSharp
+    - Name: waitForMovement
       Entry: 5
       Data: true
-    - Name: time
-      Entry: 4
-      Data: 0.5
-    - Name: easeType
-      Entry: 3
-      Data: 1
-    - Name: targetType
-      Entry: 3
-      Data: 2
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|BC.ActionSequence.CameraSequence.Zoom, Assembly-CSharp
-    - Name: waitForCamera
-      Entry: 5
-      Data: true
-    - Name: time
-      Entry: 4
-      Data: 0.5
-    - Name: easeType
-      Entry: 3
-      Data: 1
-    - Name: value
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
-    - Name: waitForAnimation
-      Entry: 5
-      Data: false
-    - Name: customAnimation
-      Entry: 5
-      Data: false
-    - Name: animState
-      Entry: 3
-      Data: 2
-    - Name: data
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|BC.ActionSequence.Common.Wait, Assembly-CSharp
-    - Name: time
-      Entry: 4
-      Data: 0.2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 5|BC.ActionSequence.CameraSequence.Focus, Assembly-CSharp
-    - Name: waitForCamera
-      Entry: 5
-      Data: true
-    - Name: time
-      Entry: 4
-      Data: 0.1
-    - Name: easeType
-      Entry: 3
-      Data: 1
-    - Name: targetType
+    - Name: moveType
       Entry: 3
       Data: 1
     - Name: position
@@ -130,81 +49,36 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
+    - Name: offset
       Entry: 7
-      Data: 6|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
-    - Name: calculateType
-      Entry: 3
-      Data: 1
-    - Name: amount
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
       Entry: 4
       Data: 0
-    - Name: formular
-      Entry: 1
-      Data: a.str * 10 - b.def * 5
-    - Name: action
-      Entry: 6
-      Data: 
+    - Name: 
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
+    - Name: targetOffset
       Entry: 7
-      Data: 7|BC.ActionSequence.CameraSequence.ShakeCamera, Assembly-CSharp
-    - Name: waitForCamera
-      Entry: 5
-      Data: false
-    - Name: time
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
       Entry: 4
-      Data: 1
+      Data: -1
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: easeType
       Entry: 3
       Data: 1
-    - Name: strength
+    - Name: duration
       Entry: 4
-      Data: 0.1
-    - Name: vibrator
-      Entry: 3
-      Data: 10
-    - Name: randomness
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 8|BC.ActionSequence.Common.Wait, Assembly-CSharp
-    - Name: time
-      Entry: 4
-      Data: 0.5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 9|BC.ActionSequence.Animation.WaitForAnimation, Assembly-CSharp
-    - Name: waitForAnimation
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 10|BC.ActionSequence.CameraSequence.Reset, Assembly-CSharp
-    - Name: waitForCamera
-      Entry: 5
-      Data: true
-    - Name: time
-      Entry: 4
-      Data: 1
-    - Name: easeType
-      Entry: 3
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 8
       Data: 

@@ -1,4 +1,5 @@
-﻿using Kultie.EventDispatcher;
+﻿using DG.Tweening;
+using Kultie.EventDispatcher;
 using SimpleJSON;
 using System;
 using System.Collections;
@@ -13,21 +14,15 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
     public SpriteRenderer unitAvatar;
     public SpriteRenderer unitBanner;
     private AnimationSystem anim;
+    Vector2 homePosition;
     bool pauseAnimation;
     public string currentAnimID { private set; get; }
     public void SetUp(UnitEntity unit, TeamSide teamSide)
     {
         unitData = unit.data;
+        homePosition = transform.position;
         SetSprite(unitData.sprites[0]);
-        switch (teamSide)
-        {
-            case TeamSide.Player:
-                unitModel = unit;
-                break;
-            case TeamSide.Enemy:
-                unitModel = unit;
-                break;
-        }
+        unitModel = unit;
         unitModel.SetDisplay(this);
         EventDispatcher.RegisterEvent(BattleEvents.on_target_select.ToString() + unitModel.partyID, OnTargetSelect);
     }
@@ -142,5 +137,12 @@ public class UnitDisplay : MonoBehaviour, IPointerClickHandler
         {
             BattleController.Instance.SetPlayerCurrentTarget(unitModel);
         }
+    }
+
+    public void ResetDisplay()
+    {
+        unitAvatar.flipX = false;
+        transform.position = homePosition;
+        unitAvatar.DOFade(1f, 1f);
     }
 }

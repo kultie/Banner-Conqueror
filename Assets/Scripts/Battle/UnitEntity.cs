@@ -129,6 +129,12 @@ public class UnitEntity : Entity
             display.RequestAnimation(UnitAnimation.Idle.ToString());
     }
 
+    public virtual void ResetDisplay()
+    {
+        ResetAnimation();
+        display.ResetDisplay();
+    }
+
     public void Init()
     {
         EventDispatcher.CallEvent(BattleEvents.on_update_hp.ToString() + partyID, new Dictionary<string, object>()

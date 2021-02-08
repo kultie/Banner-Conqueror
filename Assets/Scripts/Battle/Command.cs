@@ -68,6 +68,9 @@ public class Command
     public void OnFinished()
     {
         finishedCallback?.Invoke(owner, targets);
-        owner.ResetAnimation();
+        owner.ResetDisplay();
+        //for (int i = 0; i < targets.Length; i++) {
+        //    targets[i].ResetDisplay();
+        //}
     }
 }

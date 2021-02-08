@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace BC.ActionSequence.Unit.Display
+namespace BC.ActionSequence.Display
 {
-    public abstract class UnitDisplayActionBase : UnitActionBase
+    public abstract class DisplayAction : AbilityActionBase
     {
         public override string DisplayOnEditor()
         {
-            return "Unit/Display";
+            return "Display";
         }
     }
 }
