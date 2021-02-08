@@ -13,7 +13,6 @@ public class Command
     public JSONNode costData;
     public UnitAbility ability;
     public OnCommandFinished finishedCallback;
-    TargetType targetType;
     public Command(UnitEntity owner, UnitEntity[] targets, UnitAbility ability, BattleController battleController)
     {
         this.owner = owner;
