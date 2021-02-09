@@ -15,7 +15,9 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 7db1f299b13c57c44aa7c1d292647fb7, type: 3}
+    - {fileID: 21300000, guid: 5893c43dcdea22241910175281016ff2, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,10 +29,85 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 6
+      Data: 8
     - Name: 
       Entry: 7
-      Data: 1|BC.ActionSequence.Display.Fade, Assembly-CSharp
+      Data: 1|BC.ActionSequence.Effect.CreateEffect, Assembly-CSharp
+    - Name: waitForEffect
+      Entry: 5
+      Data: false
+    - Name: targetType
+      Entry: 3
+      Data: 0
+    - Name: sprites
+      Entry: 7
+      Data: 2|UnityEngine.Sprite[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: animData
+      Entry: 7
+      Data: 3|EntityAnimationData, Assembly-CSharp
+    - Name: data
+      Entry: 1
+      Data: 0,1
+    - Name: spf
+      Entry: 4
+      Data: 0.12
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: offset
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.5
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: scale
+      Entry: 4
+      Data: 5
+    - Name: flip
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|BC.ActionSequence.Display.Fade, Assembly-CSharp
     - Name: waitForFade
       Entry: 5
       Data: true
@@ -45,13 +122,13 @@ MonoBehaviour:
       Data: 0
     - Name: duration
       Entry: 4
-      Data: 1
+      Data: 0.24
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|BC.ActionSequence.Movement.MoveTo, Assembly-CSharp
+      Data: 5|BC.ActionSequence.Movement.MoveTo, Assembly-CSharp
     - Name: waitForMovement
       Entry: 5
       Data: true
@@ -78,7 +155,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -87,7 +164,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: -0.5
+      Data: 0
     - Name: 
       Entry: 4
       Data: 0
@@ -105,34 +182,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|BC.ActionSequence.Display.SetFacing, Assembly-CSharp
-    - Name: faceDirection
-      Entry: 3
-      Data: 0
-    - Name: point
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: forward
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|BC.ActionSequence.Display.Fade, Assembly-CSharp
+      Data: 6|BC.ActionSequence.Display.Fade, Assembly-CSharp
     - Name: waitForFade
       Entry: 5
-      Data: true
+      Data: false
     - Name: easeType
       Entry: 3
       Data: 1
@@ -150,10 +203,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
+      Data: 7|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
     - Name: waitForAnimation
       Entry: 5
-      Data: true
+      Data: false
     - Name: customAnimation
       Entry: 5
       Data: false
@@ -168,7 +221,16 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|BC.ActionSequence.Battle.DealDamageToTarget, Assembly-CSharp
+      Data: 8|BC.ActionSequence.Common.Wait, Assembly-CSharp
+    - Name: time
+      Entry: 4
+      Data: 0.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|BC.ActionSequence.Battle.DealDamageToTarget, Assembly-CSharp
     - Name: calculateType
       Entry: 3
       Data: 0
@@ -181,6 +243,15 @@ MonoBehaviour:
     - Name: action
       Entry: 6
       Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|BC.ActionSequence.Animation.WaitForAnimation, Assembly-CSharp
+    - Name: waitForAnimation
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 8
       Data: 

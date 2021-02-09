@@ -241,13 +241,20 @@ public class BattleController : ManagerBase<BattleController>
         }
     }
 
-    public void CreateParticleFx(Sprite[] sprites, EntityAnimationData data)
+    public ParticleFXEntity CreateParticleFx(Sprite[] sprites, EntityAnimationData data, Vector3 position, float size, bool flip)
     {
         ParticleFXEntity entity = new ParticleFXEntity(sprites, data);
         var particle = particleFXPrefab.Spawn(fxContainer);
         particle.SetEntity(entity);
-        particle.transform.localScale = Vector3.one;
+        Vector2 scale = Vector2.one * size;
+        if (flip)
+        {
+            scale.x = -scale.x;
+        }
+        particle.transform.localScale = scale;
+        particle.transform.position = position;
         particle.gameObject.SetActive(true);
+        return entity;
     }
 
     public void CreateBattleDamageFX(int value, UnitEntity target)
