@@ -4,15 +4,19 @@ using System.Linq;
 using UnityEngine;
 namespace BC.ActionSequence.Effect
 {
+    public class EffectAnimationData
+    {
+        public Sprite[] sprites;
+        public float spf = 0.012f;
+        public int loopCount = 1;
+    }
     public enum TargetType { Self, Targets, Point }
     public class CreateEffect : EffectAction
     {
         [SerializeField]
         TargetType targetType;
         [SerializeField]
-        Sprite[] sprites;
-        [SerializeField]
-        EntityAnimationData animData;
+        EffectAnimationData animData;
         [ShowIf("@this.targetType == TargetType.Point")]
         [SerializeField]
         Vector2 position;
@@ -32,20 +36,20 @@ namespace BC.ActionSequence.Effect
                 case TargetType.Self:
                     position = (Vector2)owner.display.transform.position + offset;
                     entities = new ParticleFXEntity[1];
-                    entities[0] = BattleController.Instance.CreateParticleFx(sprites, animData, position, scale, flip);
+                    entities[0] = BattleController.Instance.CreateParticleFx(animData, position, scale, flip);
                     break;
                 case TargetType.Targets:
                     entities = new ParticleFXEntity[targets.Length];
                     for (int i = 0; i < entities.Length; i++)
                     {
                         position = (Vector2)targets[i].display.transform.position + offset;
-                        entities[i] = BattleController.Instance.CreateParticleFx(sprites, animData, position, scale, flip);
+                        entities[i] = BattleController.Instance.CreateParticleFx(animData, position, scale, flip);
                     }
                     break;
                 case TargetType.Point:
                     position = this.position;
                     entities = new ParticleFXEntity[1];
-                    entities[0] = BattleController.Instance.CreateParticleFx(sprites, animData, position, scale, flip);
+                    entities[0] = BattleController.Instance.CreateParticleFx(animData, position, scale, flip);
                     break;
             }
         }

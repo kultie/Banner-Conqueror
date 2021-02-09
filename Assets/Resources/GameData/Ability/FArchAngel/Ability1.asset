@@ -16,7 +16,36 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6218847740628421148, guid: a5792a29ed6ba7244b8916e5d2cc88ad, type: 3}
+    - {fileID: -912337492112698906, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 414148215678456024, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 2630030430028361643, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 2260732046035070603, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 7939291990218081512, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 7135291371485165077, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 8696060368832743168, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -6296997775403443041, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 4966238770167772292, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 7896269209154662480, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -7310417162232000624, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 6483064999505953107, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -2446119892708942089, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 3860893451077344551, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -4665688506093415936, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 231912622625893343, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -6258231052784692522, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -5830993074417659062, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 7340399898539203809, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -241005912570456872, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -2409591040191089078, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -6505210802196393297, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 8542788656101723565, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 1110200405216828779, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: -3648640753245746155, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 5163688955718604396, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 4054226259314704048, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 1797289370144342576, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 5011843974468201383, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
+    - {fileID: 7455604659617429439, guid: 02645fc79631d3a42a50ea84bfac7ef5, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -58,25 +87,178 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|BC.ActionSequence.Unit.Battle.DealDamageToTarget, Assembly-CSharp
-    - Name: calculateType
+      Data: 3|BC.ActionSequence.Effect.CreateEffect, Assembly-CSharp
+    - Name: waitForEffect
+      Entry: 5
+      Data: false
+    - Name: targetType
       Entry: 3
       Data: 1
-    - Name: amount
+    - Name: animData
+      Entry: 7
+      Data: 4|BC.ActionSequence.Effect.EffectAnimationData, Assembly-CSharp
+    - Name: sprites
+      Entry: 7
+      Data: 5|UnityEngine.Sprite[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 32
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 10
+      Data: 15
+    - Name: 
+      Entry: 10
+      Data: 16
+    - Name: 
+      Entry: 10
+      Data: 17
+    - Name: 
+      Entry: 10
+      Data: 18
+    - Name: 
+      Entry: 10
+      Data: 19
+    - Name: 
+      Entry: 10
+      Data: 20
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 10
+      Data: 23
+    - Name: 
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 10
+      Data: 25
+    - Name: 
+      Entry: 10
+      Data: 26
+    - Name: 
+      Entry: 10
+      Data: 27
+    - Name: 
+      Entry: 10
+      Data: 28
+    - Name: 
+      Entry: 10
+      Data: 29
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: spf
+      Entry: 4
+      Data: 0.05
+    - Name: loopCount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
       Entry: 4
       Data: 0
-    - Name: formular
-      Entry: 1
-      Data: a.str * 20 - b.def * 2
-    - Name: action
-      Entry: 6
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
       Data: 
+    - Name: offset
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: scale
+      Entry: 4
+      Data: 1
+    - Name: flip
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
+      Data: 6|BC.ActionSequence.Animation.WaitForAnimation, Assembly-CSharp
+    - Name: waitForAnimation
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
     - Name: waitForAnimation
       Entry: 5
       Data: false
@@ -93,39 +275,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 7
-      Data: 5|BC.ActionSequence.Common.AddEventToStoryBoard, Assembly-CSharp
-    - Name: events
-      Entry: 7
-      Data: 6|BC.StoryBoard.StoryBoardEvent[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 7|BC.StoryBoard.Common.DialogueEvent, Assembly-CSharp
-    - Name: actorAvatar
-      Entry: 10
-      Data: 0
-    - Name: actorName
-      Entry: 1
-      Data: Arch Angel
-    - Name: content
-      Entry: 1
-      Data: Hello world!
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -133,5 +282,5 @@ MonoBehaviour:
       Data: 
   icon: {fileID: 21300000, guid: 3edaffecbc55e8d44a3b8d993592d846, type: 3}
   cooldown: 5
-  targetType: 1
+  targetType: 3
   startedCooldown: 0

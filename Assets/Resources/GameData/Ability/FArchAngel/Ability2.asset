@@ -15,7 +15,37 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: -5091321781910526443, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 2628467383760130767, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 2280602153348343542, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -2885642653520213910, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -3740424959780536848, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -1798423984400754849, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 7250580007264805615, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 2474424929393712128, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 4137559080440256555, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -3581433837120444157, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -3041410734255012017, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -3192034728379371429, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 6302933334249404250, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -5525110959439012762, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -6526448776909444199, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -9172103194729016790, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 5093290704683618049, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -7297539145204530117, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 6230187219554724828, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -4481757306664593737, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 8262989898509640868, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -4687609908414632591, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -2777047125730377952, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -607409168354737587, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -3658909193310454966, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -2718260159747912926, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -3766254232848713183, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: 7250450047125762341, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -6759200980527714096, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
+    - {fileID: -7594180528134811096, guid: c5613accaee4221439d1d12dba8df3ed, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,13 +57,13 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 6
     - Name: 
       Entry: 7
       Data: 1|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
     - Name: waitForAnimation
       Entry: 5
-      Data: true
+      Data: false
     - Name: customAnimation
       Entry: 5
       Data: false
@@ -48,7 +78,202 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|BC.ActionSequence.Common.WaitStagger, Assembly-CSharp
+      Data: 2|BC.ActionSequence.Common.Wait, Assembly-CSharp
+    - Name: time
+      Entry: 4
+      Data: 0.36
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|BC.ActionSequence.Effect.CreateEffect, Assembly-CSharp
+    - Name: waitForEffect
+      Entry: 5
+      Data: true
+    - Name: targetType
+      Entry: 3
+      Data: 1
+    - Name: animData
+      Entry: 7
+      Data: 4|BC.ActionSequence.Effect.EffectAnimationData, Assembly-CSharp
+    - Name: sprites
+      Entry: 7
+      Data: 5|UnityEngine.Sprite[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 30
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 10
+      Data: 15
+    - Name: 
+      Entry: 10
+      Data: 16
+    - Name: 
+      Entry: 10
+      Data: 17
+    - Name: 
+      Entry: 10
+      Data: 18
+    - Name: 
+      Entry: 10
+      Data: 19
+    - Name: 
+      Entry: 10
+      Data: 20
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 10
+      Data: 23
+    - Name: 
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 10
+      Data: 25
+    - Name: 
+      Entry: 10
+      Data: 26
+    - Name: 
+      Entry: 10
+      Data: 27
+    - Name: 
+      Entry: 10
+      Data: 28
+    - Name: 
+      Entry: 10
+      Data: 29
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: spf
+      Entry: 4
+      Data: 0.05
+    - Name: loopCount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: offset
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: scale
+      Entry: 4
+      Data: 1
+    - Name: flip
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|BC.ActionSequence.Animation.WaitForAnimation, Assembly-CSharp
+    - Name: waitForAnimation
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
+    - Name: waitForAnimation
+      Entry: 5
+      Data: true
+    - Name: customAnimation
+      Entry: 5
+      Data: false
+    - Name: animState
+      Entry: 3
+      Data: 0
+    - Name: data
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|BC.ActionSequence.Common.Wait, Assembly-CSharp
+    - Name: time
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -60,5 +285,5 @@ MonoBehaviour:
       Data: 
   icon: {fileID: 21300000, guid: 926fc31d6fa674a4c9348fa4c5e352d9, type: 3}
   cooldown: 5
-  targetType: 0
+  targetType: 4
   startedCooldown: 0

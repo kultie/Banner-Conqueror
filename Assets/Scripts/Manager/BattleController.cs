@@ -1,4 +1,5 @@
-﻿using BC.StoryBoard;
+﻿using BC.ActionSequence.Effect;
+using BC.StoryBoard;
 using Kultie.EventDispatcher;
 using Kultie.StateMachine;
 using Kultie.TimerSystem;
@@ -241,9 +242,9 @@ public class BattleController : ManagerBase<BattleController>
         }
     }
 
-    public ParticleFXEntity CreateParticleFx(Sprite[] sprites, EntityAnimationData data, Vector3 position, float size, bool flip)
+    public ParticleFXEntity CreateParticleFx(EffectAnimationData data, Vector3 position, float size, bool flip)
     {
-        ParticleFXEntity entity = new ParticleFXEntity(sprites, data);
+        ParticleFXEntity entity = new ParticleFXEntity(data);
         var particle = particleFXPrefab.Spawn(fxContainer);
         particle.SetEntity(entity);
         Vector2 scale = Vector2.one * size;

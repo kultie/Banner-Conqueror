@@ -15,8 +15,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 012d390225778214180378ae978d1968, type: 2}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -28,7 +27,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
@@ -49,19 +48,46 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|BC.ActionSequence.Unit.Battle.AddBuff, Assembly-CSharp
-    - Name: target
+      Data: 2|BC.ActionSequence.Effect.CreateEffect, Assembly-CSharp
+    - Name: waitForEffect
+      Entry: 5
+      Data: false
+    - Name: targetType
       Entry: 3
       Data: 0
-    - Name: buff
-      Entry: 10
+    - Name: animData
+      Entry: 6
+      Data: 
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
+    - Name: offset
       Entry: 7
-      Data: 3|BC.ActionSequence.Common.WaitStagger, Assembly-CSharp
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: scale
+      Entry: 4
+      Data: 1
+    - Name: flip
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
