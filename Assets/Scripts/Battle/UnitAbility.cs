@@ -9,7 +9,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BC/Create Ability")]
 public class UnitAbility : SerializedScriptableObject
 {
+    [OnInspectorGUI("DrawPreview", append: true)]
     public Sprite icon;
+
+    private void DrawPreview()
+    {
+        if (icon == null) return;
+
+        GUILayout.BeginVertical(GUI.skin.box);
+        GUILayout.Label(icon.texture);
+        GUILayout.EndVertical();
+    }
     public int cooldown;
     public TargetType targetType;
 

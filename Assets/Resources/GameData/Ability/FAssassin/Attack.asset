@@ -27,7 +27,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 6
+      Data: 5
     - Name: 
       Entry: 7
       Data: 1|BC.ActionSequence.Movement.MoveTo, Assembly-CSharp
@@ -36,7 +36,7 @@ MonoBehaviour:
       Data: true
     - Name: moveType
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -54,10 +54,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: -0.2
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -75,7 +75,7 @@ MonoBehaviour:
       Data: 
     - Name: easeType
       Entry: 3
-      Data: 1
+      Data: 27
     - Name: duration
       Entry: 4
       Data: 1
@@ -84,52 +84,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|BC.ActionSequence.Display.SetFacing, Assembly-CSharp
-    - Name: faceDirection
-      Entry: 3
-      Data: 0
-    - Name: point
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: forward
-      Entry: 5
-      Data: true
+      Data: 2|BC.ActionSequence.Movement.WaitAllMovement, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|BC.ActionSequence.Display.Fade, Assembly-CSharp
-    - Name: waitForFade
-      Entry: 5
-      Data: true
-    - Name: easeType
-      Entry: 3
-      Data: 1
-    - Name: activeOnTarget
-      Entry: 5
-      Data: false
-    - Name: fadeValue
-      Entry: 4
-      Data: 1
-    - Name: duration
-      Entry: 4
-      Data: 0.1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
+      Data: 3|BC.ActionSequence.Animation.RequestAnimation, Assembly-CSharp
     - Name: waitForAnimation
       Entry: 5
       Data: true
@@ -138,7 +99,7 @@ MonoBehaviour:
       Data: false
     - Name: animState
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: data
       Entry: 6
       Data: 
@@ -147,31 +108,16 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|BC.ActionSequence.CameraSequence.ShakeCamera, Assembly-CSharp
-    - Name: waitForCamera
+      Data: 4|BC.ActionSequence.Animation.WaitForAnimation, Assembly-CSharp
+    - Name: waitForAnimation
       Entry: 5
-      Data: false
-    - Name: time
-      Entry: 4
-      Data: 1
-    - Name: easeType
-      Entry: 3
-      Data: 1
-    - Name: strength
-      Entry: 4
-      Data: 0.15
-    - Name: vibrator
-      Entry: 3
-      Data: 10
-    - Name: randomness
-      Entry: 3
-      Data: 10
+      Data: true
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|BC.ActionSequence.Battle.DealDamageToTarget, Assembly-CSharp
+      Data: 5|BC.ActionSequence.Battle.DealDamageToTarget, Assembly-CSharp
     - Name: calculateType
       Entry: 3
       Data: 0

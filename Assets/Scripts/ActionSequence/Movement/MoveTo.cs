@@ -40,10 +40,14 @@ namespace BC.ActionSequence.Movement
                     target = GetTargetAvgPosition() + targetOffset;
                     break;
                 case MoveType.Offset:
-                    target = (Vector2)owner.display.transform.position + offset;
+                    target = (Vector2)owner.display.transform.localPosition + offset;
                     break;
             }
-            return owner.display.transform.DOMove(target, duration).SetEase(easeType);
-        }      
+            if (moveType != MoveType.Offset)
+            {
+                return owner.display.transform.DOMove(target, duration).SetEase(easeType);
+            }
+            return owner.display.transform.DOLocalMove(target, duration).SetEase(easeType);
+        }
     }
 }

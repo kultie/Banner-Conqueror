@@ -7,7 +7,7 @@ namespace BC.ActionSequence.Movement
     {
         public override string DisplayOnEditor()
         {
-            return "Camera";
+            return "Movement/";
         }
         protected override void OnUpdate(float dt)
         {
