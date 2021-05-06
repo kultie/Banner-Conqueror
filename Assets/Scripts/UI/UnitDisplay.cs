@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using Kultie.EventDispatcher;
 using SimpleJSON;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ using UnityEngine.EventSystems;
 public class UnitDisplay : MonoBehaviour, IPointerClickHandler
 {
     public UnitEntity unitModel;
-    private UnitData unitData;
+    [ReadOnly]
+    public UnitData unitData;
     public SpriteRenderer unitAvatar;
     public SpriteRenderer unitBanner;
     private AnimationSystem anim;

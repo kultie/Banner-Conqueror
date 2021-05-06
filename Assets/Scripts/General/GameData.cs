@@ -10,6 +10,7 @@ public class AnimationData
     public float spf;
     public bool loop;
 }
+[Serializable]
 public class UnitData
 {
     public string id;
